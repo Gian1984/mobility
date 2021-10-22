@@ -10,9 +10,9 @@
         </p>
       </div>
       <div class="mt-8 lg:mt-0 lg:ml-8">
-        <form class="sm:flex">
+        <form @submit.prevent="newsletterSubmit" class="sm:flex">
           <label for="email-address" class="sr-only">Email address</label>
-          <input id="email-address" name="email-address" type="email" autocomplete="email" required="" class="w-full px-5 py-3 border border-transparent placeholder-gray-500 focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white focus:border-white sm:max-w-xs rounded-md" placeholder="Enter your email" />
+          <input id="email-address" v-model="email_address" name="email-address" type="email" autocomplete="email" required="" class="w-full px-5 py-3 border border-transparent placeholder-gray-500 focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white focus:border-white sm:max-w-xs rounded-md" placeholder="Enter your email" />
           <div class="mt-3 shadow sm:mt-0 sm:ml-3 sm:flex-shrink-0">
             <button type="submit" class="w-full flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium text-white bg-indigo-500 hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-indigo-500">
               Notify me
@@ -30,3 +30,30 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  data(){
+    return {
+      email_address:'',
+    }
+  },
+
+  methods : {
+    newsletterSubmit(e) {
+      e.preventDefault()
+
+      this.axios.post('http://localhost/api/newsletter', this.email_address).then(response => {
+        let data = response.data
+        console.log(data)
+
+          // let nextUrl = this.$route.params.nextUrl
+          // this.$router.push((nextUrl != null ? nextUrl : '/'))
+
+      }).catch((error)=>{
+        this.errorsRegister = error.response.data
+      });
+    }
+  }
+}
+</script>

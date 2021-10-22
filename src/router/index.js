@@ -3,6 +3,7 @@ import Home from '../views/Home.vue'
 import About from '../views/About.vue'
 import Services from '../views/Services.vue'
 import Reservation from '../views/Reservation.vue'
+import Dashboard from '../views/Dashboard.vue'
 import Register from '../components/Register.vue'
 import Login from '../components/Login.vue'
 
@@ -41,7 +42,13 @@ const routes = [
     path: '/About',
     name: 'About',
     component: About
+  },
+  {
+    path: "/Dashboard",
+    name: "Dashboard",
+    component: Dashboard,
   }
+
 ]
 
 const router = createRouter({
