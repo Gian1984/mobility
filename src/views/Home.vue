@@ -1,6 +1,6 @@
 <template>
-  <div class="relative bg-gray-800 overflow-hidden">
-    <div class="relative pt-6 pb-16 sm:pb-24">
+  <div class="bg-gray-800">
+    <div class="pt-6 pb-16 sm:pb-24">
       <main class="mt-16 sm:mt-24">
         <div class="mx-auto max-w-7xl">
           <div class="lg:grid lg:grid-cols-12 lg:gap-8">
@@ -83,11 +83,14 @@
                       </div>
 
                       <div>
-                        <button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        <button  type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                           Create your account
                         </button>
                       </div>
                     </form>
+                    <button @click="drawRoute()" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                      send
+                    </button>
                   </div>
                 </div>
                 <div class="px-4 py-6 bg-gray-50 border-t-2 border-gray-200 sm:px-10">
@@ -306,9 +309,34 @@ const incentives = [
 
 
 export default {
+
+  data() {
+    return {
+      appId:
+          "dZqxD92ayyKfQXwaIWML",
+      appCode:"hKKcAAoKQuxp8teCigHfS781lDYNabjQQu9M1jexl4w",
+    }
+  },
+
+
   components: {
     Contact,
     Newsletter
+  },
+
+  methods:{
+
+    drawRoute() {
+
+      this.axios.get("https://api.mapbox.com/directions/v5/mapbox/driving/-122.42,37.78;-122.45,37.91;-122.48,37.73?access_token=pk.eyJ1IjoiZ2lhbjE5ODQiLCJhIjoiY2t2NGI5MGt1MmJscjJ1cXdsMmQzMWlnZCJ9.wA6vElThtxiQqnWctluVIg")
+          .then(response => {
+        console.log(response.data);
+
+      }, error => {
+        console.error(error);
+      });
+    }
+
   },
 
   setup() {
@@ -318,6 +346,7 @@ export default {
       blogPosts
     }
   },
+
 }
 
 </script>
