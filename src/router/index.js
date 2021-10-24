@@ -6,6 +6,7 @@ import Reservation from '../views/Reservation.vue'
 import Dashboard from '../views/Dashboard.vue'
 import Register from '../components/Register.vue'
 import Login from '../components/Login.vue'
+import IncomingContact from '../components/dashboard/IncomingContact.vue'
 
 const routes = [
   {
@@ -47,6 +48,11 @@ const routes = [
     path: "/Dashboard",
     name: "Dashboard",
     component: Dashboard,
+  },
+  {
+    path: "/IncomingContact",
+    name: "IncomingContact",
+    component: IncomingContact,
   }
 
 ]
