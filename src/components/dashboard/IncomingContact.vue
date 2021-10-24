@@ -33,7 +33,7 @@
             <tbody class="bg-white divide-y divide-gray-200">
             <tr v-for="(item,index) in contact" :key="item.id" >
               <td class="px-6 py-4 whitespace-nowrap">
-                <div class=" text-gray-900">{{item.created_at}}</div>
+                <div class=" text-gray-900">{{item.time}}</div>
               </td>
               <td class="px-6 py-4 whitespace-nowrap">
                 <div>
