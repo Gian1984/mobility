@@ -43,7 +43,7 @@
                             </a>
                           </li>
                         </ul>
-                        <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 rounded">
+                        <div class="relative flex flex-col min-w-0 break-words bg-white w-full rounded">
                           <div class="px-2 py-2 flex-auto">
                             <div class="tab-content tab-space">
                               <div v-bind:class="{'hidden': openTab !== 1, 'block': openTab === 1}">
