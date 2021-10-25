@@ -137,7 +137,7 @@
       social: [
         {
           name: 'Facebook',
-          href: '#',
+          href: 'https://www.facebook.com/BELGA-Mobility-Executive-Chauffeured-Car-Service-108067070808810/',
           icon: defineComponent({
             render: () =>
                 h('svg', { fill: 'currentColor', viewBox: '0 0 24 24' }, [
@@ -152,7 +152,7 @@
         },
         {
           name: 'Instagram',
-          href: '#',
+          href: 'https://www.instagram.com/belgamobility.be/',
           icon: defineComponent({
             render: () =>
                 h('svg', { fill: 'currentColor', viewBox: '0 0 24 24' }, [
