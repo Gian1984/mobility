@@ -34,12 +34,12 @@
                         <ul class="flex mb-0 list-none flex-wrap pt-3 pb-4 flex-row">
                           <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
                             <a class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal" v-on:click="toggleTabs(1)" v-bind:class="{'text-pink-600 bg-white': openTab !== 1, 'text-white bg-pink-600': openTab === 1}">
-                              Hourly
+                              Distance
                             </a>
                           </li>
                           <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
                             <a class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal" v-on:click="toggleTabs(2)" v-bind:class="{'text-pink-600 bg-white': openTab !== 2, 'text-white bg-pink-600': openTab === 2}">
-                              Distance
+                              Hourly
                             </a>
                           </li>
                         </ul>
@@ -50,35 +50,44 @@
                                 <form class="space-y-6" action="#" method="POST">
 
                                   <div>
-                                    <label for="dateofbirth" class="block text-sm font-medium text-gray-700">
-                                      Date
-                                    </label>
-                                    <div class="mt-1">
-                                      <input type="date" name="dateofbirth" id="dateofbirth" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
-                                    </div>
-                                  </div>
-
-                                  <div>
                                     <label for="email" class="block text-sm font-medium text-gray-700">
                                       Pick up
                                     </label>
                                     <div class="mt-1">
-                                      <input id="email" name="email" type="email" autocomplete="email" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+                                      <input id="pickup" name="pickup" type="pickup" autocomplete="pickup" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
                                     </div>
                                   </div>
 
                                   <div>
-                                    <label for="password" class="block text-sm font-medium text-gray-700">
+                                    <label for="dropoff" class="block text-sm font-medium text-gray-700">
                                       Drop off
                                     </label>
                                     <div class="mt-1">
-                                      <input id="password" name="password" type="password" autocomplete="current-password" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+                                      <input id="dropoff" name="dropoff" type="dropoff" autocomplete="current-dropoff" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+                                    </div>
+                                  </div>
+
+                                  <div>
+                                    <label for="date" class="block text-sm font-medium text-gray-700">
+                                      Date
+                                    </label>
+                                    <div class="mt-1">
+                                      <input type="date" name="date" id="date" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+                                    </div>
+                                  </div>
+
+                                  <div>
+                                    <label for="time" class="block text-sm font-medium text-gray-700">
+                                      Time
+                                    </label>
+                                    <div class="mt-1">
+                                      <input type="time" name="time" id="time" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
                                     </div>
                                   </div>
 
                                   <div>
                                     <button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                                      Book this hour
+                                      Réserver
                                     </button>
                                   </div>
 
@@ -88,35 +97,55 @@
                                 <form class="space-y-6" action="#" method="POST">
 
                                   <div>
-                                    <label for="dateofbirth" class="block text-sm font-medium text-gray-700">
-                                      Date
-                                    </label>
-                                    <div class="mt-1">
-                                      <input type="date" name="dateofbirth" id="dateofbirth" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
-                                    </div>
-                                  </div>
-
-                                  <div>
                                     <label for="email" class="block text-sm font-medium text-gray-700">
                                       Pick up
                                     </label>
                                     <div class="mt-1">
-                                      <input id="email" name="email" type="email" autocomplete="email" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+                                      <input id="pickup" name="pickup" type="pickup" autocomplete="pickup" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
                                     </div>
                                   </div>
 
                                   <div>
-                                    <label for="password" class="block text-sm font-medium text-gray-700">
-                                      Drop off
+                                    <label for="hours" class="block text-sm font-medium text-gray-700">
+                                      Hours
                                     </label>
                                     <div class="mt-1">
-                                      <input id="password" name="password" type="password" autocomplete="current-password" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+                                      <select id="hours" name="hours" type="hours" autocomplete="current-dropoff" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                        <option value="">--Please choose an option--</option>
+                                        <option value="2">2 hours</option>
+                                        <option value="3">3 hours</option>
+                                        <option value="4">4 hours</option>
+                                        <option value="5">5 hours</option>
+                                        <option value="6">6 hours</option>
+                                        <option value="7">7 hours</option>
+                                        <option value="8">8 hours</option>
+                                        <option value="9">9 hours</option>
+                                        <option value="10">10 hours</option>
+                                    </select>
+                                    </div>
+                                  </div>
+
+                                  <div>
+                                    <label for="date" class="block text-sm font-medium text-gray-1000">
+                                      Date
+                                    </label>
+                                    <div class="mt-1">
+                                      <input type="date" name="date" id="date" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+                                    </div>
+                                  </div>
+
+                                  <div>
+                                    <label for="time" class="block text-sm font-medium text-gray-700">
+                                      Time
+                                    </label>
+                                    <div class="mt-1">
+                                      <input type="time" name="time" id="time" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
                                     </div>
                                   </div>
 
                                   <div>
                                     <button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                                     Book this distance
+                                      Réserver (hour)
                                     </button>
                                   </div>
                                 </form>
