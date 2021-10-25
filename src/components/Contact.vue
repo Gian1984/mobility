@@ -16,30 +16,30 @@
               <div class="mt-6 grid grid-cols-6 gap-6">
 
                 <div class="col-span-6 sm:col-span-3">
-                  <label for="object" class="block text-sm font-medium text-gray-900">Subject</label>
+                  <label for="object" class="block text-sm font-medium text-gray-900">Objet</label>
                   <input type="text" v-model="subject" name="subject" id="subject" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm" />
                 </div>
 
                 <div class="col-span-6 sm:col-span-3">
-                  <label for="full-name" class="block text-sm font-medium text-gray-900">Full name</label>
+                  <label for="full-name" class="block text-sm font-medium text-gray-900">Nom et prénom</label>
                   <input type="text" v-model="fullname" name="full-name" id="full-name" autocomplete="cc-family-name" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm" />
                 </div>
 
                 <div class="col-span-6 sm:col-span-3">
-                  <label for="email-address" class="block text-sm font-medium text-gray-900">Email address</label>
+                  <label for="email-address" class="block text-sm font-medium text-gray-900">Adresse e-mail</label>
                   <input type="text" v-model="email" name="email-address" id="email-address" autocomplete="email" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm" />
                 </div>
 
                 <div class="col-span-6 sm:col-span-3">
                   <label for="phone-number" class="block text-sm font-medium text-gray-900">
-                    Phone number
+                    Numéro de téléphone
                   </label>
                   <input type="text" v-model="phone" name="phone-number" id="phone-number" autocomplete="tel" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm" />
                 </div>
 
                 <div class="col-span-6 sm:col-span-6">
                   <label for="description" class="block text-sm font-medium text-gray-900">
-                    Comment
+                    Message
                   </label>
                   <div class="mt-1">
                     <textarea id="description" v-model="comment" name="description" rows="4" class="block w-full border border-blue-gray-300 rounded-md shadow-sm sm:text-sm focus:ring-blue-500 focus:border-blue-500" />
@@ -50,7 +50,7 @@
             </div>
             <div class="px-4 py-3 text-center sm:px-6">
               <button type="submit" class="bg-gray-700 border border-transparent rounded-md shadow-sm py-2 px-32 inline-flex justify-center text-sm font-medium text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-700">
-                Send
+                Envoyer
               </button>
             </div>
           </div>
