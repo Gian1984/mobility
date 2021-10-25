@@ -160,16 +160,15 @@
 
 
       <!-- Testimonial/stats section -->
-      <div class="relative mt-20">
+      <div class="relative mt-2">
         <div class="lg:mx-auto lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-2 lg:gap-24 lg:items-start">
           <div class="relative sm:py-16 lg:py-0">
-
 
           </div>
 
           <div class="relative mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:px-0">
             <!-- Content area -->
-            <div class="pt-12 sm:pt-16 lg:pt-20">
+            <div>
               <h2 class="text-3xl text-gray-900 font-extrabold tracking-tight sm:text-4xl">
                 Une relation long terme
               </h2>
@@ -184,7 +183,7 @@
       </div>
 
       <!-- Logo cloud section -->
-      <div class="mt-32">
+      <div class="mt-2">
         <div class="mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:px-8 lg:max-w-7xl">
           <div class="lg:grid lg:grid-cols-2 lg:gap-24 lg:items-center">
             <div>
@@ -204,7 +203,7 @@
 
 
       <!-- Testimonial/stats section -->
-      <div class="relative mt-20">
+      <div class="relative mt-2">
         <div class="lg:mx-auto lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-2 lg:gap-24 lg:items-start">
           <div class="relative sm:py-16 lg:py-0">
 
@@ -213,7 +212,7 @@
 
           <div class="relative mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:px-0">
             <!-- Content area -->
-            <div class="pt-12 sm:pt-16 lg:pt-20">
+            <div>
               <h2 class="text-3xl text-gray-900 font-extrabold tracking-tight sm:text-4xl">
                 Evolution et relation humaine
               </h2>
