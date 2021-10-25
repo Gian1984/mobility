@@ -28,10 +28,10 @@
                 </div>
 
                 <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-                  <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+                  <div class="bg-white py-2 px-2 shadow sm:rounded-lg sm:px-2">
                     <div class="flex flex-wrap">
                       <div class="w-full">
-                        <ul class="flex mb-0 list-none flex-wrap pt-3 pb-4 flex-row">
+                        <ul class="flex mb-0 list-none flex-wrap pt-2 pb-2 flex-row">
                           <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
                             <a class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal" v-on:click="toggleTabs(1)" v-bind:class="{'text-pink-600 bg-white': openTab !== 1, 'text-white bg-pink-600': openTab === 1}">
                               Distance
@@ -44,7 +44,7 @@
                           </li>
                         </ul>
                         <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 rounded">
-                          <div class="px-4 py-5 flex-auto">
+                          <div class="px-2 py-2 flex-auto">
                             <div class="tab-content tab-space">
                               <div v-bind:class="{'hidden': openTab !== 1, 'block': openTab === 1}">
                                 <form class="space-y-6" action="#" method="POST">
