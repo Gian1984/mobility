@@ -111,7 +111,6 @@
                                     </label>
                                     <div class="mt-1">
                                       <select id="hours" name="hours" type="hours" autocomplete="current-dropoff" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                                        <option value="">--Please choose an option--</option>
                                         <option value="2">2 hours</option>
                                         <option value="3">3 hours</option>
                                         <option value="4">4 hours</option>
@@ -121,6 +120,26 @@
                                         <option value="8">8 hours</option>
                                         <option value="9">9 hours</option>
                                         <option value="10">10 hours</option>
+                                        <option value="11">11 hours</option>
+                                        <option value="12">12 hours</option>
+                                        <option value="13">13 hours</option>
+                                        <option value="14">14 hours</option>
+                                        <option value="15">15 hours</option>
+                                        <option value="16">16 hours</option>
+                                        <option value="17">17 hours</option>
+                                        <option value="18">18 hours</option>
+                                        <option value="19">19 hours</option>
+                                        <option value="20">20 hours</option>
+                                        <option value="21">21 hours</option>
+                                        <option value="22">22 hours</option>
+                                        <option value="23">23 hours</option>
+                                        <option value="24">24 hours</option>
+                                        <option value="36">36 hours</option>
+                                        <option value="48">48 hours</option>
+                                        <option value="60">60 hours</option>
+                                        <option value="72">72 hours</option>
+                                        <option value="84">84 hours</option>
+                                        <option value="96">96 hours</option>
                                     </select>
                                     </div>
                                   </div>
