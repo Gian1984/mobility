@@ -7,12 +7,12 @@
             <div class="px-4 sm:px-6 sm:text-center md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left lg:flex lg:items-center">
               <div>
                 <h1 class="mt-4 text-4xl tracking-tight font-extrabold text-white sm:mt-5 sm:leading-none lg:mt-6 lg:text-5xl xl:text-6xl">
-                  <span class="md:block">Data to enrich your</span>
+                  <span class="md:block">Belga mobility</span>
                   {{ ' ' }}
-                  <span class="text-indigo-400 md:block">online business</span>
+                  <span class="text-indigo-400 md:block">Your personal driver</span>
                 </h1>
                 <p class="mt-3 text-base text-gray-300 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl">
-                  Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua ad ad non deserunt sunt.
+                  SERVICE DE LOCATION DE VOITURE AVEC UN CHAUFFEUR PRIVÉ EN BELGIQUE ET EN EUROPE - 24H/24
                 </p>
               </div>
             </div>
@@ -23,38 +23,27 @@
               <div class="min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8">
                 <div class="sm:mx-auto sm:w-full sm:max-w-md">
                   <h2 class="mt-6 text-left text-3xl font-extrabold text-white">
-                    Book your next trip
+                    Réservez votre trajet
                   </h2>
                 </div>
 
                 <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-
-
-
-
-
-
-
-
                   <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
-
-
-
                     <div class="flex flex-wrap">
-                      <div class="w-full mx-auto">
-                        <ul class="flex mb-0 list-none flex-wrap pl-4 pt-3 pb-4 flex-row">
-                          <li class=" mr-2  text-center">
-                            <button class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal" v-on:click="toggleTabs(1)" v-bind:class="{'text-pink-600 bg-white': openTab !== 1, 'text-white bg-pink-600': openTab === 1}">
-                              Distance
-                            </button>
+                      <div class="w-full">
+                        <ul class="flex mb-0 list-none flex-wrap pt-3 pb-4 flex-row">
+                          <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
+                            <a class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal" v-on:click="toggleTabs(1)" v-bind:class="{'text-pink-600 bg-white': openTab !== 1, 'text-white bg-pink-600': openTab === 1}">
+                              Hourly
+                            </a>
                           </li>
                           <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
-                            <button class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal" v-on:click="toggleTabs(2)" v-bind:class="{'text-pink-600 bg-white': openTab !== 2, 'text-white bg-pink-600': openTab === 2}">
-                              Hourly
-                            </button>
+                            <a class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal" v-on:click="toggleTabs(2)" v-bind:class="{'text-pink-600 bg-white': openTab !== 2, 'text-white bg-pink-600': openTab === 2}">
+                              Distance
+                            </a>
                           </li>
                         </ul>
-                        <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6  rounded">
+                        <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 rounded">
                           <div class="px-4 py-5 flex-auto">
                             <div class="tab-content tab-space">
                               <div v-bind:class="{'hidden': openTab !== 1, 'block': openTab === 1}">
@@ -65,7 +54,7 @@
                                       Date
                                     </label>
                                     <div class="mt-1">
-                                      <input  type="date" name="dateofbirth" id="dateofbirth" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                      <input type="date" name="dateofbirth" id="dateofbirth" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
                                     </div>
                                   </div>
 
@@ -89,9 +78,10 @@
 
                                   <div>
                                     <button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                                      Book this km
+                                      Book this hour
                                     </button>
                                   </div>
+
                                 </form>
                               </div>
                               <div v-bind:class="{'hidden': openTab !== 2, 'block': openTab === 2}">
@@ -102,7 +92,7 @@
                                       Date
                                     </label>
                                     <div class="mt-1">
-                                      <input  type="date" name="dateofbirth" id="dateofbirth" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                      <input type="date" name="dateofbirth" id="dateofbirth" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
                                     </div>
                                   </div>
 
@@ -126,7 +116,7 @@
 
                                   <div>
                                     <button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                                      Book this hours
+                                     Book this distance
                                     </button>
                                   </div>
                                 </form>
@@ -205,7 +195,7 @@
     <div class="relative">
       <div class="text-center mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:px-8 lg:max-w-7xl">
         <p class="mt-2 text-3xl font-extrabold text-gray-900 tracking-tight sm:text-4xl">
-          Helpful Resources
+          Services
         </p>
         <p class="mt-5 mx-auto max-w-prose text-xl text-gray-500">
           Phasellus lorem quam molestie id quisque diam aenean nulla in. Accumsan in quis quis nunc, ullamcorper malesuada. Eleifend condimentum id viverra nulla.
@@ -240,7 +230,7 @@
       <div class="rounded-2xl px-6 py-16 sm:p-16">
         <div class="max-w-xl mx-auto lg:max-w-none">
           <div class="text-center">
-            <h2 class="mt-2 text-3xl font-extrabold text-gray-900 tracking-tight sm:text-4xl">We built our business on customer service</h2>
+            <h2 class="mt-2 text-3xl font-extrabold text-gray-900 tracking-tight sm:text-4xl">LE CHAUFFEUR PRIVÉ BELGA MOBILITY VOUS GARANTIE</h2>
           </div>
           <div class="mt-12 max-w-sm mx-auto grid grid-cols-1 gap-y-10 gap-x-8 sm:max-w-none lg:grid-cols-4">
             <div v-for="incentive in incentives" :key="incentive.name" class="text-center sm:flex sm:text-left lg:block lg:text-center">
@@ -271,7 +261,7 @@
     <!-- Decorative background image and gradient -->
     <div aria-hidden="true" class="absolute inset-0">
       <div class="absolute inset-0 mx-auto overflow-hidden">
-        <img src="img/belga.jpg" alt="pizza_together" class="lg:ml-56 w-full h-full object-center object-cover " />
+        <img src="img/belga.jpg" alt="pizza_together" class="lg:ml-56 w-full h-full object-center object-cover" />
       </div>
       <div class="absolute inset-0 bg-white bg-opacity-10" />
       <div class="absolute inset-0 bg-gradient-to-r from-white via-white" />
@@ -339,7 +329,7 @@ import { StarIcon } from '@heroicons/vue/solid'
 
 const features = [
   {
-    name: 'Votre experiencé',
+    name: 'Votre experience',
     description: 'Chaque course est privilégié. BELGAMOBILITY vous assure un déplacemente en tout sécurité et 100% personnalisable.',
     icon: CloudUploadIcon,
   },
@@ -353,56 +343,56 @@ const features = [
 const blogPosts = [
   {
     id: 1,
-    title: 'Boost your conversion rate',
-    href: '#',
+    title: 'Gagnez du temps',
+    href: '/Services',
     imageUrl:
-        'https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80',
+        'img/clock.jpg',
     preview:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto accusantium praesentium eius, ut atque fuga culpa, similique sequi cum eos quis dolorum.',
+        'De la réservation à la fin de la course, en passant par les imprévus, Belga Mobility trouve des solutions de transports adaptés à vos besoins privés ou professionnels !',
   },
   {
     id: 2,
-    title: 'Boost your conversion rate',
-    href: '#',
+    title: 'Suivez votre chauffeur',
+    href: '/Services',
     imageUrl:
         'https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80',
     preview:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto accusantium praesentium eius, ut atque fuga culpa, similique sequi cum eos quis dolorum.',
+        '**BULLSHIT** Les coordonnées de contact et la position du chauffeur vous sont communiquées en temps réel.',
   },
   {
     id: 3,
-    title: 'Boost your conversion rate',
-    href: '#',
+    title: 'Payez en ligne',
+    href: '/Services',
     imageUrl:
-        'https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80',
+        'img/payment.jpg',
     preview:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto accusantium praesentium eius, ut atque fuga culpa, similique sequi cum eos quis dolorum.',
+        'Plusieurs modalités de paiement et de facturations sont disponibles afin de correspondre à votre réalité.',
   },
 
 ]
 
 const incentives = [
   {
-    name: 'Free shipping',
+    name: 'Relation de confiance',
     imageSrc: 'https://tailwindui.com/img/ecommerce/icons/icon-shipping-simple.svg',
-    description: "It's not actually free we just price it into the products. Someone's paying for it, and it's not us.",
+    description: "Notre chauffeur apprend à vous connaître et assure une présence fluide et réactive.",
   },
   {
-    name: '10-year warranty',
+    name: 'Disponibilité continue',
     imageSrc: 'https://tailwindui.com/img/ecommerce/icons/icon-warranty-simple.svg',
-    description: "If it breaks in the first 10 years we'll replace it. After that you're on your own though.",
+    description: "Il se rend disponible comme point de contact et vous aide à facilement coordonner vos besoins de transports.",
   },
   {
-    name: 'Exchanges',
+    name: 'Flexibilité',
     imageSrc: 'https://tailwindui.com/img/ecommerce/icons/icon-exchange-simple.svg',
     description:
-        "If you don't like it, trade it to one of your friends for something of theirs. Don't send it here though.",
+        "Expert de la route, le chauffeur vous aide à faire face aux imprévus temporels ou logistiques.",
   },
   {
-    name: 'Exchanges',
+    name: 'Assurance d\'un travail accompli',
     imageSrc: 'https://tailwindui.com/img/ecommerce/icons/icon-exchange-simple.svg',
     description:
-        "If you don't like it, trade it to one of your friends for something of theirs. Don't send it here though.",
+        "Fiable, le chauffeur s’assure que le transport se déroule dans un environnement sécurisant et familial à la fin de la mission.",
   },
 ]
 
