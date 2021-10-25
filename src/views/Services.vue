@@ -126,6 +126,13 @@ const people = [
         'La voiture devient la prolongation de votre bureau. Chargeur, Wifi, eau et autres attentions personnelles sont prévues à cet effet. Le chauffeur assure votre intimité.',
   },
   {
+    name: 'Service horaire',
+    imageUrl:
+        'img/clock.jpg',
+    bio:
+        'Votre chauffeur privé prend connaissance de votre planning. Il vous indiquera les heures de départs et vous donnera à chaque arrêt un point de rendez-vous clair visuellement.',
+  },
+  {
     name: 'Transfert aéroport',
     imageUrl:
         'img/station.jpg',
@@ -133,11 +140,11 @@ const people = [
         'Gagnez 40 minutes en évitant les files. Notre chauffeur privé assure un suivi permanent des vols. Il vous attendra à la sortie de votre vol, avec une pancarte personnalisée et d’autres attentions personnelles. Vol en retard ? Votre chauffeur vous attend. Transfert disponible au départ et à destination de Brussels Airport Zaventem, Brussels South Charleroi, Liège Aéroport ou Ostende Aéroport.',
   },
   {
-    name: 'Service horaire',
+    name: 'Transfert gare',
     imageUrl:
-        'img/clock.jpg',
+        'img/station.jpg',
     bio:
-        'Votre chauffeur privé prend connaissance de votre planning. Il vous indiquera les heures de départs et vous donnera à chaque arrêt un point de rendez-vous clair visuellement.',
+        'Gagnez 40 minutes en évitant les files. Notre chauffeur privé assure un suivi permanent des trains. Il vous attendra à la sortie de votre voyage, avec une pancarte personnalisée et d’autres attentions personnelles. Train en retard ? Votre chauffeur vous attend.',
   },
   {
     name: 'Délégation diplomatique',
@@ -179,7 +186,6 @@ export default {
     Contact,
     Newsletter,
   },
-
 
   setup() {
     return {
