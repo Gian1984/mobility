@@ -285,7 +285,7 @@ const blogPosts = [
     title: 'Gagnez du temps',
     href: '/Services',
     imageUrl:
-        'https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80',
+        'img/clock.jpg',
     preview:
         'De la réservation à la fin de la course, en passant par les imprévus, Belga Mobility trouve des solutions de transports adaptés à vos besoins privés ou professionnels !',
   },
@@ -296,14 +296,14 @@ const blogPosts = [
     imageUrl:
         'https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80',
     preview:
-        'Les coordonnées de contact et la position du chauffeur vous sont communiquées en temps réel.',
+        '**BULLSHIT** Les coordonnées de contact et la position du chauffeur vous sont communiquées en temps réel.',
   },
   {
     id: 3,
     title: 'Payez en ligne',
     href: '/Services',
     imageUrl:
-        'img/belga.jpg',
+        'img/payment.jpg',
     preview:
         'Plusieurs modalités de paiement et de facturations sont disponibles afin de correspondre à votre réalité.',
   },

@@ -7,12 +7,12 @@
             <div class="px-4 sm:px-6 sm:text-center md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left lg:flex lg:items-center">
               <div>
                 <h1 class="mt-4 text-4xl tracking-tight font-extrabold text-white sm:mt-5 sm:leading-none lg:mt-6 lg:text-5xl xl:text-6xl">
-                  <span class="md:block">Data to enrich your</span>
+                  <span class="md:block">Belga mobility</span>
                   {{ ' ' }}
-                  <span class="text-indigo-400 md:block">online business</span>
+                  <span class="text-indigo-400 md:block">Service de location de chauffeur privé</span>
                 </h1>
                 <p class="mt-3 text-base text-gray-300 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl">
-                  Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua ad ad non deserunt sunt.
+                  Chaque course est privilégiée. BELGA Mobility vous assure une solution de transport imaginée selon vos besoins professionnels ou privés
                 </p>
               </div>
             </div>
@@ -187,52 +187,60 @@ import Newsletter from "../components/Newsletter";
 
 const people = [
   {
-    name: 'Whitney Francis',
+    name: 'Longue distance',
     role: 'Copywriter',
     imageUrl:
-        'https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80',
+        'img/e_inside.jpg',
     bio:
-        'Ultricies massa malesuada viverra cras lobortis. Tempor orci hac ligula dapibus mauris sit ut eu. Eget turpis urna maecenas cras. Nisl dictum.',
+        'La voiture devient la prolongation de votre bureau. Chargeur, Wifi, eau et autres attentions personnelles sont prévues à cet effet. Le chauffeur assure votre intimité.',
   },
   {
-    name: 'Whitney Francis',
+    name: 'Transfert aéroport',
     role: 'Copywriter',
     imageUrl:
-        'https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80',
+        'img/station.jpg',
     bio:
-        'Ultricies massa malesuada viverra cras lobortis. Tempor orci hac ligula dapibus mauris sit ut eu. Eget turpis urna maecenas cras. Nisl dictum.',
+        'Gagnez 40 minutes en évitant les files. Notre chauffeur privé assure un suivi permanent des vols. Il vous attendra à la sortie de votre vol, avec une pancarte personnalisée et d’autres attentions personnelles. Vol en retard ? Votre chauffeur vous attend. Transfert disponible au départ et à destination de Brussels Airport Zaventem, Brussels South Charleroi, Liège Aéroport ou Ostende Aéroport.',
   },
   {
-    name: 'Whitney Francis',
+    name: 'Service horaire',
     role: 'Copywriter',
     imageUrl:
-        'https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80',
+        'img/clock.jpg',
     bio:
-        'Ultricies massa malesuada viverra cras lobortis. Tempor orci hac ligula dapibus mauris sit ut eu. Eget turpis urna maecenas cras. Nisl dictum.',
+        'Votre chauffeur privé prend connaissance de votre planning. Il vous indiquera les heures de départs et vous donnera à chaque arrêt un point de rendez-vous clair visuellement.',
   },
   {
-    name: 'Whitney Francis',
+    name: 'Délégation diplomatique',
     role: 'Copywriter',
     imageUrl:
-        'https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80',
+        'img/diplomatic.jpg',
     bio:
-        'Ultricies massa malesuada viverra cras lobortis. Tempor orci hac ligula dapibus mauris sit ut eu. Eget turpis urna maecenas cras. Nisl dictum.',
+        'Votre chauffeur privé adapte la mise à disposition aux enjeux et aux imprévus de la mission. Au besoin, Belga Mobility débloque des solutions de transport dans l’heure.',
   },
   {
-    name: 'Whitney Francis',
+    name: 'Mariage',
     role: 'Copywriter',
     imageUrl:
-        'https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80',
+        'img/wedding.jpg',
     bio:
-        'Ultricies massa malesuada viverra cras lobortis. Tempor orci hac ligula dapibus mauris sit ut eu. Eget turpis urna maecenas cras. Nisl dictum.',
+        'Un mariage c’est un jour inoubliable mais aussi stressant. Le chauffeur vous assure une bulle d’air de décompression dans sa voiture ainsi qu’une ambiance de fête selon vos goûts!',
   },
   {
-    name: 'Whitney Francis',
+    name: 'Event',
     role: 'Copywriter',
     imageUrl:
-        'https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80',
+        'img/event.jpg',
     bio:
-        'Ultricies massa malesuada viverra cras lobortis. Tempor orci hac ligula dapibus mauris sit ut eu. Eget turpis urna maecenas cras. Nisl dictum.',
+        'Dans un esprit de travail d’équipe, Belga Mobility co-organise les transports et le planning avec vous. Malgré les imprévus, les chauffeurs s’assurent que tous les invités ou collaborateurs soient conduits au lieu de rendez-vous.',
+  },
+  {
+    name: 'Tour',
+    role: 'Copywriter',
+    imageUrl:
+        'img/tour.jpg',
+    bio:
+        'Découvrez le patrimoine belge grâce à nos voitures de luxe avec chauffeur privé.',
   },
 
 
