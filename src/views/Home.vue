@@ -96,6 +96,14 @@
                                     </div>
                                   </div>
 
+                                  <div class="relative">
+                                    <div class="absolute top-4 left-3"> </div> <input type="text" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Search anything...">
+                                    <div class="absolute top-1 right-2 text-center">
+                                      <button class="h-4 w-4 text-gray-600  hover:text-black"><LocationMarkerIcon class="mt-2 mr-0.5 w-5 h-5 text-white-500" aria-hidden="true" /> </button>
+                                    </div>
+                                  </div>
+
+
                                   <div>
                                     <label for="email" class="block text-sm font-medium text-gray-700">
                                       Pick up
@@ -321,7 +329,7 @@
 <script>
 import Contact from "../components/Contact"
 import Newsletter from "../components/Newsletter"
-import { CloudUploadIcon, LockClosedIcon, ChevronRightIcon,  } from '@heroicons/vue/outline'
+import { CloudUploadIcon, LockClosedIcon, ChevronRightIcon, LocationMarkerIcon  } from '@heroicons/vue/outline'
 import { StarIcon } from '@heroicons/vue/solid'
 
 
@@ -444,6 +452,7 @@ export default {
     Newsletter,
     StarIcon,
     ChevronRightIcon,
+    LocationMarkerIcon,
   },
 
 
