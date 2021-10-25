@@ -7,7 +7,7 @@
             <div class="px-4 sm:px-6 sm:text-center md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left lg:flex lg:items-center">
               <div>
                 <h1 class="mt-4 text-4xl tracking-tight font-extrabold text-white sm:mt-5 sm:leading-none lg:mt-6 lg:text-5xl xl:text-6xl">
-                  <span class="md:block">Data to enrich your</span>
+                  <span class="md:block">Belga mobility</span>
                   {{ ' ' }}
                   <span class="text-indigo-400 md:block">online business</span>
                 </h1>
