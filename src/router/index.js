@@ -4,6 +4,7 @@ import About from '../views/About.vue'
 import Services from '../views/Services.vue'
 import Reservation from '../views/Reservation.vue'
 import Dashboard from '../views/Dashboard.vue'
+import Chooseyourcategory from '../views/Chooseyourcategory.vue'
 import Register from '../components/Register.vue'
 import Login from '../components/Login.vue'
 import IncomingContact from '../components/dashboard/IncomingContact.vue'
@@ -35,14 +36,14 @@ const routes = [
       component: Services,
   },
   {
+    path: '/Chooseyourcategory',
+    name: 'Chooseyourcategory',
+    component: Chooseyourcategory,
+  },
+  {
     path: '/Reservation',
     name: 'Reservation',
     component: Reservation,
-  },
-  {
-    path: '/About',
-    name: 'About',
-    component: About
   },
   {
     path: "/Dashboard",
