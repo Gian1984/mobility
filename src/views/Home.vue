@@ -94,7 +94,7 @@
                                 </form>
                               </div>
                               <div v-bind:class="{'hidden': openTab !== 2, 'block': openTab === 2}">
-                                <form class="space-y-6" action="#" method="POST">
+                                <form @submit.prevent="getDistanceByCar"  class="space-y-6">
 
                                   <div>
                                     <label for="email" class="block text-sm font-medium text-gray-700">
@@ -104,8 +104,31 @@
                                       <input id="pickup" name="pickup" type="pickup" autocomplete="pickup" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
                                     </div>
                                   </div>
+                                <!-- error on geolocalization-->
 
-                                  <div>
+                                  <div class="rounded-md bg-red-50 p-4" v-show="error">
+                                    <div class="flex">
+                                      <div class="flex-shrink-0">
+                                        <XCircleIcon class="h-5 w-5 text-red-400" aria-hidden="true" />
+                                      </div>
+                                      <div class="ml-3">
+                                        <h3 class="text-sm font-medium text-red-800">
+                                          {{error}}
+                                        </h3>
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                  <!-- error on geolocalization-->
+
+                                  <div class="relative">
+                                    <label for="email" class="block text-sm font-medium text-gray-700 mb-1">
+                                      Pick up
+                                    </label>
+                                    <div class="absolute top-4 left-3 "> </div> <input v-model="address" id="autocomplete1" type="text" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Search anything...">
+                                    <div class="absolute top-7 right-2 text-center">
+                                      <button @click="locatorButtonPressed" class="h-4 w-4 text-gray-600  hover:text-black"><LocationMarkerIcon class="mt-1 mr-2 w-5 h-5 text-white-500" aria-hidden="true" /> </button>
+                                  <!-- <div>
                                     <label for="hours" class="block text-sm font-medium text-gray-700">
                                       Hours
                                     </label>
@@ -141,8 +164,10 @@
                                         <option value="84">84 heures</option>
                                         <option value="96">96 heures</option>
                                     </select>
+                                    
                                     </div>
-                                  </div>
+                                  </div>-->
+
 
                                   <div>
                                     <label for="date" class="block text-sm font-medium text-gray-1000">
@@ -158,16 +183,35 @@
                                       Time
                                     </label>
                                     <div class="mt-1">
-                                      <input type="time" name="time" id="time" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+                                    
+                                      <input id="autocomplete2" v-model="destination" autocomplete="current-password" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+                                      <!--<input type="time" name="time" id="time" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />-->
                                     </div>
                                   </div>
 
+
                                   <div>
                                     <button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                                      Réserver (hour)
+                                     Check the distance
+                                    <!--  Réserver (hour)-->
                                     </button>
                                   </div>
                                 </form>
+                                <div class="rounded-md bg-green-50 p-4 mt-4" v-show="distance">
+                                  <div class="flex">
+                                    <div class="flex-shrink-0">
+                                      <CheckIcon class="h-5 w-5 text-green-400" aria-hidden="true" />
+                                    </div>
+                                    <div class="ml-3">
+                                      <h3 class="text-sm font-medium text-green-800">
+                                        {{distance['text']}}
+                                      </h3>
+                                    </div>
+                                  </div>
+                                  <button type="submit" class=" mt-10 w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                    Book the distance
+                                  </button>
+                                </div>
                               </div>
                             </div>
                           </div>
@@ -369,8 +413,8 @@
 <script>
 import Contact from "../components/Contact"
 import Newsletter from "../components/Newsletter"
-import { CloudUploadIcon, LockClosedIcon, ChevronRightIcon,  } from '@heroicons/vue/outline'
-import { StarIcon } from '@heroicons/vue/solid'
+import { CloudUploadIcon, LockClosedIcon, ChevronRightIcon, LocationMarkerIcon, CheckIcon  } from '@heroicons/vue/outline'
+import { StarIcon, XCircleIcon } from '@heroicons/vue/solid'
 
 
 
@@ -472,17 +516,87 @@ const testimonials = [
 
 
 
+
+
 export default {
 
   name: "pink-tabs",
   data() {
     return {
-      openTab: 1
+      openTab: 1,
+      address:"",
+      destination:"",
+      error:"",
+      distance:"",
+      key:"AIzaSyD-V7_Te4zdszoJwnz3M54IJNrznRYKf6g"
     }
   },
   methods: {
     toggleTabs: function(tabNumber){
       this.openTab = tabNumber
+    },
+
+    locatorButtonPressed(){
+      if(navigator.geolocation){
+        navigator.geolocation.getCurrentPosition(
+            position => {
+              this.getAddressFrom(position.coords.latitude,position.coords.longitude)
+            },
+            /*eslint-disable */
+            error =>{
+              this.error = "Locator is unable to find your address. Please type manually"
+              // console.log(error.message)
+            }
+        );
+      } else {
+        this.error = "Your browser does not support Geolocation API"
+        // console.log("Your browser does not support Geolocation API")
+        /*eslint-enable */
+      }
+    },
+    getAddressFrom(lat,long){
+      this.axios.get('https://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat + "," + long + "&key=" + this.key)
+      .then(response=>{
+          if(response.data.error_message){
+            this.error = response.data.error_message;
+          } else {
+            this.address = response.data.results[0].formatted_address
+            // console.log(response.data.results[0].formatted_address);
+          }
+      })
+      .catch(error=>{
+        this.error = error.message
+        console.log(error.message)
+      })
+    },
+
+
+    getDistanceByCar(e){
+      e.preventDefault()
+      /*eslint-disable */
+
+      let destinationA = this.address
+      let destinationB = this.destination
+      let self = this;
+
+      let service = new google.maps.DistanceMatrixService();
+      service.getDistanceMatrix(
+          {
+            origins: [destinationA],
+            destinations: [destinationB],
+            travelMode: 'DRIVING',
+          }, callback);
+
+
+      function callback(response, status) {
+
+        self.distance = response.rows[0].elements[0].distance
+        console.log(response.rows[0].elements[0].distance)
+
+
+
+      }
+      /*eslint-enable */
     }
   },
 
@@ -492,6 +606,9 @@ export default {
     Newsletter,
     StarIcon,
     ChevronRightIcon,
+    LocationMarkerIcon,
+    XCircleIcon,
+    CheckIcon
   },
 
 
@@ -504,6 +621,16 @@ export default {
 
     }
   },
+
+  mounted() {
+    /*eslint-disable */
+    new google.maps.places.Autocomplete(
+      document.getElementById('autocomplete1'),
+    ),
+        new google.maps.places.Autocomplete(
+            document.getElementById('autocomplete2'),
+        )
+  }
 
 }
 
