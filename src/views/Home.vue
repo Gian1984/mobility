@@ -63,7 +63,7 @@
                                       Pick up
                                     </label>
                                     <div class="mt-1">
-                                      <input id="email" name="email" type="email" autocomplete="email" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+                                      <input  required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
                                     </div>
                                   </div>
 
@@ -96,29 +96,40 @@
                                     </div>
                                   </div>
 
-                                  <div class="relative">
-                                    <div class="absolute top-4 left-3"> </div> <input type="text" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Search anything...">
-                                    <div class="absolute top-1 right-2 text-center">
-                                      <button class="h-4 w-4 text-gray-600  hover:text-black"><LocationMarkerIcon class="mt-2 mr-0.5 w-5 h-5 text-white-500" aria-hidden="true" /> </button>
+                                <!-- error on geolocalization-->
+
+                                  <div class="rounded-md bg-red-50 p-4" v-show="error">
+                                    <div class="flex">
+                                      <div class="flex-shrink-0">
+                                        <XCircleIcon class="h-5 w-5 text-red-400" aria-hidden="true" />
+                                      </div>
+                                      <div class="ml-3">
+                                        <h3 class="text-sm font-medium text-red-800">
+                                          {{error}}
+                                        </h3>
+                                      </div>
                                     </div>
                                   </div>
 
+                                  <!-- error on geolocalization-->
 
-                                  <div>
-                                    <label for="email" class="block text-sm font-medium text-gray-700">
+                                  <div class="relative">
+                                    <label for="email" class="block text-sm font-medium text-gray-700 mb-1">
                                       Pick up
                                     </label>
-                                    <div class="mt-1">
-                                      <input id="email" name="email" type="email" autocomplete="email" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+                                    <div class="absolute top-4 left-3 "> </div> <input v-model="address" id="autocomplete1" type="text" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Search anything...">
+                                    <div class="absolute top-7 right-2 text-center">
+                                      <button @click="locatorButtonPressed" class="h-4 w-4 text-gray-600  hover:text-black"><LocationMarkerIcon class="mt-1 mr-2 w-5 h-5 text-white-500" aria-hidden="true" /> </button>
                                     </div>
                                   </div>
+
 
                                   <div>
                                     <label for="password" class="block text-sm font-medium text-gray-700">
                                       Drop off
                                     </label>
                                     <div class="mt-1">
-                                      <input id="password" name="password" type="password" autocomplete="current-password" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+                                      <input id="autocomplete2"  autocomplete="current-password" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
                                     </div>
                                   </div>
 
@@ -330,7 +341,7 @@
 import Contact from "../components/Contact"
 import Newsletter from "../components/Newsletter"
 import { CloudUploadIcon, LockClosedIcon, ChevronRightIcon, LocationMarkerIcon  } from '@heroicons/vue/outline'
-import { StarIcon } from '@heroicons/vue/solid'
+import { StarIcon, XCircleIcon } from '@heroicons/vue/solid'
 
 
 
@@ -437,13 +448,49 @@ export default {
   name: "pink-tabs",
   data() {
     return {
-      openTab: 1
+      openTab: 1,
+      address:"",
+      error:"",
     }
   },
   methods: {
     toggleTabs: function(tabNumber){
       this.openTab = tabNumber
-    }
+    },
+
+    locatorButtonPressed(){
+      if(navigator.geolocation){
+        navigator.geolocation.getCurrentPosition(
+            position => {
+              this.getAddressFrom(position.coords.latitude,position.coords.longitude)
+            },
+            /*eslint-disable */
+            error =>{
+              this.error = "Locator is unable to find your address. Please type manually"
+              // console.log(error.message)
+            }
+        );
+      } else {
+        this.error = "Your browser does not support Geolocation API"
+        // console.log("Your browser does not support Geolocation API")
+        /*eslint-enable */
+      }
+    },
+    getAddressFrom(lat,long){
+      this.axios.get('https://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat + "," + long + "&key=AIzaSyD-V7_Te4zdszoJwnz3M54IJNrznRYKf6g")
+      .then(response=>{
+          if(response.data.error_message){
+            this.error = response.data.error_message;
+          } else {
+            this.address = response.data.results[0].formatted_address
+            // console.log(response.data.results[0].formatted_address);
+          }
+      })
+      .catch(error=>{
+        this.error = error.message
+        console.log(error.message)
+      })
+    },
   },
 
 
@@ -453,6 +500,7 @@ export default {
     StarIcon,
     ChevronRightIcon,
     LocationMarkerIcon,
+    XCircleIcon
   },
 
 
@@ -465,6 +513,16 @@ export default {
 
     }
   },
+
+  mounted() {
+    /*eslint-disable */
+    new google.maps.places.Autocomplete(
+      document.getElementById('autocomplete1'),
+    ),
+        new google.maps.places.Autocomplete(
+            document.getElementById('autocomplete2'),
+        )
+  }
 
 }
 
