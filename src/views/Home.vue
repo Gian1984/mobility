@@ -85,7 +85,7 @@
                                 </form>
                               </div>
                               <div v-bind:class="{'hidden': openTab !== 2, 'block': openTab === 2}">
-                                <form class="space-y-6" action="#" method="POST">
+                                <form @submit.prevent="getDistanceByCar"  class="space-y-6">
 
                                   <div>
                                     <label for="dateofbirth" class="block text-sm font-medium text-gray-700">
@@ -129,16 +129,32 @@
                                       Drop off
                                     </label>
                                     <div class="mt-1">
-                                      <input id="autocomplete2"  autocomplete="current-password" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+                                      <input id="autocomplete2" v-model="destination" autocomplete="current-password" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
                                     </div>
                                   </div>
 
+
                                   <div>
                                     <button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                                     Book this distance
+                                     Check the distance
                                     </button>
                                   </div>
                                 </form>
+                                <div class="rounded-md bg-green-50 p-4 mt-4" v-show="distance">
+                                  <div class="flex">
+                                    <div class="flex-shrink-0">
+                                      <CheckIcon class="h-5 w-5 text-green-400" aria-hidden="true" />
+                                    </div>
+                                    <div class="ml-3">
+                                      <h3 class="text-sm font-medium text-green-800">
+                                        {{distance['text']}}
+                                      </h3>
+                                    </div>
+                                  </div>
+                                  <button type="submit" class=" mt-10 w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                    Book the distance
+                                  </button>
+                                </div>
                               </div>
                             </div>
                           </div>
@@ -340,7 +356,7 @@
 <script>
 import Contact from "../components/Contact"
 import Newsletter from "../components/Newsletter"
-import { CloudUploadIcon, LockClosedIcon, ChevronRightIcon, LocationMarkerIcon  } from '@heroicons/vue/outline'
+import { CloudUploadIcon, LockClosedIcon, ChevronRightIcon, LocationMarkerIcon, CheckIcon  } from '@heroicons/vue/outline'
 import { StarIcon, XCircleIcon } from '@heroicons/vue/solid'
 
 
@@ -443,6 +459,8 @@ const testimonials = [
 
 
 
+
+
 export default {
 
   name: "pink-tabs",
@@ -450,7 +468,10 @@ export default {
     return {
       openTab: 1,
       address:"",
+      destination:"",
       error:"",
+      distance:"",
+      key:"AIzaSyD-V7_Te4zdszoJwnz3M54IJNrznRYKf6g"
     }
   },
   methods: {
@@ -477,7 +498,7 @@ export default {
       }
     },
     getAddressFrom(lat,long){
-      this.axios.get('https://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat + "," + long + "&key=AIzaSyD-V7_Te4zdszoJwnz3M54IJNrznRYKf6g")
+      this.axios.get('https://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat + "," + long + "&key=" + this.key)
       .then(response=>{
           if(response.data.error_message){
             this.error = response.data.error_message;
@@ -491,6 +512,35 @@ export default {
         console.log(error.message)
       })
     },
+
+
+    getDistanceByCar(e){
+      e.preventDefault()
+      /*eslint-disable */
+
+      let destinationA = this.address
+      let destinationB = this.destination
+      let self = this;
+
+      let service = new google.maps.DistanceMatrixService();
+      service.getDistanceMatrix(
+          {
+            origins: [destinationA],
+            destinations: [destinationB],
+            travelMode: 'DRIVING',
+          }, callback);
+
+
+      function callback(response, status) {
+
+        self.distance = response.rows[0].elements[0].distance
+        console.log(response.rows[0].elements[0].distance)
+
+
+
+      }
+      /*eslint-enable */
+    }
   },
 
 
@@ -500,7 +550,8 @@ export default {
     StarIcon,
     ChevronRightIcon,
     LocationMarkerIcon,
-    XCircleIcon
+    XCircleIcon,
+    CheckIcon
   },
 
 
