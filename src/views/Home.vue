@@ -28,57 +28,66 @@
                 </div>
 
                 <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-                  <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+                  <div class="bg-white py-2 px-2 shadow sm:rounded-lg sm:px-2">
                     <div class="flex flex-wrap">
                       <div class="w-full">
-                        <ul class="flex mb-0 list-none flex-wrap pt-3 pb-4 flex-row">
+                        <ul class="flex mb-0 list-none flex-wrap pt-2 pb-2 flex-row">
                           <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
                             <a class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal" v-on:click="toggleTabs(1)" v-bind:class="{'text-pink-600 bg-white': openTab !== 1, 'text-white bg-pink-600': openTab === 1}">
-                              Hourly
+                              Distance
                             </a>
                           </li>
                           <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
                             <a class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal" v-on:click="toggleTabs(2)" v-bind:class="{'text-pink-600 bg-white': openTab !== 2, 'text-white bg-pink-600': openTab === 2}">
-                              Distance
+                              Hourly
                             </a>
                           </li>
                         </ul>
-                        <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 rounded">
-                          <div class="px-4 py-5 flex-auto">
+                        <div class="relative flex flex-col min-w-0 break-words bg-white w-full rounded">
+                          <div class="px-2 py-2 flex-auto">
                             <div class="tab-content tab-space">
                               <div v-bind:class="{'hidden': openTab !== 1, 'block': openTab === 1}">
                                 <form class="space-y-6" action="#" method="POST">
-
-                                  <div>
-                                    <label for="dateofbirth" class="block text-sm font-medium text-gray-700">
-                                      Date
-                                    </label>
-                                    <div class="mt-1">
-                                      <input type="date" name="dateofbirth" id="dateofbirth" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
-                                    </div>
-                                  </div>
 
                                   <div>
                                     <label for="email" class="block text-sm font-medium text-gray-700">
                                       Pick up
                                     </label>
                                     <div class="mt-1">
-                                      <input  required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+                                      <input id="pickup" name="pickup" type="pickup" autocomplete="pickup" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
                                     </div>
                                   </div>
 
                                   <div>
-                                    <label for="password" class="block text-sm font-medium text-gray-700">
+                                    <label for="dropoff" class="block text-sm font-medium text-gray-700">
                                       Drop off
                                     </label>
                                     <div class="mt-1">
-                                      <input id="password" name="password" type="password" autocomplete="current-password" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+                                      <input id="dropoff" name="dropoff" type="dropoff" autocomplete="current-dropoff" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+                                    </div>
+                                  </div>
+
+                                  <div>
+                                    <label for="date" class="block text-sm font-medium text-gray-700">
+                                      Date
+                                    </label>
+                                    <div class="mt-1">
+                                      <input type="date" name="date" id="date" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+                                    </div>
+                                  </div>
+
+                                  <div>
+                                    <label for="time" class="block text-sm font-medium text-gray-700">
+                                      Time
+                                    </label>
+                                    <div class="mt-1">
+                                      <input type="time" name="time" id="time" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
                                     </div>
                                   </div>
 
                                   <div>
                                     <button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                                      Book this hour
+                                      Réserver
                                     </button>
                                   </div>
 
@@ -88,14 +97,13 @@
                                 <form @submit.prevent="getDistanceByCar"  class="space-y-6">
 
                                   <div>
-                                    <label for="dateofbirth" class="block text-sm font-medium text-gray-700">
-                                      Date
+                                    <label for="email" class="block text-sm font-medium text-gray-700">
+                                      Pick up
                                     </label>
                                     <div class="mt-1">
-                                      <input type="date" name="dateofbirth" id="dateofbirth" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+                                      <input id="pickup" name="pickup" type="pickup" autocomplete="pickup" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
                                     </div>
                                   </div>
-
                                 <!-- error on geolocalization-->
 
                                   <div class="rounded-md bg-red-50 p-4" v-show="error">
@@ -120,16 +128,64 @@
                                     <div class="absolute top-4 left-3 "> </div> <input v-model="address" id="autocomplete1" type="text" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Search anything...">
                                     <div class="absolute top-7 right-2 text-center">
                                       <button @click="locatorButtonPressed" class="h-4 w-4 text-gray-600  hover:text-black"><LocationMarkerIcon class="mt-1 mr-2 w-5 h-5 text-white-500" aria-hidden="true" /> </button>
+                                  <!-- <div>
+                                    <label for="hours" class="block text-sm font-medium text-gray-700">
+                                      Hours
+                                    </label>
+                                    <div class="mt-1">
+                                      <select id="hours" name="hours" type="hours" autocomplete="current-dropoff" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                        <option value="2">2 heures</option>
+                                        <option value="3">3 heures</option>
+                                        <option value="4">4 heures</option>
+                                        <option value="5">5 heures</option>
+                                        <option value="6">6 heures</option>
+                                        <option value="7">7 heures</option>
+                                        <option value="8">8 heures</option>
+                                        <option value="9">9 heures</option>
+                                        <option value="10">10 heures</option>
+                                        <option value="11">11 heures</option>
+                                        <option value="12">12 heures</option>
+                                        <option value="13">13 heures</option>
+                                        <option value="14">14 heures</option>
+                                        <option value="15">15 heures</option>
+                                        <option value="16">16 heures</option>
+                                        <option value="17">17 heures</option>
+                                        <option value="18">18 heures</option>
+                                        <option value="19">19 heures</option>
+                                        <option value="20">20 heures</option>
+                                        <option value="21">21 heures</option>
+                                        <option value="22">22 heures</option>
+                                        <option value="23">23 heures</option>
+                                        <option value="24" selected>24 heures</option>
+                                        <option value="36">36 heures</option>
+                                        <option value="48">48 heures</option>
+                                        <option value="60">60 heures</option>
+                                        <option value="72">72 heures</option>
+                                        <option value="84">84 heures</option>
+                                        <option value="96">96 heures</option>
+                                    </select>
+                                    
                                     </div>
-                                  </div>
+                                  </div>-->
 
 
                                   <div>
-                                    <label for="password" class="block text-sm font-medium text-gray-700">
-                                      Drop off
+                                    <label for="date" class="block text-sm font-medium text-gray-1000">
+                                      Date
                                     </label>
                                     <div class="mt-1">
+                                      <input type="date" name="date" id="date" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+                                    </div>
+                                  </div>
+
+                                  <div>
+                                    <label for="time" class="block text-sm font-medium text-gray-700">
+                                      Time
+                                    </label>
+                                    <div class="mt-1">
+                                    
                                       <input id="autocomplete2" v-model="destination" autocomplete="current-password" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+                                      <!--<input type="time" name="time" id="time" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />-->
                                     </div>
                                   </div>
 
@@ -137,6 +193,7 @@
                                   <div>
                                     <button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                                      Check the distance
+                                    <!--  Réserver (hour)-->
                                     </button>
                                   </div>
                                 </form>
