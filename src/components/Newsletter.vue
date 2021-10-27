@@ -12,40 +12,67 @@
       <div class="mt-8 lg:mt-0 lg:ml-8">
         <form @submit.prevent="newsletterSubmit" class="sm:flex">
           <label for="email-address" class="sr-only">Email address</label>
-          <input id="email-address" v-model="email_address" name="email-address" type="email" autocomplete="email" required="" class="w-full px-5 py-3 border border-transparent placeholder-gray-500 focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white focus:border-white sm:max-w-xs rounded-md" placeholder="Enter your email" />
+          <input id="email-address" v-model="email" name="email-address" type="email" autocomplete="email" required="" class="w-full px-5 py-3 border border-transparent placeholder-gray-500 focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white focus:border-white sm:max-w-xs rounded-md" placeholder="Enter your email" />
           <div class="mt-3 shadow sm:mt-0 sm:ml-3 sm:flex-shrink-0">
             <button type="submit" class="w-full flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium text-white bg-indigo-500 hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-indigo-500">
               Notify me
             </button>
           </div>
         </form>
-        <p class="mt-3 text-sm text-gray-300">
-          We care about the protection of your data. Read our
-          {{ ' ' }}
-          <a href="#" class="text-white font-medium underline">
-            Privacy Policy.
-          </a>
-        </p>
+        <div class="mt-3" v-if="message" >
+          <div v-if="alertsOpen" class="rounded-md bg-green-50 p-4">
+            <div class="flex">
+              <div class="flex-shrink-0">
+                <CheckCircleIcon class="h-5 w-5 text-green-400" aria-hidden="true" />
+              </div>
+              <div class="ml-3">
+                <p class="text-sm font-medium text-green-800">
+                  {{ message }}
+                </p>
+              </div>
+              <div class="ml-auto pl-3">
+                <div class="-mx-1.5 -my-1.5">
+                  <button v-on:click="closeAlert()" type="button" class="inline-flex bg-green-50 rounded-md p-1.5 text-green-500 hover:bg-green-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-green-50 focus:ring-green-600">
+                    <span class="sr-only">Dismiss</span>
+                    <XIcon class="h-5 w-5" aria-hidden="true" />
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { CheckCircleIcon, XIcon, } from '@heroicons/vue/solid'
+
 export default {
   data(){
     return {
-      email_address:'',
+      email:'',
+      message: '',
+      alertsOpen: true
     }
+  },
+
+  components:{
+    CheckCircleIcon, XIcon,
   },
 
   methods : {
     newsletterSubmit(e) {
       e.preventDefault()
 
-      this.axios.post('http://localhost/api/newsletter', this.email_address).then(response => {
+      let email = this.email
+
+      this.axios.post('http://localhost/api/newsletter', {email}).then(response => {
         let data = response.data
         console.log(data)
+        this.message = 'Thanks you! We will keep you up to date.'
+        this.email = "";
 
           // let nextUrl = this.$route.params.nextUrl
           // this.$router.push((nextUrl != null ? nextUrl : '/'))
@@ -53,6 +80,10 @@ export default {
       }).catch((error)=>{
         this.errorsRegister = error.response.data
       });
+    },
+
+    closeAlert: function(){
+      this.alertsOpen = false;
     }
   }
 }
