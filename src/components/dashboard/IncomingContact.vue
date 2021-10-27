@@ -138,14 +138,14 @@ export default {
 
     contacts:{
       get(){
-        return this.$store.state.contact
+        return this.$store.state.contacts
       },
     }
   },
 
 
   created(){
-        this.$store.dispatch('getContact')
+        this.$store.dispatch('getContactList')
   },
 
 

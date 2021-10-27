@@ -4,19 +4,19 @@ import axios from "axios";
 
 export default createStore({
   state: {
-    contact: '',
+    contacts: '',
   },
   mutations: {
 
-    getContact(state, contact) {
-      state.contact = contact
+    getContactList(state, contacts) {
+      state.contacts = contacts
     },
   },
   actions: {
 
-    getContact({ commit }) {
+    getContactList({ commit }) {
       axios.get('http://localhost/api/contact/').then(response => {
-        commit('getContact', response.data)
+        commit('getContactList', response.data)
       })
           .catch(error => {
             console.log(error);
