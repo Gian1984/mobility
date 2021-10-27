@@ -67,6 +67,8 @@
                                     </div>
                                   </div>
 
+<!--                                  https://vcalendar.io/-->
+
                                   <div>
                                     <label for="time" class="block text-sm font-medium text-gray-700">
                                       Date & Time
@@ -91,9 +93,23 @@
                                   </div>
 
                                 </form>
+
+                                <div class="rounded-md bg-green-50 p-4 mt-4" v-show="distance">
+                                  <div class="flex">
+                                    <div class="flex-shrink-0">
+                                      <CheckIcon class="h-5 w-5 text-green-400" aria-hidden="true" />
+                                    </div>
+                                    <div class="ml-3">
+                                      <h3 class="text-sm font-medium text-green-800">
+                                        {{distance['text']}}
+                                      </h3>
+                                    </div>
+                                  </div>
+                                </div>
+
                               </div>
                               <div v-bind:class="{'hidden': openTab !== 2, 'block': openTab === 2}">
-                                <form @submit.prevent="getDistanceByCar"  class="space-y-6">
+                                <form  class="space-y-6">
                                 <!-- START error on geolocalization-->
                                   <div class="rounded-md bg-red-50 p-4" v-show="error">
                                     <div class="flex">
@@ -115,7 +131,7 @@
                                     </label>
                                     <div class="absolute top-4 left-3 "> </div> <input v-model="address" id="autocomplete1" type="text" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Search anything...">
                                     <div class="absolute top-7 right-2 text-center">
-                                      <button @click="locatorButtonPressed" class="h-4 w-4 text-gray-600  hover:text-black"><LocationMarkerIcon class="mt-1 mr-2 w-5 h-5 text-white-500" aria-hidden="true" /> </button>
+                                      <button class="h-4 w-4 text-gray-600  hover:text-black"><LocationMarkerIcon class="mt-1 mr-2 w-5 h-5 text-white-500" aria-hidden="true" /> </button>
                                     </div>
                                   </div>
 
@@ -158,6 +174,8 @@
                                     </div>
                                   </div>
 
+<!--                                  https://vcalendar.io/-->
+
                                   <div>
                                     <label for="time" class="block text-sm font-medium text-gray-700">
                                       Date & Time
@@ -182,18 +200,6 @@
                                     </button>
                                   </div>
                                 </form>
-                                <div class="rounded-md bg-green-50 p-4 mt-4" v-show="distance">
-                                  <div class="flex">
-                                    <div class="flex-shrink-0">
-                                      <CheckIcon class="h-5 w-5 text-green-400" aria-hidden="true" />
-                                    </div>
-                                    <div class="ml-3">
-                                      <h3 class="text-sm font-medium text-green-800">
-                                        {{distance['text']}}
-                                      </h3>
-                                    </div>
-                                  </div>
-                                </div>
                               </div>
                             </div>
                           </div>
@@ -567,6 +573,7 @@ export default {
           {
             origins: [destinationA],
             destinations: [destinationB],
+            avoidHighways: false,
             travelMode: 'DRIVING',
           }, callback);
 
