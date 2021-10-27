@@ -55,11 +55,11 @@
 import { CheckIcon } from '@heroicons/vue/solid'
 
 const steps = [
-  { id: '01', name: 'Choose your category', href: '#', status: 'complete' },
-  { id: '02', name: 'Options', href: '#', status: 'current' },
-  { id: '03', name: 'Checkout', href: '#', status: 'upcoming' },
-  { id: '04', name: 'Payement', href: '#', status: 'upcoming' },
-  { id: '05', name: 'Recap', href: '#', status: 'upcoming' },
+  { id: '01', name: 'Choose your category', href: '/Chooseyourcategory', status: 'complete' },
+  { id: '02', name: 'Options', href: '/Options', status: 'current' },
+  { id: '03', name: 'Checkout', href: '/Checkout', status: 'upcoming' },
+  { id: '04', name: 'Payement', href: '/Payement', status: 'upcoming' },
+  { id: '05', name: 'Recap', href: '/Recap', status: 'upcoming' },
 ]
 
 const stats = [
