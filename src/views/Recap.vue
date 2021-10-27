@@ -35,19 +35,6 @@
       </li>
     </ol>
   </nav>
-
-  <!--  choosen option section-->
-
-  <div class="bg-gray-200">
-    <dl class="grid grid-cols-1 rounded-lg overflow-hidden shadow divide-y divide-gray-600 md:grid-cols-6 md:divide-y-0 md:divide-x">
-      <div v-for="item in stats" :key="item.name" class="px-4 py-2 sm:p-2">
-        <dt class="text-base font-normal text-gray-900">
-          {{ item.name }}
-        </dt>
-      </div>
-    </dl>
-  </div>
-
 </template>
 
 <script>
@@ -56,18 +43,9 @@ import { CheckIcon } from '@heroicons/vue/solid'
 const steps = [
   { id: '01', name: 'Choose your category', href: '#', status: 'complete' },
   { id: '02', name: 'Options', href: '#', status: 'complete' },
-  { id: '03', name: 'Checkout', href: '#', status: 'current' },
-  { id: '04', name: 'Payement', href: '#', status: 'upcoming' },
-  { id: '05', name: 'Recap', href: '#', status: 'upcoming' },
-]
-
-const stats = [
-  { name: 'Pick up address' },
-  { name: 'Drop off address' },
-  { name: 'Temps de trajet' },
-  { name: 'distance km' },
-  { name: 'date de départ' },
-  { name: 'heure de départ' },
+  { id: '03', name: 'Checkout', href: '#', status: 'complete' },
+  { id: '04', name: 'Payement', href: '#', status: 'complete' },
+  { id: '05', name: 'Recap', href: '#', status: 'current' },
 ]
 
 export default {
@@ -77,7 +55,6 @@ export default {
   setup() {
     return {
       steps,
-      stats
     }
   },
 }

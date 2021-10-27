@@ -5,6 +5,10 @@ import Services from '../views/Services.vue'
 import Reservation from '../views/Reservation.vue'
 import Dashboard from '../views/Dashboard.vue'
 import Chooseyourcategory from '../views/Chooseyourcategory.vue'
+import Options from '../views/Options.vue'
+import Checkout from '../views/Checkout.vue'
+import Payement from '../views/Payement.vue'
+import Recap from '../views/Recap.vue'
 import Register from '../components/Register.vue'
 import Login from '../components/Login.vue'
 import IncomingContact from '../components/dashboard/IncomingContact.vue'
@@ -39,6 +43,26 @@ const routes = [
     path: '/Chooseyourcategory',
     name: 'Chooseyourcategory',
     component: Chooseyourcategory,
+  },
+  {
+    path: '/Options',
+    name: 'Options',
+    component: Options,
+  },
+  {
+    path: '/Checkout',
+    name: 'Checkout',
+    component: Checkout,
+  },
+  {
+    path: '/Payement',
+    name: 'Payement',
+    component: Payement,
+  },
+  {
+    path: '/Recap',
+    name: 'Recap',
+    component: Recap,
   },
   {
     path: '/Reservation',

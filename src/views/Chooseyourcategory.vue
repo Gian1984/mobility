@@ -37,6 +37,8 @@
   </nav>
 
 
+  <!--  choosen option section-->
+
   <div class="bg-gray-200">
     <dl class="grid grid-cols-1 rounded-lg overflow-hidden shadow divide-y divide-gray-600 md:grid-cols-6 md:divide-y-0 md:divide-x">
       <div v-for="item in stats" :key="item.name" class="px-4 py-2 sm:p-2">
@@ -48,6 +50,8 @@
   </div>
 
 
+
+<!--  Car options-->
 
   <div class="bg-white">
     <div class="max-w-5xl mx-auto px-4 py-16 sm:px-6 sm:py-24">
@@ -115,10 +119,11 @@
 import { CheckIcon } from '@heroicons/vue/solid'
 
 const steps = [
-  { id: '01', name: 'Choose your category', href: '#', status: 'complete' },
-  { id: '02', name: 'Options', href: '#', status: 'current' },
+  { id: '01', name: 'Choose your category', href: '#', status: 'current' },
+  { id: '02', name: 'Options', href: '#', status: 'upcoming' },
   { id: '03', name: 'Checkout', href: '#', status: 'upcoming' },
   { id: '04', name: 'Payement', href: '#', status: 'upcoming' },
+  { id: '05', name: 'Recap', href: '#', status: 'upcoming' },
 ]
 
 const stats = [
