@@ -17,6 +17,8 @@ export default {
   components: {
     IncomingContact
   },
+
+
   beforeMount() {
 
     this.user = JSON.parse(localStorage.getItem('bigStore'))

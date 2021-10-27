@@ -31,7 +31,7 @@
             </tr>
             </thead>
             <tbody class="bg-white divide-y divide-gray-200">
-            <tr v-for="(item,index) in contact" :key="item.id" >
+            <tr v-for="(item,index) in contacts" :key="item.id" >
               <td class="px-6 py-4 whitespace-nowrap">
                 <div class=" text-gray-900">{{item.time}}</div>
               </td>
@@ -97,14 +97,7 @@ import { DotsVerticalIcon } from '@heroicons/vue/solid'
 
 
 export default {
-  data() {
-    return {
-      contact : []
-    }
-  },
-  beforeMount(){
-    this.axios.get('http://localhost/api/contact/').then(response => this.contact = response.data )
-  },
+
 
   /*eslint-disable */
 
@@ -116,13 +109,12 @@ export default {
         this.$forceUpdate()
       })
     },
-    removeContact(contactID, index){
 
+    removeContact(contactID, index) {
+      this.axios.delete("http://localhost/api/contact/" + contactID)
+          .then(response => this.contact.splice(index))
 
-      this.axios.delete("http://localhost/api/contact/"+ contactID)
-          .then( response => this.contact.splice(index))
-
-          .catch(error =>{
+          .catch(error => {
             console.log(error);
           })
     },
@@ -141,6 +133,22 @@ export default {
     MenuItems,
     DotsVerticalIcon,
   },
+
+  computed: {
+
+    contacts:{
+      get(){
+        return this.$store.state.contact
+      },
+    }
+  },
+
+
+  created(){
+        this.$store.dispatch('getContact')
+  },
+
+
 
 
 }
