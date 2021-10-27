@@ -68,20 +68,19 @@
                                   </div>
 
                                   <div>
-                                    <label for="date" class="block text-sm font-medium text-gray-700">
-                                      Date
-                                    </label>
-                                    <div class="mt-1">
-                                      <input type="date" name="date" id="date" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
-                                    </div>
-                                  </div>
-
-                                  <div>
                                     <label for="time" class="block text-sm font-medium text-gray-700">
-                                      Time
+                                      Date & Time
                                     </label>
                                     <div class="mt-1">
-                                      <input type="time" name="time" id="time" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+                                      <v-date-picker v-model="date" mode="dateTime" is24hr>
+                                        <template v-slot="{ inputValue, inputEvents }">
+                                          <input
+                                              class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                              :value="inputValue"
+                                              v-on="inputEvents"
+                                          />
+                                        </template>
+                                      </v-date-picker>
                                     </div>
                                   </div>
 
@@ -160,23 +159,21 @@
                                   </div>
 
                                   <div>
-                                    <label for="date" class="block text-sm font-medium text-gray-1000">
-                                      Date
-                                    </label>
-                                    <div class="mt-1">
-                                      <input type="date" name="date" id="date" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
-                                    </div>
-                                  </div>
-
-                                  <div>
                                     <label for="time" class="block text-sm font-medium text-gray-700">
-                                      Time
+                                      Date & Time
                                     </label>
                                     <div class="mt-1">
-                                      <input type="time" name="time" id="time" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+                                      <v-date-picker v-model="date" mode="dateTime" is24hr>
+                                        <template v-slot="{ inputValue, inputEvents }">
+                                          <input
+                                              class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                              :value="inputValue"
+                                              v-on="inputEvents"
+                                          />
+                                        </template>
+                                      </v-date-picker>
                                     </div>
                                   </div>
-
 
                                   <div>
                                     <button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
@@ -513,6 +510,7 @@ export default {
       destination:"",
       error:"",
       distance:"",
+      date: new Date(),
       key:"AIzaSyD-V7_Te4zdszoJwnz3M54IJNrznRYKf6g"
     }
   },
