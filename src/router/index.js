@@ -72,13 +72,13 @@ const routes = [
     component: Reservation,
   },
   {
-    path: '/ForgetPassword',
-    name: 'ForgetPassword',
+    path: "/forgetpassword",
+    name: "Forgetpassword",
     component: ForgetPassword,
   },
   {
-    path: '/ResetPassword',
-    name: 'ResetPassword',
+    path: "/Resetpassword/:token",
+    name: "Reset-password",
     component: ResetPassword,
   },
   {
