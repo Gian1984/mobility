@@ -9,6 +9,8 @@ import Options from '../views/Options.vue'
 import Checkout from '../views/Checkout.vue'
 import Payement from '../views/Payement.vue'
 import Recap from '../views/Recap.vue'
+import ForgetPassword from '../views/ForgetPassword'
+import ResetPassword from '../views/ResetPassword.vue'
 import Register from '../components/Register.vue'
 import Login from '../components/Login.vue'
 import IncomingContact from '../components/dashboard/IncomingContact.vue'
@@ -68,6 +70,16 @@ const routes = [
     path: '/Reservation',
     name: 'Reservation',
     component: Reservation,
+  },
+  {
+    path: '/ForgetPassword',
+    name: 'ForgetPassword',
+    component: ForgetPassword,
+  },
+  {
+    path: '/ResetPassword',
+    name: 'ResetPassword',
+    component: ResetPassword,
   },
   {
     path: "/Dashboard",
