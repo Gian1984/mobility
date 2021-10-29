@@ -38,12 +38,96 @@
 
 <!--  choosen option section-->
 
+<!--  <div class="bg-gray-200">-->
+<!--    <dl class="grid grid-cols-1 rounded-lg overflow-hidden shadow divide-y divide-gray-600 md:grid-cols-6 md:divide-y-0 md:divide-x">-->
+
+<!--      <div class="px-4 py-2 sm:p-2">-->
+<!--        <dt class="text-base font-normal text-gray-900">-->
+<!--          Pick up address-->
+<!--        </dt>-->
+<!--        <dd class="mt-1 flex justify-between items-baseline md:block lg:flex">-->
+<!--          <div class="flex items-baseline text-2xl font-semibold text-indigo-600">-->
+<!--            - -->
+<!--            <span class="ml-2 text-sm font-medium text-gray-500"> . </span>-->
+<!--          </div>-->
+<!--        </dd>-->
+<!--      </div>-->
+
+<!--      <div class="px-4 py-2 sm:p-2">-->
+<!--        <dt class="text-base font-normal text-gray-900">-->
+<!--          Drop off address-->
+<!--        </dt>-->
+<!--        <dd class="mt-1 flex justify-between items-baseline md:block lg:flex">-->
+<!--          <div class="flex items-baseline text-2xl font-semibold text-indigo-600">-->
+<!--            - -->
+<!--            <span class="ml-2 text-sm font-medium text-gray-500"> - </span>-->
+<!--          </div>-->
+<!--        </dd>-->
+<!--      </div>-->
+
+<!--      <div class="px-4 py-2 sm:p-2">-->
+<!--        <dt class="text-base font-normal text-gray-900">-->
+<!--            Temps de trajet-->
+<!--          </dt>-->
+<!--          <dd class="mt-1 flex justify-between items-baseline md:block lg:flex">-->
+<!--            <div class="flex items-baseline text-2xl font-semibold text-indigo-600">-->
+<!--              {{ duration }}-->
+<!--              <span class="ml-2 text-sm font-medium text-gray-500"> from {{ duration }} </span>-->
+<!--            </div>-->
+<!--          </dd>-->
+<!--      </div>-->
+
+<!--      <div class="px-4 py-2 sm:p-2">-->
+<!--        <dt class="text-base font-normal text-gray-900">-->
+<!--            distance km-->
+<!--          </dt>-->
+<!--          <dd class="mt-1 flex justify-between items-baseline md:block lg:flex">-->
+<!--            <div class="flex items-baseline text-2xl font-semibold text-indigo-600">-->
+<!--              {{distance}}-->
+<!--            </div>-->
+<!--          </dd>-->
+<!--      </div>-->
+
+<!--      <div class="px-4 py-2 sm:p-2">-->
+<!--        <dt class="text-base font-normal text-gray-900">-->
+<!--          Date de départ-->
+<!--        </dt>-->
+<!--        <dd class="mt-1 flex justify-between items-baseline md:block lg:flex">-->
+<!--          <div class="flex items-baseline text-2xl font-semibold text-indigo-600">-->
+<!--            {{ date }}-->
+<!--          </div>-->
+<!--        </dd>-->
+<!--      </div>-->
+
+<!--      <div class="px-4 py-2 sm:p-2">-->
+<!--        <dt class="text-base font-normal text-gray-900">-->
+<!--            heure de départ-->
+<!--          </dt>-->
+<!--          <dd class="mt-1 flex justify-between items-baseline md:block lg:flex">-->
+<!--            <div class="flex items-baseline text-2xl font-semibold text-indigo-600">-->
+<!--              - -->
+<!--              <span class="ml-2 text-sm font-medium text-gray-500"> - </span>-->
+<!--            </div>-->
+<!--          </dd>-->
+<!--      </div>-->
+
+<!--    </dl>-->
+<!--  </div>-->
+
+
+
+
   <div class="bg-gray-200">
     <dl class="grid grid-cols-1 rounded-lg overflow-hidden shadow divide-y divide-gray-600 md:grid-cols-6 md:divide-y-0 md:divide-x">
-      <div v-for="item in stats" :key="item.name" class="px-4 py-2 sm:p-2">
+      <div v-for="item in reservation" :key="item.id" class="px-4 py-2 sm:p-2">
         <dt class="text-base font-normal text-gray-900">
           {{ item.name }}
         </dt>
+        <dd class="mt-1 flex justify-between items-baseline md:block lg:flex">
+          <div class="flex items-baseline text-sm font-semibold text-indigo-600">
+            {{ item.value }}
+          </div>
+        </dd>
       </div>
     </dl>
   </div>
@@ -66,12 +150,38 @@ const stats = [
   { name: 'Pick up address' },
   { name: 'Drop off address' },
   { name: 'Temps de trajet' },
-  { name: 'distance km' },
+  { name: 'distance km', },
   { name: 'date de départ' },
   { name: 'heure de départ' },
 ]
 
 export default {
+
+
+  computed: {
+
+    distance:{
+      get(){
+        return this.$store.state.distance['text']
+      },
+    },
+    duration:{
+      get(){
+        return this.$store.state.duration['text']
+      },
+    },
+    date:{
+      get(){
+        return this.$store.state.date
+      },
+    },
+    reservation:{
+      get(){
+        return this.$store.state.reservation
+      },
+    }
+  },
+
   components: {
     CheckIcon,
   },
@@ -81,5 +191,6 @@ export default {
       stats
     }
   },
+
 }
 </script>

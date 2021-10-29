@@ -8,4 +8,6 @@ import VueAxios from 'vue-axios'
 import store from './store'
 import VCalendar from 'v-calendar';
 
-createApp(App).use(store).use(store).use(router).use(Vuex, store).use(VCalendar, {}).use(VueAxios, axios).mount('#app')
+const app = createApp(App)
+app.use(store).use(router).use(Vuex, store).use(VCalendar, {}).use(VueAxios, axios).mount('#app')
+app.config.devtools = true

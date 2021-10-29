@@ -48,6 +48,27 @@
                             <div class="tab-content tab-space">
                               <div v-bind:class="{'hidden': openTab !== 1, 'block': openTab === 1}">
                                 <form @submit.prevent="getDistanceByCar"  class="space-y-6">
+
+                                  <!--                                  https://vcalendar.io/-->
+
+                                  <div>
+                                    <label for="time" class="block text-sm font-medium text-gray-700">
+                                      Date & Time
+                                    </label>
+                                    <div class="mt-1">
+                                      <v-date-picker v-model="date" mode="dateTime" is24hr>
+                                        <template v-slot="{ inputValue, inputEvents }">
+                                          <input
+                                              class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                              :value="inputValue"
+                                              v-on="inputEvents"
+                                          />
+                                        </template>
+                                      </v-date-picker>
+                                    </div>
+                                  </div>
+
+
                                   <div class="relative">
                                     <label for="pickup" class="block text-sm font-medium text-gray-700 mb-1">
                                       Pick up
@@ -67,24 +88,6 @@
                                     </div>
                                   </div>
 
-<!--                                  https://vcalendar.io/-->
-
-                                  <div>
-                                    <label for="time" class="block text-sm font-medium text-gray-700">
-                                      Date & Time
-                                    </label>
-                                    <div class="mt-1">
-                                      <v-date-picker v-model="date" mode="dateTime" is24hr>
-                                        <template v-slot="{ inputValue, inputEvents }">
-                                          <input
-                                              class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                                              :value="inputValue"
-                                              v-on="inputEvents"
-                                          />
-                                        </template>
-                                      </v-date-picker>
-                                    </div>
-                                  </div>
 
                                   <div>
                                     <button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
@@ -195,7 +198,7 @@
 
                                   <div>
                                     <button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                                     Check the distance
+                                      Réserver
                                     <!--  Réserver (hour)-->
                                     </button>
                                   </div>
@@ -581,13 +584,24 @@ export default {
       function callback(response, status) {
 
         self.distance = response.rows[0].elements[0].distance
-        console.log(response.rows[0].elements[0].distance)
 
+        self.$store.commit('setReservation', [
+          {id:1, name:"Pick up address", "value":  self.address},
+          {id:2,name:"Drop off address", "value":  self.destination},
+          {id:3,name:"Temps de trajet", "value": response.rows[0].elements[0].duration['text']},
+          {id:4,name:"Distance km"  , "value":response.rows[0].elements[0].distance['text']},
+          {id:5,name:"Date de départ"  , "value":self.date}
+        ])
+        self.$store.commit('setDistance', response.rows[0].elements[0].distance)
+        self.$store.commit('setDuration', response.rows[0].elements[0].duration)
+        self.$store.commit('setDate', self.date)
 
+        self.$router.push({name: 'Options'})
 
       }
       /*eslint-enable */
-    }
+    },
+
   },
 
 
@@ -623,9 +637,15 @@ export default {
         new google.maps.places.Autocomplete(
             document.getElementById('autocomplete3'),
         )
-  }
+  },
 
+
+  created(){
+    this.$store.commit('setDistance')
+  },
 }
+
+
 
 </script>
 
