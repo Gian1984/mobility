@@ -41,10 +41,15 @@
 
   <div class="bg-gray-200">
     <dl class="grid grid-cols-1 rounded-lg overflow-hidden shadow divide-y divide-gray-600 md:grid-cols-6 md:divide-y-0 md:divide-x">
-      <div v-for="item in stats" :key="item.name" class="px-4 py-2 sm:p-2">
+      <div v-for="item in reservation" :key="item.id" class="px-4 py-2 sm:p-2">
         <dt class="text-base font-normal text-gray-900">
           {{ item.name }}
         </dt>
+        <dd class="mt-1 flex justify-between items-baseline md:block lg:flex">
+          <div class="flex items-baseline text-sm font-semibold text-indigo-600">
+            {{ item.value }}
+          </div>
+        </dd>
       </div>
     </dl>
   </div>
@@ -126,14 +131,6 @@ const steps = [
   { id: '05', name: 'Recap', href: '/Recap', status: 'upcoming' },
 ]
 
-const stats = [
-  { name: 'Pick up address' },
-  { name: 'Drop off address' },
-  { name: 'Temps de trajet' },
-  { name: 'distance km' },
-  { name: 'date de départ' },
-  { name: 'heure de départ' },
-]
 
 const orders = [
   {
@@ -180,6 +177,16 @@ const orders = [
 ]
 
 export default {
+  computed: {
+
+    reservation:{
+      get(){
+        return this.$store.state.reservation
+      },
+    }
+  },
+
+
   components: {
     CheckIcon,
   },
@@ -187,7 +194,6 @@ export default {
     return {
       steps,
       orders,
-      stats,
     }
   },
 }

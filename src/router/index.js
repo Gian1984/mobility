@@ -14,6 +14,8 @@ import ResetPassword from '../views/ResetPassword.vue'
 import Register from '../components/Register.vue'
 import Login from '../components/Login.vue'
 import IncomingContact from '../components/dashboard/IncomingContact.vue'
+import AdminProduct from '../components/dashboard/AdminProduct.vue'
+// import ProductModal from '../components/dashboard/ProductModal'
 
 const routes = [
   {
@@ -90,7 +92,17 @@ const routes = [
     path: "/IncomingContact",
     name: "IncomingContact",
     component: IncomingContact,
-  }
+  },
+  {
+    path: "/AdminProduct",
+    name: "AdminProduct",
+    component: AdminProduct,
+  },
+  // {
+  //   path: "/ProductModal",
+  //   name: "ProductModal",
+  //   component: ProductModal,
+  // },
 
 ]
 

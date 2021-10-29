@@ -596,7 +596,7 @@ export default {
         self.$store.commit('setDuration', response.rows[0].elements[0].duration)
         self.$store.commit('setDate', self.date)
 
-        self.$router.push({name: 'Options'})
+        self.$router.push({name: 'Chooseyourcategory'})
 
       }
       /*eslint-enable */
