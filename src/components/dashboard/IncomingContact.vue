@@ -103,21 +103,25 @@ export default {
 
   methods: {
     answer(index) {
-      let item = this.contact[index]
+      let item = this.contacts[index]
       this.axios.patch(`http://localhost/api/contact/${item.id}/replied`).then(response => {
-        this.contact[index].was_answered = 1
+        this.contacts[index].was_answered = 1
         this.$forceUpdate()
       })
     },
 
     removeContact(contactID, index) {
       this.axios.delete("http://localhost/api/contact/" + contactID)
-          .then(response => this.contact.splice(index))
+          .then(response => {
+            this.$delete(this.$store.state.contacts, index)
+          })
 
           .catch(error => {
             console.log(error);
           })
     },
+
+
 
   },
 

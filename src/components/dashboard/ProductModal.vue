@@ -70,16 +70,18 @@
                       <div class="flex justify-between">
                         <label for="photo" class="block text-sm font-medium text-gray-700 mt-2">Photo :</label>
                       </div>
-                      <div class="mt-1 flex justify-center">
-                         <span class="inline-block overflow-hidden">
-                           <img :src="data.image" v-show="data.image != null">
-                         </span>
+                      <div class="mt-1 flex justify-center max-w-12">
+
+                           <img :src="data.image" v-show="data.image != null" class="w-1/2">
+
                       </div>
                       <div class="text-center mt-2">
-                        <label class="custom-file-upload inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-full shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+
+                        <label class="ml-5 custom-file-upload inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-full shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                          <input type="file" id="file" @change="attachFile"/>
                           Upload
                         </label>
-                        <input type="file" id="file" @change="attachFile" class=""/>
+
                       </div>
                     </div>
                   </div>
@@ -165,3 +167,11 @@ export default {
   }
 }
 </script>
+
+<style>
+
+input[type="file"] {
+  display: none;
+}
+
+</style>

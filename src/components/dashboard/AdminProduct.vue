@@ -1,7 +1,7 @@
 <template>
-  <div class="flex flex-col">
-    <h1 class="mt-10 p-2 font-bold">Product adding & modify</h1>
-    <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+  <div class="flex flex-col mb-10 max-h-screen ">
+    <h1 class="mt-10 mb-4 p-2 font-bold">Moddify & add product</h1>
+    <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8 border border-gray-900 pb-2">
       <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
         <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
           <table class="min-w-full divide-y divide-gray-200">
@@ -14,7 +14,10 @@
                 Description
               </th>
               <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                Price
+                Price / Km
+              </th>
+              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Price / Hour
               </th>
               <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                 Quantity
@@ -32,7 +35,7 @@
                     <img class="h-10 w-10 rounded-full" :src="product.image" alt="" />
                   </div>
                   <div class="ml-4">
-                    <div class="text-sm font-medium text-gray-900">
+                    <div class="text-xs font-medium text-gray-900">
                       Product ref. n° {{ product.id }}
                     </div>
                     <div class="text-sm text-gray-500">
@@ -41,13 +44,18 @@
                   </div>
                 </div>
               </td>
-              <td class="px-6 py-4 whitespace-nowrap max-w-xl">
-                <div class="text-sm text-gray-900 text-sm truncate ...">{{ product.description }}</div>
+
+              <div class="border border-black p-2 m-2 text-xs">
+                <p class="text-gray-500 p-1">{{ product.description }}</p>
+              </div>
+
+              <td class="px-6 py-4 whitespace-nowrap text-xs text-gray-500">
+                € <input v-model="product.pricekm" >
               </td>
-              <td class="px-6 py-4 whitespace-nowrap text-2xs text-gray-500">
-                € <input v-model="product.price" >
+              <td class="px-6 py-4 whitespace-nowrap text-xs text-gray-500">
+                € <input v-model="product.pricehour" >
               </td>
-              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+              <td class="px-6 py-4 whitespace-nowrap text-xs text-gray-500">
                 <input v-model="product.units" >
               </td>
               <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
@@ -62,8 +70,9 @@
           <ProductModal @close="endEditing" :product="editingItem" v-show="editingItem != null"></ProductModal>
           <ProductModal @close="addProduct"  :product="addingProduct" v-show="addingProduct != null"></ProductModal>
         </div>
-        <button type="button" @click="newProduct" class="m-5 inline-flex items-center px-5 py-2 border border-transparent text-base font-medium rounded-full shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-          Add New Product
+        <button type="button" @click="newProduct"  class="mt-10 inline-flex items-center px-3 py-2 border border-transparent shadow-sm text-sm leading-4 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+          Add Product
+          <PlusCircleIcon class="ml-2 -mr-0.5 h-4 w-4" aria-hidden="true" />
         </button>
       </div>
     </div>
@@ -72,7 +81,7 @@
 </template>
 
 <script>
-import { ExternalLinkIcon } from '@heroicons/vue/outline'
+import { ExternalLinkIcon, PlusCircleIcon } from '@heroicons/vue/outline'
 import ProductModal from '../dashboard/ProductModal.vue'
 
 
@@ -88,6 +97,7 @@ export default {
   components: {
     ProductModal,
     ExternalLinkIcon,
+    PlusCircleIcon
   },
 
 

@@ -66,53 +66,37 @@
       </div>
 
       <div class="mt-12 space-y-16 sm:mt-16">
-        <section v-for="order in orders" :key="order.number" :aria-labelledby="`${order.number}-heading`">
+
           <div class="space-y-1 md:flex md:items-baseline md:space-y-0 md:space-x-4">
-            <h2 :id="`${order.number}-heading`" class="text-lg font-medium text-gray-900 md:flex-shrink-0">Order #{{ order.number }}</h2>
-            <div class="space-y-5 md:flex-1 md:min-w-0 sm:flex sm:items-baseline sm:justify-between sm:space-y-0">
-              <p class="text-sm font-medium text-gray-500">
-                {{ order.status }}
-              </p>
-              <div class="flex text-sm font-medium">
-                <a :href="order.href" class="text-indigo-600 hover:text-indigo-500">Manage order</a>
-                <div class="border-l border-gray-200 ml-4 pl-4 sm:ml-6 sm:pl-6">
-                  <a :href="order.invoiceHref" class="text-indigo-600 hover:text-indigo-500">View Invoice</a>
-                </div>
-              </div>
-            </div>
+            <h2  class="text-lg font-medium text-gray-900 md:flex-shrink-0"> Choose your car</h2>
           </div>
 
           <div class="mt-6 -mb-6 flow-root border-t border-gray-200 divide-y divide-gray-200">
-            <div v-for="product in order.products" :key="product.id" class="py-6 sm:flex">
+            <div v-for="product in products" :key="product.id" class="py-6 sm:flex">
               <div class="flex space-x-4 sm:min-w-0 sm:flex-1 sm:space-x-6 lg:space-x-8">
-                <img :src="product.imageSrc" :alt="product.imageAlt" class="flex-none w-40 h-20 rounded-md object-center object-cover sm:w-3/5 sm:h-3/5" />
+                <img :src="product.image" alt="Choise your car" class="flex-none w-40 h-20 rounded-md object-center object-cover sm:w-3/5 sm:h-3/5" />
                 <div class="pt-1.5 min-w-0 flex-1 sm:pt-0">
                   <h3 class="text-sm font-medium text-gray-900">
-                    <a :href="product.href">{{ product.name }}</a>
+                    <a>{{ product.name }}</a>
                   </h3>
                   <p class="text-sm text-gray-500 truncate">
-                    <span>{{ product.color }}</span>
-                    {{ ' ' }}
-                    <span class="mx-1 text-gray-400" aria-hidden="true">&middot;</span>
-                    {{ ' ' }}
-                    <span>{{ product.size }}</span>
+                    <span>{{ product.description }}</span>
                   </p>
 
                 </div>
               </div>
               <div class="mt-6 space-y-4 sm:mt-0 sm:ml-6 sm:flex-none sm:w-40">
-                <p class="mt-1 font-medium text-gray-900">{{ product.price }}</p>
+                <p class="mt-1 font-medium text-gray-900">€ {{product.pricekm}}</p>
                 <p class="text-sm text-gray-500 truncate">
-                  <span>{{ product.color }}</span>
+                  <span>All prices include VAT, fees & tip.</span>
                   {{ ' ' }}
                 </p>
-                <button type="button" class="w-full flex items-center justify-center bg-indigo-600 py-2 px-2.5 border border-transparent rounded-md shadow-sm text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:w-full sm:flex-grow-0">
-                  Buy again
+                <button @click="service" type="button" class="w-full flex items-center justify-center bg-indigo-600 py-2 px-2.5 border border-transparent rounded-md shadow-sm text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:w-full sm:flex-grow-0">
+                  Buy
                 </button>
               </div>
             </div>
           </div>
-        </section>
       </div>
     </div>
   </div>
@@ -131,52 +115,23 @@ const steps = [
   { id: '05', name: 'Recap', href: '/Recap', status: 'upcoming' },
 ]
 
+export default {
 
-const orders = [
-  {
-    number: '4376',
-    status: 'Delivered on January 22, 2021',
-    href: '#',
-    invoiceHref: '#',
-    products: [
-      {
-        id: 1,
-        name: 'Machined Brass Puzzle',
-        href: '#',
-        price: '$95.00',
-        color: 'All prices include VAT, fees & tip.',
-        size: '3" x 3" x 3"',
-        imageSrc: 'img/e_side.png',
-        imageAlt: 'Brass puzzle in the shape of a jack with overlapping rounded posts.',
-      },
-      {
-        id: 2,
-        name: 'Machined Brass Puzzle',
-        href: '#',
-        price: '$95.00',
-        color: 'All prices include VAT, fees & tip.',
-        size: '3" x 3" x 3"',
-        imageSrc: 'img/e_side.png',
-        imageAlt: 'Brass puzzle in the shape of a jack with overlapping rounded posts.',
-      },
-      {
-        id: 3,
-        name: 'Machined Brass Puzzle',
-        href: '#',
-        price: '$95.00',
-        color: 'All prices include VAT, fees & tip.',
-        size: '3" x 3" x 3"',
-        imageSrc: 'img/e_side.png',
-        imageAlt: 'Brass puzzle in the shape of a jack with overlapping rounded posts.',
-      },
-      // More products...
-    ],
+  methods:{
+    service(){
+      this.$router.push({name: 'Options'})
+    }
   },
 
-  // More orders...
-]
+  data(){
+    return {
+      products : []
+    }
+  },
+  mounted(){
+    this.axios.get("http://localhost/api/products/").then(response => this.products = response.data)
+  },
 
-export default {
   computed: {
 
     reservation:{
@@ -193,7 +148,6 @@ export default {
   setup() {
     return {
       steps,
-      orders,
     }
   },
 }
