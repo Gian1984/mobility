@@ -91,9 +91,9 @@
                   <span>All prices include VAT, fees & tip.</span>
                   {{ ' ' }}
                 </p>
-                <button @click="service" type="button" class="w-full flex items-center justify-center bg-indigo-600 py-2 px-2.5 border border-transparent rounded-md shadow-sm text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:w-full sm:flex-grow-0">
+                <router-link :to="'/Options/' + product.id" type="button" class="w-full flex items-center justify-center bg-indigo-600 py-2 px-2.5 border border-transparent rounded-md shadow-sm text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:w-full sm:flex-grow-0">
                   Buy
-                </button>
+                </router-link>
               </div>
             </div>
           </div>
@@ -119,7 +119,7 @@ export default {
 
   methods:{
     service(){
-      this.$router.push({name: 'Options'})
+      this.$router.push({path: 'Options/'+ this.product.id})
     }
   },
 

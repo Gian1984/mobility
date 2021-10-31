@@ -163,7 +163,7 @@
 
 <script>
 import { loadStripe } from '@stripe/stripe-js';
-import { CheckIcon } from '@heroicons/vue/solid'
+import { CheckIcon, XCircleIcon } from '@heroicons/vue/solid'
 
 const steps = [
   { id: '01', name: 'Choose your category', href: '/Chooseyourcategory', status: 'complete' },
@@ -290,6 +290,7 @@ export default {
 
   components: {
     CheckIcon,
+    XCircleIcon,
   },
   setup() {
     return {

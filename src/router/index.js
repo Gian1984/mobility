@@ -49,9 +49,9 @@ const routes = [
     component: Chooseyourcategory,
   },
   {
-    path: '/Options',
-    name: 'Options',
-    component: Options,
+    path: "/Options/:id",
+    name: "Options",
+    component:  Options,
   },
   {
     path: '/Checkout',
