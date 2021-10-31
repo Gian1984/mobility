@@ -520,7 +520,7 @@ export default {
       error:"",
       distance:"",
       date: new Date(),
-      key:"AIzaSyD-V7_Te4zdszoJwnz3M54IJNrznRYKf6g"
+      key :process.env.VUE_APP_GOOGLE
     }
   },
   methods: {
