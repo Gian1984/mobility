@@ -128,6 +128,25 @@
                                   </div>
                                   <!-- END error on geolocalization-->
 
+                                  <!--                                  https://vcalendar.io/-->
+
+                                  <div>
+                                    <label for="time" class="block text-sm font-medium text-gray-700">
+                                      Date & Time
+                                    </label>
+                                    <div class="mt-1">
+                                      <v-date-picker v-model="date" mode="dateTime" is24hr>
+                                        <template v-slot="{ inputValue, inputEvents }">
+                                          <input
+                                              class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                              :value="inputValue"
+                                              v-on="inputEvents"
+                                          />
+                                        </template>
+                                      </v-date-picker>
+                                    </div>
+                                  </div>
+
                                   <div class="relative">
                                     <label for="pickup" class="block text-sm font-medium text-gray-700 mb-1">
                                       Pick up
@@ -174,25 +193,6 @@
                                         <option value="84">84 heures</option>
                                         <option value="96">96 heures</option>
                                     </select>
-                                    </div>
-                                  </div>
-
-<!--                                  https://vcalendar.io/-->
-
-                                  <div>
-                                    <label for="time" class="block text-sm font-medium text-gray-700">
-                                      Date & Time
-                                    </label>
-                                    <div class="mt-1">
-                                      <v-date-picker v-model="date" mode="dateTime" is24hr>
-                                        <template v-slot="{ inputValue, inputEvents }">
-                                          <input
-                                              class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                                              :value="inputValue"
-                                              v-on="inputEvents"
-                                          />
-                                        </template>
-                                      </v-date-picker>
                                     </div>
                                   </div>
 
