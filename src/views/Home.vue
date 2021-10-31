@@ -628,9 +628,9 @@ export default {
 
   mounted() {
     /*eslint-disable */
-    new google.maps.places.Autocomplete(
-        document.getElementById('autocomplete1'),
-    ),
+        new google.maps.places.Autocomplete(
+            document.getElementById('autocomplete1'),
+        ),
         new google.maps.places.Autocomplete(
             document.getElementById('autocomplete2'),
         ),
