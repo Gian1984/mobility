@@ -1,4 +1,6 @@
 <template>
+
+  {{product}}
   <nav aria-label="Progress">
     <ol role="list" class="border border-gray-300 rounded-md divide-y divide-gray-300 md:flex md:divide-y-0">
       <li v-for="(step, stepIdx) in steps" :key="step.name" class="relative md:flex-1 md:flex">
@@ -60,28 +62,25 @@
 
         <div class="flow-root">
           <ul role="list" class="-my-6 divide-y divide-gray-200">
-            <li v-for="product in products" :key="product.id" class="py-6 flex space-x-6">
-              <img src="img/e_side.png" alt="product.imageAlt" class="flex-none object-center object-cover bg-gray-100 rounded-md" />
+            <li class="py-6 flex space-x-6">
+              <img :src="product.image" alt="product.imageAlt" class="flex-none object-center object-cover bg-gray-100 rounded-md" />
             </li>
           </ul>
         </div>
 
         <dl class="text-sm font-medium text-gray-500 mt-10 space-y-6">
           <div class="flex justify-between">
-            <dt>Subtotal</dt>
-            <dd class="text-gray-900">$104.00</dd>
+            <dt>Vehicle</dt>
+            <dd class="text-gray-900">{{product.name}}</dd>
           </div>
           <div class="flex justify-between">
-            <dt>Taxes</dt>
-            <dd class="text-gray-900">$8.32</dd>
+            <dt>Description</dt>
+            <dd class="text-gray-900">{{product.description}}</dd>
           </div>
-          <div class="flex justify-between">
-            <dt>Shipping</dt>
-            <dd class="text-gray-900">$14.00</dd>
-          </div>
+
           <div class="flex justify-between border-t border-gray-200 text-gray-900 pt-6">
             <dt class="text-base">Total</dt>
-            <dd class="text-base">$126.32</dd>
+            <dd class="text-base">€ {{product.pricekm}}</dd>
           </div>
         </dl>
       </div>
@@ -136,7 +135,7 @@
             <label for="terms" class="text-sm text-gray-500">I have read the terms and conditions and agree to the sale of my personal information to the highest bidder.</label>
           </div>
 
-          <button type="submit" disabled="" class="mt-6 w-full bg-indigo-600 border border-transparent rounded-md shadow-sm py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:bg-gray-100 disabled:text-gray-500 disabled:cursor-not-allowed">Continue</button>
+          <button type="submit" class="mt-6 w-full bg-indigo-600 border border-transparent rounded-md shadow-sm py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:bg-gray-100 disabled:text-gray-500 disabled:cursor-not-allowed">Continue</button>
         </form>
 
         <div v-if="error  != 0" class="rounded-md bg-red-50 p-4 mt-10">
@@ -216,7 +215,6 @@ export default {
 
   async mounted() {
     this.isLoggedIn = localStorage.getItem('bigStore.jwt') != null
-    /*eslint-disable */
     this.stripe = await loadStripe(process.env.VUE_APP_STRIPE_KEY);
     const elements = this.stripe.elements();
     this.cardElement = elements.create('card', {
@@ -253,10 +251,8 @@ export default {
 
       const {paymentMethod, error} = await this.stripe.createPaymentMethod(
           'card', this.cardElement, {
-            billing_details: {
-              phone: this.customer.phone,
-              email: this.customer.email,
-            }
+            email: this.email,
+            phone: this.phone,
           }
       );
 
@@ -266,13 +262,12 @@ export default {
       } else {
 
         console.log(paymentMethod);
-        let customer = this.customer
-        let amount = (this.product.price * this.customer.quantity)*100;
+        let amount = this.product.pricekm * 100;
         let payment_method_id = paymentMethod.id;
         let is_complete = 1;
         let product_id = this.product.id
 
-        this.axios.post('http://localhost/api/orders/', { is_complete, product_id, customer, amount, payment_method_id})
+        this.axios.post('http://localhost/api/orders/', { is_complete, product_id, amount, payment_method_id})
             .then((response) => {
               this.paymentProcessing = false;
               console.log(response);

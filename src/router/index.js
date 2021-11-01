@@ -54,10 +54,15 @@ const routes = [
     component:  Options,
   },
   {
-    path: '/Checkout',
-    name: 'Checkout',
-    component: Checkout,
+    path: "/Checkout/:id",
+    name: "Checkout",
+    component:  Checkout,
   },
+  // {
+  //   path: '/Checkout',
+  //   name: 'Checkout',
+  //   component: Checkout,
+  // },
   {
     path: '/Payement',
     name: 'Payement',
