@@ -113,7 +113,7 @@ export default {
     removeContact(contactID, index) {
       this.axios.delete("http://localhost/api/contact/" + contactID)
           .then(response => {
-            this.$delete(this.$store.state.contacts, index)
+          this.contacts.splice(index)
           })
 
           .catch(error => {

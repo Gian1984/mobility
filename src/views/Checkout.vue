@@ -42,10 +42,15 @@
 
   <div class="bg-gray-200">
     <dl class="grid grid-cols-1 rounded-lg overflow-hidden shadow divide-y divide-gray-600 md:grid-cols-6 md:divide-y-0 md:divide-x">
-      <div v-for="item in stats" :key="item.name" class="px-4 py-2 sm:p-2">
+      <div v-for="item in reservation" :key="item.id" class="px-4 py-2 sm:p-2">
         <dt class="text-base font-normal text-gray-900">
           {{ item.name }}
         </dt>
+        <dd class="mt-1 flex justify-between items-baseline md:block lg:flex">
+          <div class="flex items-baseline text-sm font-semibold text-indigo-600">
+            {{ item.value }}
+          </div>
+        </dd>
       </div>
     </dl>
   </div>
@@ -181,20 +186,6 @@ const stats = [
   { name: 'heure de départ' },
 ]
 
-const products = [
-  {
-    id: 1,
-    name: "Women's Basic Tee",
-    href: '#',
-    price: '$32.00',
-    color: 'Gray',
-    size: 'S',
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/checkout-page-05-product-01.jpg',
-    imageAlt: "Front of women's basic tee in heather gray.",
-  },
-  // More products...
-]
-
 export default {
 
   data(){
@@ -282,6 +273,15 @@ export default {
 
   },
 
+  computed: {
+
+    reservation:{
+      get(){
+        return this.$store.state.reservation
+      },
+    }
+  },
+
 
   components: {
     CheckIcon,
@@ -291,7 +291,6 @@ export default {
     return {
       steps,
       stats,
-      products
     }
   },
 }

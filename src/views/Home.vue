@@ -84,9 +84,10 @@
                                       Drop off
                                     </label>
                                     <div class="mt-1">
-                                      <input id="autocomplete2" v-model="destination" autocomplete="current-password" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+                                      <input id="autocomplete2" ref="autocomplete" v-model="destination" autocomplete="destination" required="" class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
                                     </div>
                                   </div>
+
 
 
                                   <div>
@@ -586,8 +587,8 @@ export default {
         self.distance = response.rows[0].elements[0].distance
 
         self.$store.commit('setReservation', [
-          {id:1, name:"Pick up address", "value":  self.address},
-          {id:2,name:"Drop off address", "value":  self.destination},
+          {id:1, name:"Pick up address", "value":  response.originAddresses[0]},
+          {id:2,name:"Drop off address", "value":  response.destinationAddresses[0]},
           {id:3,name:"Temps de trajet", "value": response.rows[0].elements[0].duration['text']},
           {id:4,name:"Distance km"  , "value":response.rows[0].elements[0].distance['text']},
           {id:5,name:"Date de départ"  , "value":self.date}
@@ -632,7 +633,7 @@ export default {
             document.getElementById('autocomplete1'),
         ),
         new google.maps.places.Autocomplete(
-            document.getElementById('autocomplete2'),
+            this.$refs["autocomplete"],
         ),
         new google.maps.places.Autocomplete(
             document.getElementById('autocomplete3'),
