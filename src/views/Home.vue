@@ -49,6 +49,29 @@
                               <div v-bind:class="{'hidden': openTab !== 1, 'block': openTab === 1}">
                                 <form @submit.prevent="getDistanceByCar"  class="space-y-6">
 
+                                  <div class="mt-3" v-if="error" >
+                                    <div v-if="alertsOpen" class="rounded-md bg-red-50 p-4 p-4">
+                                      <div class="flex">
+                                        <div class="flex-shrink-0">
+                                          <XCircleIcon class="h-5 w-5 text-red-400" aria-hidden="true" />
+                                        </div>
+                                        <div class="ml-3">
+                                          <p class="text-sm font-medium text-red-700">
+                                            {{ error }}
+                                          </p>
+                                        </div>
+                                        <div class="ml-auto pl-3">
+                                          <div class="-mx-1.5 -my-1.5">
+                                            <button v-on:click="closeAlert()" type="button" class="inline-flex bg-red-50 rounded-md p-1.5 text-red-500 hover:bg-red-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-red-50 focus:ring-red-600">
+                                              <span class="sr-only">Dismiss</span>
+                                              <XIcon class="h-5 w-5" aria-hidden="true" />
+                                            </button>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+
                                   <!--                                  https://vcalendar.io/-->
 
                                   <div>
@@ -88,32 +111,19 @@
                                     </div>
                                   </div>
 
-
-
                                   <div>
                                     <button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                                       Réserver
                                     </button>
                                   </div>
-
                                 </form>
-
-                                <div class="rounded-md bg-green-50 p-4 mt-4" v-show="distance">
-                                  <div class="flex">
-                                    <div class="flex-shrink-0">
-                                      <CheckIcon class="h-5 w-5 text-green-400" aria-hidden="true" />
-                                    </div>
-                                    <div class="ml-3">
-                                      <h3 class="text-sm font-medium text-green-800">
-                                        {{distance['text']}}
-                                      </h3>
-                                    </div>
-                                  </div>
-                                </div>
-
                               </div>
+
+
+<!--                              hourly-->
+
                               <div v-bind:class="{'hidden': openTab !== 2, 'block': openTab === 2}">
-                                <form  class="space-y-6">
+                                <form @submit.prevent="getHourly"  class="space-y-6">
                                 <!-- START error on geolocalization-->
                                   <div class="rounded-md bg-red-50 p-4" v-show="error">
                                     <div class="flex">
@@ -154,7 +164,7 @@
                                     </label>
                                     <div class="absolute top-4 left-3 "> </div> <input v-model="address" id="autocomplete1" type="text" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Search anything...">
                                     <div class="absolute top-7 right-2 text-center">
-                                      <button class="h-4 w-4 text-gray-600  hover:text-black"><LocationMarkerIcon class="mt-1 mr-2 w-5 h-5 text-white-500" aria-hidden="true" /> </button>
+                                      <LocationMarkerIcon class="mt-1 mr-2 w-5 h-5 text-white-500" aria-hidden="true" />
                                     </div>
                                   </div>
 
@@ -163,37 +173,9 @@
                                       Durée
                                     </label>
                                     <div class="mt-1">
-                                      <select id="hours" name="hours" type="hours" autocomplete="current-dropoff" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                                        <option value="2">2 heures</option>
-                                        <option value="3">3 heures</option>
-                                        <option value="4">4 heures</option>
-                                        <option value="5">5 heures</option>
-                                        <option value="6">6 heures</option>
-                                        <option value="7">7 heures</option>
-                                        <option value="8">8 heures</option>
-                                        <option value="9">9 heures</option>
-                                        <option value="10">10 heures</option>
-                                        <option value="11">11 heures</option>
-                                        <option value="12">12 heures</option>
-                                        <option value="13">13 heures</option>
-                                        <option value="14">14 heures</option>
-                                        <option value="15">15 heures</option>
-                                        <option value="16">16 heures</option>
-                                        <option value="17">17 heures</option>
-                                        <option value="18">18 heures</option>
-                                        <option value="19">19 heures</option>
-                                        <option value="20">20 heures</option>
-                                        <option value="21">21 heures</option>
-                                        <option value="22">22 heures</option>
-                                        <option value="23">23 heures</option>
-                                        <option value="24" selected>24 heures</option>
-                                        <option value="36">36 heures</option>
-                                        <option value="48">48 heures</option>
-                                        <option value="60">60 heures</option>
-                                        <option value="72">72 heures</option>
-                                        <option value="84">84 heures</option>
-                                        <option value="96">96 heures</option>
-                                    </select>
+                                      <select id="hours" v-model="hours" name="hours" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                        <option v-for="option in options" v-bind:value="option.value" v-bind:key="option.value">{{option.text }}</option>
+                                      </select>
                                     </div>
                                   </div>
 
@@ -405,10 +387,41 @@
 <script>
 import Contact from "../components/Contact"
 import Newsletter from "../components/Newsletter"
-import { CloudUploadIcon, LockClosedIcon, ChevronRightIcon, LocationMarkerIcon, CheckIcon  } from '@heroicons/vue/outline'
-import { StarIcon, XCircleIcon } from '@heroicons/vue/solid'
+import { CloudUploadIcon, LockClosedIcon, ChevronRightIcon, LocationMarkerIcon, CheckIcon, CheckCircleIcon  } from '@heroicons/vue/outline'
+import { StarIcon, XCircleIcon, XIcon } from '@heroicons/vue/solid'
+import { Calendar, DatePicker } from 'v-calendar';
 
-
+const options =[
+  { text: '2', value: 2 },
+  { text: '3', value: 3 },
+  { text: '4', value: 4 },
+  { text: '5', value: 5 },
+  { text: '6', value: 6},
+  { text: '7', value: 7},
+  { text: '8', value: 8 },
+  { text: '9', value: 9 },
+  { text: '10', value: 10 },
+  { text: '11', value: 11 },
+  { text: '12', value: 12 },
+  { text: '13', value: 13},
+  { text: '14', value: 14 },
+  { text: '15', value: 15 },
+  { text: '16', value: 16 },
+  { text: '17', value: 17},
+  { text: '18', value: 18 },
+  { text: '19', value: 19 },
+  { text: '20', value: 20 },
+  { text: '21', value: 21 },
+  { text: '22', value: 22 },
+  { text: '23', value: 23 },
+  { text: '24', value: 24 },
+  { text: '36', value: 36 },
+  { text: '48', value: 48 },
+  { text: '60', value: 60 },
+  { text: '72', value: 72 },
+  { text: '84', value: 84 },
+  { text: '96', value: 96 },
+]
 
 
 const features = [
@@ -519,6 +532,8 @@ export default {
       address:"",
       destination:"",
       error:"",
+      alertsOpen: true,
+      hours:"",
       distance:"",
       date: new Date(),
       key :process.env.VUE_APP_GOOGLE
@@ -584,24 +599,42 @@ export default {
 
       function callback(response, status) {
 
-        self.distance = response.rows[0].elements[0].distance
+        if (response.destinationAddresses[0] != '') {
 
-        self.$store.commit('setReservation', [
-          {id:1, name:"Pick up address", "value":  response.originAddresses[0]},
-          {id:2,name:"Drop off address", "value":  response.destinationAddresses[0]},
-          {id:3,name:"Temps de trajet", "value": response.rows[0].elements[0].duration['text']},
-          {id:4,name:"Distance km", "value":response.rows[0].elements[0].distance['text']},
-          {id:5,name:"Date de départ" , "value":self.date}
-        ])
-        // self.$store.commit('setDistance', response.rows[0].elements[0].distance)
-        // self.$store.commit('setDuration', response.rows[0].elements[0].duration)
-        // self.$store.commit('setDate', self.date)
+          self.distance = response.rows[0].elements[0].distance
 
-        self.$router.push({name: 'Chooseyourcategory'})
+          self.$store.commit('setReservation', [
+            {id: 1, name: "Pick up address", "value": response.originAddresses[0]},
+            {id: 2, name: "Drop off address", "value": response.destinationAddresses[0]},
+            {id: 3, name: "Temps de trajet", "value": response.rows[0].elements[0].duration['text']},
+            {id: 4, name: "Distance km", "value": response.rows[0].elements[0].distance['text']},
+            {id: 5, name: "Date de départ", "value": self.date}
+          ])
+
+          self.$router.push({name: 'Chooseyourcategory'})
+        } else self.error = 'Provide a valide street number'
 
       }
       /*eslint-enable */
     },
+
+    getHourly(e){
+      e.preventDefault()
+      this.$store.commit('setReservation', [
+        {id:1, name:"Pick up address", "value":  this.address},
+        {id:2,name:"Drop off address", "value":  '-'},
+        {id:3,name:"Temps de trajet in heures", "value": this.hours},
+        {id:4,name:"Distance km", "value":'-'},
+        {id:5,name:"Date de départ" , "value": this.date}
+      ])
+
+      this.$router.push({name: 'Chooseyourcategory'})
+
+    },
+
+    closeAlert: function(){
+      this.alertsOpen = false;
+    }
 
   },
 
@@ -613,7 +646,11 @@ export default {
     ChevronRightIcon,
     LocationMarkerIcon,
     XCircleIcon,
-    CheckIcon
+    CheckIcon,
+    Calendar,
+    DatePicker,
+    XIcon,
+    CheckCircleIcon
   },
 
 
@@ -623,7 +660,7 @@ export default {
       features,
       blogPosts,
       testimonials,
-
+      options
     }
   },
 
