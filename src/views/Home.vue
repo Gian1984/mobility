@@ -590,12 +590,12 @@ export default {
           {id:1, name:"Pick up address", "value":  response.originAddresses[0]},
           {id:2,name:"Drop off address", "value":  response.destinationAddresses[0]},
           {id:3,name:"Temps de trajet", "value": response.rows[0].elements[0].duration['text']},
-          {id:4,name:"Distance km"  , "value":response.rows[0].elements[0].distance['text']},
-          {id:5,name:"Date de départ"  , "value":self.date}
+          {id:4,name:"Distance km", "value":response.rows[0].elements[0].distance['text']},
+          {id:5,name:"Date de départ" , "value":self.date}
         ])
-        self.$store.commit('setDistance', response.rows[0].elements[0].distance)
-        self.$store.commit('setDuration', response.rows[0].elements[0].duration)
-        self.$store.commit('setDate', self.date)
+        // self.$store.commit('setDistance', response.rows[0].elements[0].distance)
+        // self.$store.commit('setDuration', response.rows[0].elements[0].duration)
+        // self.$store.commit('setDate', self.date)
 
         self.$router.push({name: 'Chooseyourcategory'})
 
