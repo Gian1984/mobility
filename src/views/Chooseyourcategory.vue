@@ -83,13 +83,8 @@
                   <p class="text-sm text-gray-500 truncate">
                     <span>{{ product.description }}</span>
                   </p>
-
                 </div>
               </div>
-
-
-
-<!--              <p v-for="price in total" :key="price['value']">{{ price }}</p>-->
 
               <div class="mt-6 space-y-4 sm:mt-0 sm:ml-6 sm:flex-none sm:w-40">
                 <p class="mt-1 font-medium text-gray-900">€ {{product.value}}</p>
@@ -131,16 +126,12 @@ export default {
 
   data(){
     return {
-      products : [],
       result:'',
       priceskm:'',
       total:'',
     }
   },
-  // mounted(){
-  //   this.axios.get("http://localhost/api/products/").then(response => console.log(response.data));
-  //
-  // },
+
   mounted(){
     this.axios.get("http://localhost/api/products/")
         .then(response => {
@@ -190,58 +181,7 @@ export default {
             return null
           })
 
-console.log(this.total)
-
-
-              // prices.forEach(element => {
-              //   console.log(element)
-              //   let km = 13
-              //   let prixKm = element
-              //   let forfait1 = 50;
-              //   let forfait2 = 65;
-              //   let min = 8;
-              //   let intervalle =16;
-              //   let max = 50;
-              //   let diff = max-intervalle;
-              //   let kmRestant = km-intervalle;
-              //   let total = 0;
-              //   let prixKmMax = null;
-              //   let restePrix = null;
-              //   let dividende = null;
-              //   let somme = 0;
-              //
-              //   if (km <= min) {
-              //     total = (Math.round(forfait1 * 100) / 100).toFixed(2);
-              //     console.log(total);
-              //     console.log(km);
-              //   } else if(km > min && km<= intervalle) {
-              //     total = (Math.round(forfait2*100)/100).toFixed(2);
-              //     console.log(total);
-              //     console.log(km);
-              //   } else if(km > intervalle && km < max) {
-              //     prixKmMax=max*prixKm;
-              //     restePrix = prixKmMax-forfait2;
-              //     dividende = restePrix/diff;
-              //     for(let i = 1;i<= kmRestant; i++) {
-              //       somme = dividende + somme;
-              //       console.log((i+intervalle) + ' km: ' + (somme+forfait2));
-              //     }
-              //
-              //     total = (Math.round((somme+forfait2)*100)/100).toFixed(2);
-              //
-              //     console.log(total);
-              //   } else if(km>=max){
-              //     total = (Math.round((km*prixKm)*100)/100).toFixed(2);
-              //
-              //     console.log(total);
-              //     console.log(km);
-              //     console.log(prixKm);
-              //   }
-              // })
-
         })
-
-    // this.axios.get("http://localhost/api/products/").then(response => this.products = response.data)
   },
 
 
