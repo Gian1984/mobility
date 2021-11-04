@@ -92,7 +92,7 @@
                   <span>All prices include VAT, fees & tip.</span>
                   {{ ' ' }}
                 </p>
-                <button @click="service(product.id)" type="button" class="w-full flex items-center justify-center bg-indigo-600 py-2 px-2.5 border border-transparent rounded-md shadow-sm text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:w-full sm:flex-grow-0">
+                <button @click="service(product.id, product.value)" type="button" class="w-full flex items-center justify-center bg-indigo-600 py-2 px-2.5 border border-transparent rounded-md shadow-sm text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:w-full sm:flex-grow-0">
                   Buy
                 </button>
               </div>
@@ -119,7 +119,8 @@ const steps = [
 export default {
 
   methods:{
-    service(id){
+    service(id, price ){
+      this.$store.commit('detailReservation',( price ))
       this.$router.push({path: '/Options/'+ id})
     },
   },
@@ -157,11 +158,11 @@ export default {
 
             // Condition 1
             if (km <= min) {
-              return {value:(Math.round(forfait1 * 100) / 100).toFixed(2), name:element.name, description: element.description, image:element.image};
+              return {id:element.id, value:(Math.round(forfait1 * 100) / 100).toFixed(2), name:element.name, description: element.description, image:element.image};
 
             } // Condition 2
               else if(km > min && km<= intervalle) {
-              return {value:(Math.round(forfait2*100)/100).toFixed(2), name:element.name, description: element.description, image:element.image};
+              return {id:element.id, value:(Math.round(forfait2*100)/100).toFixed(2), name:element.name, description: element.description, image:element.image};
             } // Condition 3
               else if(km > intervalle && km < max) {
               prixKmMax=max*prixKm;
@@ -171,11 +172,11 @@ export default {
                 somme = dividende + somme;
                 console.log((i+intervalle) + ' km: ' + (somme+forfait2));
               }
-              return  {value:(Math.round((somme+forfait2)*100)/100).toFixed(2), name:element.name, description: element.description, image:element.image};
+              return  {id:element.id, value:(Math.round((somme+forfait2)*100)/100).toFixed(2), name:element.name, description: element.description, image:element.image};
 
             } // Condition 4
               else if(km>=max){
-                return  {value:(Math.round((km*prixKm)*100)/100).toFixed(2), name:element.name, description: element.description, image:element.image};
+                return  {id:element.id, value:(Math.round((km*prixKm)*100)/100).toFixed(2), name:element.name, description: element.description, image:element.image};
             }
 
             return null

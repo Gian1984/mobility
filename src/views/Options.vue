@@ -55,144 +55,147 @@
 
 <!--  Options form-->
 
-  <div class="space-y-6 max-w-5xl mx-auto mt-10">
-    <div class="bg-white shadow px-4 py-5 sm:rounded-lg sm:p-6">
-      <div class="md:grid md:grid-cols-3 md:gap-6">
-        <div class="md:col-span-1">
-          <h3 class="text-lg font-medium leading-6 text-gray-900">Airport pickup details</h3>
-          <p class="mt-1 text-sm text-gray-500">
-            Enter your flight number so our chauffeur can track the status of your flight and pick you up when you arrive, even if your flight is delayed.
-          </p>
-        </div>
-        <div class="mt-5 md:mt-0 md:col-span-2">
-          <form class="space-y-6" action="#" method="POST">
-            <div class="grid grid-cols-3 gap-6">
-              <div class="col-span-3 sm:col-span-2">
-                <div class="col-span-6 sm:col-span-3">
-                  <label for="first-name" class="block text-sm font-medium text-gray-700">Flight details</label>
-                  <input type="text" name="first-name" id="flynumber" autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
-                </div>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
+  {{detailReservation}}
 
-
-    <div class="bg-white shadow px-4 py-5 sm:rounded-lg sm:p-6">
-      <div class="md:grid md:grid-cols-3 md:gap-6">
-        <div class="md:col-span-1">
-          <h3 class="text-lg font-medium leading-6 text-gray-900">Additional info</h3>
-          <p class="mt-1 text-sm text-gray-500">
-            Enter your flight number so our chauffeur can track the status of your flight and pick you up when you arrive, even if your flight is delayed.
-          </p>
-        </div>
-        <div class="mt-5 md:mt-0 md:col-span-2">
-          <form class="space-y-6" action="#" method="POST">
-
-
-            <div class="col-span-6 sm:col-span-3">
-              <label for="first-name" class="block text-sm font-medium text-gray-700">Pickup sign</label>
-              <input type="text" name="pickup-sign" id="pickup-sign" autocomplete="pickup-sign" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
-            </div>
-
-            <div class="col-span-6 sm:col-span-3">
-              <label for="last-name" class="block text-sm font-medium text-gray-700">Your reference code</label>
-              <input type="text" name="reference-code" id="reference-code" autocomplete="reference-code" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
-            </div>
-
-            <div>
-              <label for="about" class="block text-sm font-medium text-gray-700">
-                Notes for the chauffeur
-              </label>
-              <div class="mt-1">
-                <textarea id="about" name="about" rows="3" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-300 rounded-md" placeholder="Any special request (child car seat..) ?" />
-              </div>
-              <p class="mt-2 text-sm text-gray-500">
-                Help us provide you with a better service and add any special requests. Please don't include any confidential information.
+  <form @submit.prevent="handleSubmit">
+      <div class="space-y-6 max-w-5xl mx-auto mt-10">
+        <div class="bg-white shadow px-4 py-5 sm:rounded-lg sm:p-6">
+          <div class="md:grid md:grid-cols-3 md:gap-6">
+            <div class="md:col-span-1">
+              <h3 class="text-lg font-medium leading-6 text-gray-900">Airport pickup details</h3>
+              <p class="mt-1 text-sm text-gray-500">
+                Enter your flight number so our chauffeur can track the status of your flight and pick you up when you arrive, even if your flight is delayed.
               </p>
             </div>
-          </form>
-        </div>
-      </div>
-    </div>
-
-
-    <div class="bg-white shadow px-4 py-5 sm:rounded-lg sm:p-6">
-      <div class="md:grid md:grid-cols-3 md:gap-6">
-        <div class="md:col-span-1">
-          <h3 class="text-lg font-medium leading-6 text-gray-900">Booking options</h3>
-        </div>
-        <div class="md:mt-0 md:col-span-2">
-          <form class="space-y-6" action="#" method="POST">
-            <fieldset>
-              <div class="space-y-4 mt-4 md:mt-0 lg:mt-0">
-                <div class="flex items-start">
-                  <div class="h-5 flex items-center">
-                    <input id="comments" name="comments" type="checkbox" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded" />
-                  </div>
-                  <div class="ml-3 text-sm">
-                    <label for="comments" class="font-medium text-gray-700">Do you want to book someone else?</label>
+            <div class="mt-5 md:mt-0 md:col-span-2">
+              <form class="space-y-6" action="#" method="POST">
+                <div class="grid grid-cols-3 gap-6">
+                  <div class="col-span-3 sm:col-span-2">
+                    <div class="col-span-6 sm:col-span-3">
+                      <label for="flight-details" class="block text-sm font-medium text-gray-700">Flight details</label>
+                      <input v-model="flight" type="text" name="flight-details" id="flight-details" autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                    </div>
                   </div>
                 </div>
-              </div>
-            </fieldset>
-          </form>
-        </div>
-      </div>
-    </div>
-
-
-    <div class="bg-white shadow px-4 py-5 sm:rounded-lg sm:p-6">
-      <div class="md:grid md:grid-cols-3 md:gap-6">
-        <div class="md:col-span-1">
-          <h3 class="text-lg font-medium leading-6 text-gray-900">Personal Information</h3>
-          <p class="mt-1 text-sm text-gray-500">
-            Use a permanent address where you can receive mail.
-          </p>
-        </div>
-        <div class="mt-5 md:mt-0 md:col-span-2">
-          <form action="#" method="POST">
-            <div class="grid grid-cols-6 gap-6">
-
-              <div class="col-span-6 sm:col-span-3">
-                <label for="first-name" class="block text-sm font-medium text-gray-700">First name</label>
-                <input type="text" name="first-name" id="first-name" autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
-              </div>
-
-              <div class="col-span-6 sm:col-span-3">
-                <label for="last-name" class="block text-sm font-medium text-gray-700">Last name</label>
-                <input type="text" name="last-name" id="last-name" autocomplete="family-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
-              </div>
-
-              <div class="col-span-6 sm:col-span-3">
-                <label for="email-address" class="block text-sm font-medium text-gray-700">Email address</label>
-                <input type="text" name="email-address" id="email-address" autocomplete="email" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
-              </div>
-
-              <div class="col-span-6 sm:col-span-3">
-                <label for="street-address" class="block text-sm font-medium text-gray-700">Phone Number</label>
-                <input type="text" name="phone" id="phone" autocomplete="phone" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
-              </div>
-
+              </form>
             </div>
-          </form>
+          </div>
+        </div>
+
+
+        <div class="bg-white shadow px-4 py-5 sm:rounded-lg sm:p-6">
+          <div class="md:grid md:grid-cols-3 md:gap-6">
+            <div class="md:col-span-1">
+              <h3 class="text-lg font-medium leading-6 text-gray-900">Additional info</h3>
+              <p class="mt-1 text-sm text-gray-500">
+                Enter your flight number so our chauffeur can track the status of your flight and pick you up when you arrive, even if your flight is delayed.
+              </p>
+            </div>
+            <div class="mt-5 md:mt-0 md:col-span-2">
+              <div class="space-y-6">
+
+
+                <div class="col-span-6 sm:col-span-3">
+                  <label for="pickup-sign" class="block text-sm font-medium text-gray-700">Pickup sign</label>
+                  <input v-model="pickupsign" type="text" name="pickup-sign" id="pickup-sign" autocomplete="pickup-sign" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                </div>
+
+                <div class="col-span-6 sm:col-span-3">
+                  <label for="reference-code" class="block text-sm font-medium text-gray-700">Your reference code</label>
+                  <input v-model="referencecode" type="text" name="reference-code" id="reference-code" autocomplete="reference-code" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                </div>
+
+                <div>
+                  <label for="notes" class="block text-sm font-medium text-gray-700">
+                    Notes for the chauffeur
+                  </label>
+                  <div class="mt-1">
+                    <textarea v-model="notes" id="notes" name="notes" rows="3" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-300 rounded-md" placeholder="Any special request (child car seat..) ?" />
+                  </div>
+                  <p class="mt-2 text-sm text-gray-500">
+                    Help us provide you with a better service and add any special requests. Please don't include any confidential information.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="bg-white shadow px-4 py-5 sm:rounded-lg sm:p-6">
+          <div class="md:grid md:grid-cols-3 md:gap-6">
+            <div class="md:col-span-1">
+              <h3 class="text-lg font-medium leading-6 text-gray-900">Booking options</h3>
+            </div>
+            <div class="md:mt-0 md:col-span-2">
+              <div class="space-y-6">
+                <fieldset>
+                  <div class="space-y-4 mt-4 md:mt-0 lg:mt-0">
+                    <div class="flex items-start">
+                      <div class="h-5 flex items-center">
+                        <input id="comments" name="comments" type="checkbox" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded" />
+                      </div>
+                      <div class="ml-3 text-sm">
+                        <label for="comments" class="font-medium text-gray-700">Do you want to book someone else?</label>
+                      </div>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="bg-white shadow px-4 py-5 sm:rounded-lg sm:p-6">
+          <div class="md:grid md:grid-cols-3 md:gap-6">
+            <div class="md:col-span-1">
+              <h3 class="text-lg font-medium leading-6 text-gray-900">Personal Information</h3>
+              <p class="mt-1 text-sm text-gray-500">
+                Use a permanent address where you can receive mail.
+              </p>
+            </div>
+            <div class="mt-5 md:mt-0 md:col-span-2">
+              <div>
+                <div class="grid grid-cols-6 gap-6">
+
+                  <div class="col-span-6 sm:col-span-3">
+                    <label for="first-name" class="block text-sm font-medium text-gray-700">First name</label>
+                    <input v-model="firstname" type="text" name="first-name" id="first-name" autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                  </div>
+
+                  <div class="col-span-6 sm:col-span-3">
+                    <label for="last-name" class="block text-sm font-medium text-gray-700">Last name</label>
+                    <input v-model="lastname" type="text" name="last-name" id="last-name" autocomplete="family-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                  </div>
+
+                  <div class="col-span-6 sm:col-span-3">
+                    <label for="email-address" class="block text-sm font-medium text-gray-700">Email address</label>
+                    <input v-model="email" type="text" name="email-address" id="email-address" autocomplete="email" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                  </div>
+
+                  <div class="col-span-6 sm:col-span-3">
+                    <label for="street-address" class="block text-sm font-medium text-gray-700">Phone Number</label>
+                    <input v-model="phone" type="text" name="phone" id="phone" autocomplete="phone" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="flex justify-end">
+          <button type="button" class="bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+            Cancel
+          </button>
+          <button type="submit" class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+            Save
+          </button>
         </div>
       </div>
-    </div>
-
-
-    <div class="flex justify-end">
-      <button type="button" class="bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-        Cancel
-      </button>
-      <button @click="checkout(product.id)" type="submit" class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-        Save
-      </button>
-    </div>
-  </div>
-
+  </form>
 
 </template>
 
@@ -214,6 +217,14 @@ export default {
 
   data(){
     return {
+      flight:'',
+      pickupsign:'',
+      referencecode:'',
+      notes:'',
+      firstname:'',
+      lastname:'',
+      email:'',
+      phone:'',
       error:'',
       isLoggedIn : null,
       product : [],
@@ -233,7 +244,24 @@ export default {
   },
 
   methods:{
-    checkout(id){
+    handleSubmit(e, id){
+      e.preventDefault()
+
+      this.$store.commit('setOption',
+        {
+          flight: this.flight,
+          pickupsign: this.pickupsign,
+          referencecode: this.referencecode,
+          notes: this.notes,
+          firstname: this.firstname,
+          lastname: this.lastname,
+          email: this.email,
+          phone: this.phone,
+          detail: this.detailReservation,
+          productID: this.pid
+        }
+      )
+
       this.$router.push({path: '/Checkout/'+id})
     }
   },
@@ -244,6 +272,11 @@ export default {
     reservation:{
       get(){
         return this.$store.state.reservation
+      },
+    },
+    detailReservation:{
+      get(){
+        return this.$store.state.detailReservation
       },
     }
   },

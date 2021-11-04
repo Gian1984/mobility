@@ -601,7 +601,6 @@ export default {
 
         if (response.destinationAddresses[0] != '') {
 
-          self.distance = response.rows[0].elements[0].distance
 
           self.$store.commit('setReservation', [
             {id: 1, name: "Pick up address", "value": response.originAddresses[0]},
@@ -679,10 +678,6 @@ export default {
         )
   },
 
-
-  created(){
-    this.$store.commit('setDistance')
-  },
 }
 
 

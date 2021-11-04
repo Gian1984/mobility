@@ -58,6 +58,8 @@
 
   <!--Checkout-->
 
+  {{setOption}}
+
   <main class="max-w-7xl mx-auto px-4 pt-4 pb-16 sm:px-6 sm:pt-8 sm:pb-24 lg:px-8 xl:px-2 xl:pt-14">
     <h1 class="sr-only">Checkout</h1>
 
@@ -65,27 +67,39 @@
       <div class="max-w-lg mx-auto w-full">
         <h2 class="sr-only">Order summary</h2>
 
-        <div class="flow-root">
-          <ul role="list" class="-my-6 divide-y divide-gray-200">
-            <li class="py-6 flex space-x-6">
-              <img :src="product.image" alt="product.imageAlt" class="flex-none object-center object-cover bg-gray-100 rounded-md" />
-            </li>
-          </ul>
-        </div>
+<!--        <div class="flow-root">-->
+<!--          <ul role="list" class="-my-6 divide-y divide-gray-200">-->
+<!--            <li class="py-6 flex space-x-6">-->
+<!--              <img :src="product.image" alt="product.imageAlt" class="flex-none object-center object-cover bg-gray-100 rounded-md" />-->
+<!--            </li>-->
+<!--          </ul>-->
+<!--        </div>-->
 
         <dl class="text-sm font-medium text-gray-500 mt-10 space-y-6">
+
           <div class="flex justify-between">
-            <dt>Vehicle</dt>
-            <dd class="text-gray-900">{{product.name}}</dd>
+            <dt>Flight</dt>
+            <dd class="text-gray-900">{{setOption.flight}}</dd>
           </div>
+
           <div class="flex justify-between">
-            <dt>Description</dt>
-            <dd class="text-gray-900">{{product.description}}</dd>
+            <dt>Pickup sign</dt>
+            <dd class="text-gray-900">{{setOption.pickupsign}}</dd>
+          </div>
+
+          <div class="flex justify-between">
+            <dt>Reference code</dt>
+            <dd class="text-gray-900">{{setOption.referencecode}}</dd>
+          </div>
+
+          <div class="flex justify-between">
+            <dt>Notes</dt>
+            <dd class="text-gray-900">{{setOption.notes}}</dd>
           </div>
 
           <div class="flex justify-between border-t border-gray-200 text-gray-900 pt-6">
             <dt class="text-base">Total</dt>
-            <dd class="text-base">€ {{product.pricekm}}</dd>
+            <dd class="text-base">€ {{setOption.detail}}</dd>
           </div>
         </dl>
       </div>
@@ -253,7 +267,7 @@ export default {
       } else {
 
         console.log(paymentMethod);
-        let amount = this.product.pricekm * 100;
+        let amount = this.setOption.detail * 100;
         let payment_method_id = paymentMethod.id;
         let is_complete = 1;
         let product_id = this.product.id
@@ -275,9 +289,20 @@ export default {
 
   computed: {
 
+    setOption:{
+      get(){
+        return this.$store.state.setOption
+      }
+    },
+
     reservation:{
       get(){
         return this.$store.state.reservation
+      },
+    },
+    detailReservation:{
+      get(){
+        return this.$store.state.detailReservation
       },
     }
   },
