@@ -611,6 +611,8 @@ export default {
             {id: 5, name: "Date de départ", "value": self.date}
           ])
 
+          self.$store.commit('setReservationValue', response.rows[0].elements[0].distance['value'])
+
           self.$router.push({name: 'Chooseyourcategory'})
         } else self.error = 'Provide a valide street number'
 

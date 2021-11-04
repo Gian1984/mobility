@@ -8,7 +8,8 @@ export default createStore({
     distance:'',
     duration:'',
     date:'',
-    reservation:''
+    reservation:'',
+    reservationValue:''
   },
   mutations: {
 
@@ -26,7 +27,11 @@ export default createStore({
     },
     setReservation(state, reservation){
       state.reservation = reservation
+    },
+    setReservationValue(state, reservationValue){
+      state.reservationValue = reservationValue
     }
+
 
   },
   actions: {
