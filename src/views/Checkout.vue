@@ -63,6 +63,8 @@
 
   {{setOption}}
 
+  {{user}}
+
   <main class="max-w-7xl mx-auto px-4 pt-4 pb-16 sm:px-6 sm:pt-8 sm:pb-24 lg:px-8 xl:px-2 xl:pt-14">
     <h1 class="sr-only">Checkout</h1>
 
@@ -213,6 +215,7 @@ export default {
         email: '',
         phone : "",
       },
+      user:'',
       paymentProcessing: false,
       error:'',
       isLoggedIn : null,
@@ -240,6 +243,8 @@ export default {
       this.axios.defaults.headers.common['Content-Type'] = 'application/json'
       this.axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('bigStore.jwt')
     }
+
+    this.axios.get(`http://localhost/api/users/${this.user.id}`).then(response => this.user = response.data)
   },
 
   methods : {
