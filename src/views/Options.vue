@@ -73,7 +73,7 @@
                   <div class="col-span-3 sm:col-span-2">
                     <div class="col-span-6 sm:col-span-3">
                       <label for="flight-details" class="block text-sm font-medium text-gray-700">Flight details</label>
-                      <input v-model="flight" type="text" name="flight-details" id="flight-details" autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                      <input v-model="flight" type="text" name="flight-details" id="flight-details" autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" placeholder="Ex: FR4242" />
                     </div>
                   </div>
                 </div>
@@ -187,11 +187,8 @@
 
 
         <div class="flex justify-end">
-          <button type="button" class="bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-            Cancel
-          </button>
           <button type="submit" class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-            Save
+            Done
           </button>
         </div>
       </div>
@@ -244,7 +241,7 @@ export default {
   },
 
   methods:{
-    handleSubmit(e, id){
+    handleSubmit(e){
       e.preventDefault()
 
       this.$store.commit('setOption',
@@ -257,12 +254,12 @@ export default {
           lastname: this.lastname,
           email: this.email,
           phone: this.phone,
-          detail: this.detailReservation,
+          amount: this.detailReservation,
           productID: this.pid
         }
       )
 
-      this.$router.push({path: '/Checkout/'+id})
+      this.$router.push({path: '/Checkout/'+this.pid})
     }
   },
 

@@ -40,6 +40,9 @@
 
   <!--  choosen option section-->
 
+  {{orderReservation}}
+
+
   <div class="bg-gray-200">
     <dl class="grid grid-cols-1 rounded-lg overflow-hidden shadow divide-y divide-gray-600 md:grid-cols-6 md:divide-y-0 md:divide-x">
       <div v-for="item in reservation" :key="item.id" class="px-4 py-2 sm:p-2">
@@ -99,7 +102,7 @@
 
           <div class="flex justify-between border-t border-gray-200 text-gray-900 pt-6">
             <dt class="text-base">Total</dt>
-            <dd class="text-base">€ {{setOption.detail}}</dd>
+            <dd class="text-base">€ {{setOption.amount}}</dd>
           </div>
         </dl>
       </div>
@@ -129,14 +132,14 @@
           <div class="mt-6">
             <label for="email-address" class="block text-sm font-medium text-gray-700">Email address</label>
             <div class="mt-1">
-              <input type="email" id="email-address" name="email-address" autocomplete="email" class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+              <input v-model="customer.email" type="email" id="email-address" name="email-address" autocomplete="email" class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
             </div>
           </div>
 
           <div class="mt-6">
             <label for="phone" class="block text-sm font-medium text-gray-700">Phone number</label>
             <div class="mt-1">
-              <input type="text" name="phone" id="phone" autocomplete="tel" class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+              <input v-model="customer.phone" type="text" name="phone" id="phone" autocomplete="tel" class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
             </div>
           </div>
 
@@ -267,12 +270,46 @@ export default {
       } else {
 
         console.log(paymentMethod);
-        let amount = this.setOption.detail * 100;
+        let orderReservation = this.orderReservation
+        let setoption = this.setOption
+        let pickupaddress = orderReservation.pickupaddress
+        let dropoffaddress = orderReservation.dropoffaddress
+        let duration = orderReservation.duration
+        let distance = orderReservation.distance
+        let date = orderReservation.date
+        let flight = setoption.flight
+        let pickupsign = setoption.pickupsign
+        let referencecode = setoption.referencecode
+        let amount = this.setOption.amount * 100
+        let notes = setoption.notes
+        let lastname = setoption.lastname
+        let firstname = setoption.firstname
+        let email = setoption.email
+        let phone = setoption.phone
         let payment_method_id = paymentMethod.id;
         let is_complete = 1;
-        let product_id = this.product.id
+        let product_id = setoption.productID
 
-        this.axios.post('http://localhost/api/orders/', { is_complete, product_id, amount, payment_method_id})
+        this.axios.post('http://localhost/api/orders/',
+            {
+              pickupaddress,
+              dropoffaddress,
+              duration,
+              distance,
+              date,
+              pickupsign,
+              flight,
+              is_complete,
+              product_id,
+              amount,
+              payment_method_id,
+              referencecode,
+              notes,
+              lastname,
+              firstname,
+              email,
+              phone
+            })
             .then((response) => {
               this.paymentProcessing = false;
               console.log(response);
@@ -292,6 +329,12 @@ export default {
     setOption:{
       get(){
         return this.$store.state.setOption
+      }
+    },
+
+    orderReservation:{
+      get(){
+        return this.$store.state.setOrderReservation
       }
     },
 

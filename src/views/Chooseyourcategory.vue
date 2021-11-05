@@ -87,12 +87,12 @@
               </div>
 
               <div class="mt-6 space-y-4 sm:mt-0 sm:ml-6 sm:flex-none sm:w-40">
-                <p class="mt-1 font-medium text-gray-900">€ {{product.value}}</p>
+                <p class="mt-1 font-medium text-gray-900">€ {{product.amount}}</p>
                 <p class="text-sm text-gray-500 truncate">
                   <span>All prices include VAT, fees & tip.</span>
                   {{ ' ' }}
                 </p>
-                <button @click="service(product.id, product.value)" type="button" class="w-full flex items-center justify-center bg-indigo-600 py-2 px-2.5 border border-transparent rounded-md shadow-sm text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:w-full sm:flex-grow-0">
+                <button @click="service(product.id, product.amount)" type="button" class="w-full flex items-center justify-center bg-indigo-600 py-2 px-2.5 border border-transparent rounded-md shadow-sm text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:w-full sm:flex-grow-0">
                   Buy
                 </button>
               </div>
@@ -118,12 +118,7 @@ const steps = [
 
 export default {
 
-  methods:{
-    service(id, price ){
-      this.$store.commit('detailReservation',( price ))
-      this.$router.push({path: '/Options/'+ id})
-    },
-  },
+
 
   data(){
     return {
@@ -131,6 +126,13 @@ export default {
       priceskm:'',
       total:'',
     }
+  },
+
+  methods:{
+    service(id, amount ){
+      this.$store.commit('detailReservation',( amount ))
+      this.$router.push({path: '/Options/'+ id})
+    },
   },
 
   mounted(){
@@ -158,11 +160,11 @@ export default {
 
             // Condition 1
             if (km <= min) {
-              return {id:element.id, value:(Math.round(forfait1 * 100) / 100).toFixed(2), name:element.name, description: element.description, image:element.image};
+              return {id:element.id, amount:(Math.round(forfait1 * 100) / 100).toFixed(2), name:element.name, description: element.description, image:element.image};
 
             } // Condition 2
               else if(km > min && km<= intervalle) {
-              return {id:element.id, value:(Math.round(forfait2*100)/100).toFixed(2), name:element.name, description: element.description, image:element.image};
+              return {id:element.id, amount:(Math.round(forfait2*100)/100).toFixed(2), name:element.name, description: element.description, image:element.image};
             } // Condition 3
               else if(km > intervalle && km < max) {
               prixKmMax=max*prixKm;
@@ -172,11 +174,11 @@ export default {
                 somme = dividende + somme;
                 console.log((i+intervalle) + ' km: ' + (somme+forfait2));
               }
-              return  {id:element.id, value:(Math.round((somme+forfait2)*100)/100).toFixed(2), name:element.name, description: element.description, image:element.image};
+              return  {id:element.id, amount:(Math.round((somme+forfait2)*100)/100).toFixed(2), name:element.name, description: element.description, image:element.image};
 
             } // Condition 4
               else if(km>=max){
-                return  {id:element.id, value:(Math.round((km*prixKm)*100)/100).toFixed(2), name:element.name, description: element.description, image:element.image};
+                return  {id:element.id, amount:(Math.round((km*prixKm)*100)/100).toFixed(2), name:element.name, description: element.description, image:element.image};
             }
 
             return null

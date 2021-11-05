@@ -8,6 +8,7 @@ export default createStore({
     reservation:'',
     reservationValue:'',
     detailReservation:'',
+    setOrderReservation:'',
     setOption:''
   },
   mutations: {
@@ -24,6 +25,9 @@ export default createStore({
     },
     detailReservation(state, product ){
       state.detailReservation = product
+    },
+    setOrderReservation(state, order){
+      state.setOrderReservation = order
     },
 
     setOption(state, option) {

@@ -32,15 +32,6 @@
 
                     <div>
                       <div class="flex justify-between">
-                        <label for="units" class="block text-sm font-medium text-gray-700 mt-2">Units :</label>
-                      </div>
-                      <div class="mt-1">
-                        <input type="text" v-model="data.units" name="units" id="units" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm" placeholder="Quantity" />
-                      </div>
-                    </div>
-
-                    <div>
-                      <div class="flex justify-between">
                         <label for="pricehour" class="block text-sm font-medium text-gray-700 mt-2">Price Hour :</label>
                       </div>
                       <div class="mt-1">
@@ -109,11 +100,6 @@
 
 </template>
 
-<style scoped>
-
-
-</style>
-
 <script>
 
 import { XIcon } from '@heroicons/vue/outline'
@@ -132,7 +118,6 @@ export default {
       }
       return {
         name: "",
-        units: "",
         pricekm: "",
         pricehours: "",
         description: "",
