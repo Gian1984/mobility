@@ -179,6 +179,29 @@
           </div>
         </div>
 
+        <div class="col-span-6 sm:col-span-6 px-4" v-if="paymentMethod" >
+          <div v-if="alertOpen" class="rounded-md bg-green-50 p-4">
+            <div class="flex">
+              <div class="flex-shrink-0">
+                <CheckCircleIcon class="h-5 w-5 text-green-400" aria-hidden="true" />
+              </div>
+              <div class="ml-3">
+                <p class="text-sm font-medium text-green-800">
+                  Payment successfully handled !
+                </p>
+              </div>
+              <div class="ml-auto pl-3">
+                <div class="-mx-1.5 -my-1.5">
+                  <button v-on:click="closeAlert()" type="button" class="inline-flex bg-green-50 rounded-md p-1.5 text-green-500 hover:bg-green-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-green-50 focus:ring-green-600">
+                    <span class="sr-only">Dismiss</span>
+                    <XIcon class="h-5 w-5" aria-hidden="true" />
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </main>
@@ -187,7 +210,7 @@
 
 <script>
 import { loadStripe } from '@stripe/stripe-js';
-import { CheckIcon, XCircleIcon } from '@heroicons/vue/solid'
+import { CheckIcon, XCircleIcon, CheckCircleIcon } from '@heroicons/vue/solid'
 
 const steps = [
   { id: '01', name: 'Choose your category', href: '/Chooseyourcategory', status: 'complete' },
@@ -218,6 +241,7 @@ export default {
       },
       user:'',
       paymentProcessing: false,
+      paymentMethod:'',
       error:'',
       isLoggedIn : null,
       product : [],
@@ -249,6 +273,11 @@ export default {
   },
 
   methods : {
+
+    closeAlert: function(){
+      this.alertOpen = false;
+    },
+
     login() {
       this.$router.push({name: 'Login', params: {nextUrl: this.$route.fullPath}})
     },
@@ -265,7 +294,6 @@ export default {
 
       const {paymentMethod, error} = await this.stripe.createPaymentMethod(
           'card', this.cardElement, {
-            currency: "eur",
             billing_details: {
               name: this.user.firstname + ' ' + this.user.lastname,
               email: this.user.email,
@@ -286,6 +314,7 @@ export default {
       } else {
 
         console.log(paymentMethod);
+        this.paymentMethod = paymentMethod
 
         let orderReservation = this.orderReservation
         let setoption = this.setOption
@@ -338,6 +367,54 @@ export default {
               this.error = error.response.data.message;
             });
       }
+
+      let orderReservation = this.orderReservation
+      let setoption = this.setOption
+      let pickupaddress = orderReservation.pickupaddress
+      let dropoffaddress = orderReservation.dropoffaddress
+      let duration = orderReservation.duration
+      let distance = orderReservation.distance
+      let date = orderReservation.date
+      let flight = setoption.flight
+      let pickupsign = setoption.pickupsign
+      let referencecode = setoption.referencecode
+      let amount = this.setOption.amount * 100
+      let notes = setoption.notes
+      let lastname = setoption.lastname
+      let firstname = setoption.firstname
+      let email = setoption.email
+      let phone = setoption.phone
+      let payment_method_id = paymentMethod.id;
+      let is_complete = 1;
+      let product_id = setoption.productID
+
+
+      this.axios.post('http://localhost/api/order-success',
+          {
+            pickupaddress,
+            dropoffaddress,
+            duration,
+            distance,
+            date,
+            pickupsign,
+            flight,
+            is_complete,
+            product_id,
+            amount,
+            payment_method_id,
+            referencecode,
+            notes,
+            lastname,
+            firstname,
+            email,
+            phone,
+
+          })
+          .then(response=>{
+        this.validation = response.data.message
+      }).catch((error)=>{
+        this.errors = error
+      });
     },
 
   },
@@ -371,7 +448,8 @@ export default {
 
   components: {
     CheckIcon,
-    XCircleIcon
+    XCircleIcon,
+    CheckCircleIcon
   },
   setup() {
     return {

@@ -637,6 +637,10 @@ export default {
             {id: 5, name: "Date de départ", "value": self.date}
           ])
 
+          self.$store.commit('setOrderReservation',
+              {pickupaddress: response.originAddresses[0], dropoffaddress: response.destinationAddresses[0], duration: response.rows[0].elements[0].duration['text'], distance: response.rows[0].elements[0].distance['text'], date: self.date }
+          )
+
           self.$store.commit('setReservationValue', response.rows[0].elements[0].distance['value'])
 
           self.$router.push({name: 'Chooseyourcategory'})
