@@ -1,7 +1,5 @@
 <template>
 
-  {{orders}}
-
   <div class="flex flex-col">
     <h1 class="mt-10 p-2 font-bold">Order Active</h1>
     <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -11,8 +9,8 @@
           <main class="mx-auto">
 
 
-              <div v-for="order in orders" :key="order.id" >
-                <div class="bg-white border-t border-b border-gray-200 shadow-sm sm:border">
+              <div v-for="order in orders" :key="order.id" class="py-3 border-b-4 border-indigo-600 " >
+                <div class="bg-white py-3 border-t border-b border-gray-200 shadow-sm sm:border">
                   <div class="py-6 px-4 sm:px-6 lg:grid lg:grid-cols-12 lg:gap-x-8 lg:p-8">
                     <div class="sm:flex lg:col-span-7">
                       <div class="flex-shrink-0 w-full rounded-lg overflow-hidden sm:aspect-none sm:w-40">
@@ -71,6 +69,10 @@
                           <dd class="text-gray-500">
                             <span class="block">{{ order.dropoffaddress}}</span>
                           </dd>
+                          <dt class="font-medium text-gray-900 mt-3">Notes:</dt>
+                          <dd class="text-gray-500">
+                            <span class="block">{{ order.notes}}</span>
+                          </dd>
                         </div>
                         <div>
                           <dt class="font-medium text-gray-900">Pick-up date & time:</dt>
@@ -92,6 +94,7 @@
                             </p>
                           </dd>
                         </div>
+
                       </dl>
                     </div>
                   </div>
@@ -100,9 +103,14 @@
                 <div class="bg-gray-100 py-6 px-4 sm:px-6 lg:px-8 lg:py-8 lg:grid lg:grid-cols-12 lg:gap-x-8">
                   <dl class="grid grid-cols-2 gap-6 text-sm sm:grid-cols-2 md:gap-x-8 lg:col-span-7">
                     <div>
-                      <dt class="font-medium text-gray-900">Notes:</dt>
+                      <dt class="font-medium text-gray-900">User account</dt>
                       <dd class="mt-3 text-gray-500">
-                        <span class="block">{{ order.notes }}</span>
+                        <span class="block">{{ order.user.firstname }} {{ order.user.lastname }}</span>
+                        <span class="block">{{ order.user.streetaddress }}, {{ order.user.zip }}</span>
+                        <span class="block">{{ order.user.city }} - {{ order.user.region }} </span>
+                        <span class="block">{{ order.user.country }}</span>
+                        <span class="block">{{ order.user.phone }}</span>
+                        <span class="block">{{ order.user.email}}</span>
                       </dd>
                     </div>
                     <div>

@@ -63,7 +63,6 @@
 
   {{setOption}}
 
-  {{user}}
 
   <main class="max-w-7xl mx-auto px-4 pt-4 pb-16 sm:px-6 sm:pt-8 sm:pb-24 lg:px-8 xl:px-2 xl:pt-14">
     <h1 class="sr-only">Checkout</h1>
@@ -108,6 +107,8 @@
           </div>
         </dl>
       </div>
+
+      {{user}}
 
       <div class="max-w-lg mx-auto w-full">
         <button type="button" class="w-full flex items-center justify-center bg-black border border-transparent text-white rounded-md py-2 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900">
@@ -244,7 +245,7 @@ export default {
       this.axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('bigStore.jwt')
     }
 
-    this.axios.get(`http://localhost/api/users/${this.user.id}`).then(response => this.user = response.data)
+    // this.axios.get(`http://localhost/api/users/${this.user.id}`).then(response => console.log(response.data))
   },
 
   methods : {
@@ -264,8 +265,18 @@ export default {
 
       const {paymentMethod, error} = await this.stripe.createPaymentMethod(
           'card', this.cardElement, {
-            email: this.email,
-            phone: this.phone,
+            currency: "eur",
+            billing_details: {
+              name: this.user.firstname + ' ' + this.user.lastname,
+              email: this.user.email,
+              phone: this.user.phone,
+              address: {
+                line1: this.user.streetaddress,
+                city: this.user.city,
+                state: this.user.country,
+                postal_code: this.user.zip
+              }
+            }
           }
       );
 
@@ -275,6 +286,7 @@ export default {
       } else {
 
         console.log(paymentMethod);
+
         let orderReservation = this.orderReservation
         let setoption = this.setOption
         let pickupaddress = orderReservation.pickupaddress
@@ -313,7 +325,8 @@ export default {
               lastname,
               firstname,
               email,
-              phone
+              phone,
+
             })
             .then((response) => {
               this.paymentProcessing = false;
