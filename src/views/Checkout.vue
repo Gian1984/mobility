@@ -368,6 +368,8 @@ export default {
             });
       }
 
+      let user = this.user
+      let email = user.email
       let orderReservation = this.orderReservation
       let setoption = this.setOption
       let pickupaddress = orderReservation.pickupaddress
@@ -382,7 +384,6 @@ export default {
       let notes = setoption.notes
       let lastname = setoption.lastname
       let firstname = setoption.firstname
-      let email = setoption.email
       let phone = setoption.phone
       let payment_method_id = paymentMethod.id;
       let is_complete = 1;
