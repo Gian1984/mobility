@@ -210,7 +210,8 @@
 
 <script>
 import { loadStripe } from '@stripe/stripe-js';
-import { CheckIcon, XCircleIcon, CheckCircleIcon } from '@heroicons/vue/solid'
+import {  XCircleIcon, CheckCircleIcon, XIcon } from '@heroicons/vue/solid'
+import { CheckIcon } from '@heroicons/vue/outline'
 
 const steps = [
   { id: '01', name: 'Choose your category', href: '/Chooseyourcategory', status: 'complete' },
@@ -313,16 +314,24 @@ export default {
         console.error(error);
       } else {
 
-        console.log(paymentMethod);
         this.paymentMethod = paymentMethod
 
+        let transactionID = paymentMethod.id
+        let cardBrand = paymentMethod.card.brand
+        let lastFour = paymentMethod.card.last4
+        let expire = paymentMethod.card.exp_year
+
         let orderReservation = this.orderReservation
-        let setoption = this.setOption
+
+
         let pickupaddress = orderReservation.pickupaddress
         let dropoffaddress = orderReservation.dropoffaddress
         let duration = orderReservation.duration
         let distance = orderReservation.distance
         let date = orderReservation.date
+
+        let setoption = this.setOption
+
         let flight = setoption.flight
         let pickupsign = setoption.pickupsign
         let referencecode = setoption.referencecode
@@ -338,6 +347,10 @@ export default {
 
         this.axios.post('http://localhost/api/orders/',
             {
+              transactionID,
+              cardBrand,
+              lastFour,
+              expire,
               pickupaddress,
               dropoffaddress,
               duration,
@@ -368,6 +381,13 @@ export default {
             });
       }
 
+      this.paymentMethod = paymentMethod
+
+      let transactionID = paymentMethod.id
+      let cardBrand = paymentMethod.card.brand
+      let lastFour = paymentMethod.card.last4
+      let expire = paymentMethod.card.exp_year
+
       let user = this.user
       let email = user.email
       let orderReservation = this.orderReservation
@@ -392,6 +412,10 @@ export default {
 
       this.axios.post('http://localhost/api/order-success',
           {
+            transactionID,
+            cardBrand,
+            lastFour,
+            expire,
             pickupaddress,
             dropoffaddress,
             duration,
@@ -450,7 +474,8 @@ export default {
   components: {
     CheckIcon,
     XCircleIcon,
-    CheckCircleIcon
+    CheckCircleIcon,
+    XIcon
   },
   setup() {
     return {
