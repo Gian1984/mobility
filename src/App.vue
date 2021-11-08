@@ -189,6 +189,7 @@
           localStorage.removeItem('bigStore.jwt')
           localStorage.removeItem('bigStore.user')
           this.change()
+          this.user = null
           this.$router.push('/')
         }
       },

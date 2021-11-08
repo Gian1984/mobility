@@ -1,31 +1,30 @@
 <template>
 
-  {{product}}
   <nav aria-label="Progress">
     <ol role="list" class="border border-gray-300 rounded-md divide-y divide-gray-300 md:flex md:divide-y-0">
       <li v-for="(step, stepIdx) in steps" :key="step.name" class="relative md:flex-1 md:flex">
-        <a v-if="step.status === 'complete'" :href="step.href" class="group flex items-center w-full">
+        <p v-if="step.status === 'complete'" class="group flex items-center w-full">
           <span class="px-6 py-4 flex items-center text-sm font-medium">
             <span class="flex-shrink-0 w-10 h-10 flex items-center justify-center bg-indigo-600 rounded-full group-hover:bg-indigo-800">
               <CheckIcon class="w-6 h-6 text-white" aria-hidden="true" />
             </span>
             <span class="ml-4 text-sm font-medium text-gray-900">{{ step.name }}</span>
           </span>
-        </a>
-        <a v-else-if="step.status === 'current'" :href="step.href" class="px-6 py-4 flex items-center text-sm font-medium" aria-current="step">
+        </p>
+        <p v-else-if="step.status === 'current'"  class="px-6 py-4 flex items-center text-sm font-medium" aria-current="step">
           <span class="flex-shrink-0 w-10 h-10 flex items-center justify-center border-2 border-indigo-600 rounded-full">
             <span class="text-indigo-600">{{ step.id }}</span>
           </span>
           <span class="ml-4 text-sm font-medium text-indigo-600">{{ step.name }}</span>
-        </a>
-        <a v-else :href="step.href" class="group flex items-center">
+        </p>
+        <p v-else class="group flex items-center">
           <span class="px-6 py-4 flex items-center text-sm font-medium">
             <span class="flex-shrink-0 w-10 h-10 flex items-center justify-center border-2 border-gray-300 rounded-full group-hover:border-gray-400">
               <span class="text-gray-500 group-hover:text-gray-900">{{ step.id }}</span>
             </span>
             <span class="ml-4 text-sm font-medium text-gray-500 group-hover:text-gray-900">{{ step.name }}</span>
           </span>
-        </a>
+        </p>
         <template v-if="(stepIdx !== steps.length - 1)">
           <!-- Arrow separator for lg screens and up -->
           <div class="hidden md:block absolute top-0 right-0 h-full w-5" aria-hidden="true">
@@ -35,12 +34,17 @@
           </div>
         </template>
       </li>
+      <li>
+        <div class="mx-auto p-5" aria-hidden="true">
+          <button @click="$router.go(-1)" class="inline-flex items-center p-1.5 border border-transparent rounded-full shadow-sm text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
+            <ChevronDoubleLeftIcon class="h-6 w-6" aria-hidden="true" />
+          </button>
+        </div>
+      </li>
     </ol>
   </nav>
 
   <!--  choosen option section-->
-
-  {{orderReservation}}
 
 
   <div class="bg-gray-200">
@@ -61,9 +65,6 @@
 
   <!--Checkout-->
 
-  {{setOption}}
-
-
   <main class="max-w-7xl mx-auto px-4 pt-4 pb-16 sm:px-6 sm:pt-8 sm:pb-24 lg:px-8 xl:px-2 xl:pt-14">
     <h1 class="sr-only">Checkout</h1>
 
@@ -71,30 +72,16 @@
       <div class="max-w-lg mx-auto w-full">
         <h2 class="sr-only">Order summary</h2>
 
-<!--        <div class="flow-root">-->
-<!--          <ul role="list" class="-my-6 divide-y divide-gray-200">-->
-<!--            <li class="py-6 flex space-x-6">-->
-<!--              <img :src="product.image" alt="product.imageAlt" class="flex-none object-center object-cover bg-gray-100 rounded-md" />-->
-<!--            </li>-->
-<!--          </ul>-->
-<!--        </div>-->
+        <div class="flow-root">
+          <ul role="list" class="-my-6 divide-y divide-gray-200">
+            <li class="py-6 flex space-x-6">
+              <img :src="product.image" alt="product.imageAlt" class="flex-none object-center object-cover bg-gray-100 rounded-md" />
+            </li>
+          </ul>
+        </div>
 
         <dl class="text-sm font-medium text-gray-500 mt-10 space-y-6">
 
-          <div class="flex justify-between">
-            <dt>Flight</dt>
-            <dd class="text-gray-900">{{setOption.flight}}</dd>
-          </div>
-
-          <div class="flex justify-between">
-            <dt>Pickup sign</dt>
-            <dd class="text-gray-900">{{setOption.pickupsign}}</dd>
-          </div>
-
-          <div class="flex justify-between">
-            <dt>Reference code</dt>
-            <dd class="text-gray-900">{{setOption.referencecode}}</dd>
-          </div>
 
           <div class="flex justify-between">
             <dt>Notes</dt>
@@ -108,7 +95,6 @@
         </dl>
       </div>
 
-      {{user}}
 
       <div class="max-w-lg mx-auto w-full">
         <button type="button" class="w-full flex items-center justify-center bg-black border border-transparent text-white rounded-md py-2 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900">
@@ -211,14 +197,14 @@
 <script>
 import { loadStripe } from '@stripe/stripe-js';
 import {  XCircleIcon, CheckCircleIcon, XIcon } from '@heroicons/vue/solid'
-import { CheckIcon } from '@heroicons/vue/outline'
+import { CheckIcon, ChevronDoubleLeftIcon } from '@heroicons/vue/outline'
 
 const steps = [
-  { id: '01', name: 'Choose your category', href: '/Chooseyourcategory', status: 'complete' },
-  { id: '02', name: 'Options', href: '/Options', status: 'complete' },
-  { id: '03', name: 'Checkout', href: '/Checkout', status: 'current' },
-  { id: '04', name: 'Payement', href: '/Payement', status: 'upcoming' },
-  { id: '05', name: 'Recap', href: '/Recap', status: 'upcoming' },
+  { id: '01', name: 'Choose your category', status: 'complete' },
+  { id: '02', name: 'Options', status: 'complete' },
+  { id: '03', name: 'Checkout', status: 'current' },
+  { id: '04', name: 'Payement', status: 'upcoming' },
+
 ]
 
 const stats = [
@@ -475,7 +461,8 @@ export default {
     CheckIcon,
     XCircleIcon,
     CheckCircleIcon,
-    XIcon
+    XIcon,
+    ChevronDoubleLeftIcon
   },
   setup() {
     return {

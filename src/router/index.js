@@ -8,14 +8,13 @@ import Chooseyourcategory from '../views/Chooseyourcategory.vue'
 import Options from '../views/Options.vue'
 import Checkout from '../views/Checkout.vue'
 import Payement from '../views/Payement.vue'
-import Recap from '../views/Recap.vue'
 import ForgetPassword from '../views/ForgetPassword'
 import ResetPassword from '../views/ResetPassword.vue'
 import Register from '../components/Register.vue'
 import Login from '../components/Login.vue'
 import IncomingContact from '../components/dashboard/IncomingContact.vue'
 import AdminProduct from '../components/dashboard/AdminProduct.vue'
-// import ProductModal from '../components/dashboard/ProductModal'
+
 
 const routes = [
   {
@@ -67,11 +66,6 @@ const routes = [
     path: '/Payement',
     name: 'Payement',
     component: Payement,
-  },
-  {
-    path: '/Recap',
-    name: 'Recap',
-    component: Recap,
   },
   {
     path: '/Reservation',
