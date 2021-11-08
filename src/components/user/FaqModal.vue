@@ -1,6 +1,6 @@
 <template>
 
-  <div class="bg-white bg-opacity-75 overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex">
+  <div class="bg-opacity-75 overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex">
     <div class="relative w-auto my-6 mx-auto lg:max-w-6xl py-60">
       <!--content-->
       <div class="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none bg-gray-200">
@@ -27,18 +27,8 @@
                             <li  class="py-5">
                               <div class="relative">
                                 <h3 class="font-bold text-gray-800">
-                                  Order n°{{data.id}}: <br><br>
+                                  Order reference n°{{data.id}}: <br><br>
                                 </h3>
-
-                                <label for="adress" class="block text-sm font-medium mt-2">Delivery to :</label>
-                                <p class="mt-1 text-sm text-gray-500 font-semibold line-clamp-2">
-                                  {{ data.address }}
-                                </p>
-
-                                <label for="delivered" class="block text-sm font-medium mt-2">Is delivered :</label>
-                                <p class="mt-1 text-sm text-gray-500 font-semibold line-clamp-2">
-                                  {{data.is_delivered == 1? "Shipped!" : "Not shipped"}}
-                                </p>
 
                                 <h3 class="font-bold text-gray-800 mt-6">
                                   Fill info contact : <br><br>

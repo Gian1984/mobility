@@ -32,10 +32,16 @@
 
             <!-- Profile dropdown -->
             <Menu as="div" class="ml-3 relative">
-              <div>
-                <MenuButton class="bg-white rounded-full flex text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+              <div v-if="this.user != null">
+                <MenuButton class="flex bg-white p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                  <UserCircleIcon class="h-6 w-6" ></UserCircleIcon>
+                  <span class="ml-2">{{ this.user.firstname }} {{ this.user.lastname }}</span>
+                </MenuButton>
+              </div>
+              <div v-else>
+                <MenuButton class="bg-white p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                   <span class="sr-only">Open user menu</span>
-                  <img class="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+                  <UserCircleIcon class="h-6 w-6" />
                 </MenuButton>
               </div>
               <transition enter-active-class="transition ease-out duration-200" enter-from-class="transform opacity-0 scale-95" enter-to-class="transform opacity-100 scale-100" leave-active-class="transition ease-in duration-75" leave-from-class="transform opacity-100 scale-100" leave-to-class="transform opacity-0 scale-95">
@@ -111,7 +117,7 @@
 
   <script>
     import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
-    import { BellIcon, MenuIcon, XIcon } from '@heroicons/vue/outline'
+    import { BellIcon, MenuIcon, XIcon, UserCircleIcon } from '@heroicons/vue/outline'
     import { defineComponent, h } from 'vue'
 
     const navigation = {
@@ -171,6 +177,7 @@
     }
 
     export default {
+
       methods:{
         logout(){
           localStorage.removeItem('bigStore.jwt')
@@ -191,12 +198,23 @@
         BellIcon,
         MenuIcon,
         XIcon,
+        UserCircleIcon,
       },
 
       setup() {
         return {
           navigation,
         }
+      },
+
+      beforeMount() {
+
+        if (localStorage.getItem('bigStore.jwt') != null) {
+          this.user = JSON.parse(localStorage.getItem('bigStore.user'))
+          this.axios.defaults.headers.common['Content-Type'] = 'application/json'
+          this.axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('bigStore.jwt')
+        }
+
       },
 
     }

@@ -14,64 +14,99 @@
   </header>
 
   <main>
-    <div class="flex flex-col py-10 px-5">
-      <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-        <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-          <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-            <table class="min-w-full divide-y divide-gray-200">
-              <thead class="bg-gray-50">
-              <tr>
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Product
-                </th>
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Status
-                </th>
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Price
-                </th>
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Info
-                </th>
-              </tr>
-              </thead>
-              <tbody class="bg-white divide-y divide-gray-200">
-              <tr v-for="(order,index) in orders" v-bind:key="index">
-                <td class="px-6 py-4 whitespace-nowrap">
-                  <div class="flex items-center">
-                    <div class="flex-shrink-0 h-10 w-10">
-                      <img class="h-10 w-10 rounded-full" :src="order.product.image" alt="" />
-                    </div>
-                    <div class="ml-4">
-                      <div class="text-sm text-gray-900">
-                        <span class="text-sm text-gray-500">Product:</span> {{order.product.name}}
-                      </div>
-                      <div class="text-sm text-gray-900">
-                        <span class="text-sm text-gray-500">Deliver to:</span> {{order.address}}
-                      </div>
-                      <div class="text-sm text-gray-900">
-                        <span class="text-sm text-gray-500">Order n°:</span> {{order.id}}
-                      </div>
-                    </div>
-                  </div>
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap">
-                                      <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                        {{order.is_delivered == 1? "shipped!" : "not shipped"}}
-                                      </span>
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                  {{order.product.price}}
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                  <button type="button" @click="faqOrder = order"  class="inline-flex items-center p-1.5 border border-transparent rounded-full shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                    <SupportIcon class="h-5 w-5" aria-hidden="true"  />
-                  </button>
-                </td>
-              </tr>
-              </tbody>
-            </table>
-            <modal @close="endEditing" :order="faqOrder" v-show="faqOrder != null"></modal>
+
+    <div v-for="(order, index) in orders" :key="index" class="py-3 border-b-4 border-indigo-600 " >
+      <div class="bg-white py-3 border-t border-b border-gray-200 shadow-sm sm:border">
+        <div class="py-6 px-4 sm:px-6 lg:grid lg:grid-cols-12 lg:gap-x-8 lg:p-8">
+          <div class="sm:flex lg:col-span-7">
+            <div class="flex-shrink-0 w-full rounded-lg overflow-hidden sm:aspect-none sm:w-40">
+              <img :src="order.product.image" class="w-full  object-center object-cover sm:w-full" />
+            </div>
+
+            <div class="mt-6 sm:mt-0 sm:ml-6">
+              <h1 class="text-base font-xlarge text-gray-900">
+                Order Reference n° {{ order.id }}
+              </h1>
+              <p class="text-gray-500 font-medium ">€ {{order.amount /100}}</p>
+              <p class="mb-2 text-gray-500 font-medium border-b border-3 border-gray-900">{{order.product.name}}</p>
+              <button type="button" @click="faqOrder = order" class="px-2 flex mt-2 mb-2 inline-flex items-center p-1.5 border border-transparent rounded-full shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                <SupportIcon class="h-5 w-5" aria-hidden="true"></SupportIcon>
+                <span class="ml-2 font-small">Question ? </span>
+              </button>
+            </div>
+          </div>
+
+
+          <div class="sm:flex lg:col-span-7 mt-5">
+            <dl class="grid grid-cols-2 gap-x-6 text-sm">
+              <div>
+                <dt class="font-medium text-gray-900">Flight info:</dt>
+                <dd class="text-gray-500">
+                  <span class="block">{{ order.flight}}</span>
+                </dd>
+                <dt class="font-medium text-gray-900 mt-3">Additional passenger:</dt>
+                <dd class="text-gray-500">
+                  <span class="block">{{order.firstname}} {{order.lastname}}</span>
+                  <span class="block">Phone: {{order.phone}}</span>
+                  <span class="block">Email: {{order.email}}</span>
+                </dd>
+              </div>
+              <div>
+                <dt class="font-medium text-gray-900">Pick up sign:</dt>
+                <dd class="text-gray-500 space-y-3">
+                  <p>
+                    {{ order.pickupsign}}
+                  </p>
+                </dd>
+                <dt class="mt-3 font-medium text-gray-900">Reference code:</dt>
+                <dd class="text-gray-500 space-y-3">
+                  <p>
+                    {{ order.referencecode }}
+                  </p>
+                </dd>
+              </div>
+            </dl>
+          </div>
+
+
+          <div class="mt-6 lg:mt-0 lg:col-span-5 lg:mt-5">
+            <dl class="grid grid-cols-2 gap-x-6 text-sm">
+              <div>
+                <dt class="font-medium text-gray-900">Pick-up address:</dt>
+                <dd class="text-gray-500">
+                  <span class="block">{{ order.pickupaddress }}</span>
+                </dd>
+                <dt class="font-medium text-gray-900 mt-3">Drop-off address:</dt>
+                <dd class="text-gray-500">
+                  <span class="block">{{ order.dropoffaddress}}</span>
+                </dd>
+                <dt class="font-medium text-gray-900 mt-3">Notes:</dt>
+                <dd class="text-gray-500">
+                  <span class="block">{{ order.notes}}</span>
+                </dd>
+              </div>
+              <div>
+                <dt class="font-medium text-gray-900">Pick-up date & time:</dt>
+                <dd class="text-gray-500 space-y-3">
+                  <p>
+                    {{ order.date }}
+                  </p>
+                </dd>
+                <dt class="mt-3 font-medium text-gray-900">Distance:</dt>
+                <dd class="text-gray-500 space-y-3">
+                  <p>
+                    {{ order.distance }}
+                  </p>
+                </dd>
+                <dt class="mt-3 font-medium text-gray-900">Duration:</dt>
+                <dd class="text-gray-500 space-y-3">
+                  <p>
+                    {{ order.duration }}
+                  </p>
+                </dd>
+              </div>
+              <modal @close="endEditing" :order="faqOrder" v-show="faqOrder != null"></modal>
+            </dl>
           </div>
         </div>
       </div>
@@ -104,8 +139,8 @@
 </template>
 
 <script>
-import { SupportIcon } from '@heroicons/vue/outline'
-import Modal from "../components/user/FaqModal";
+import { SupportIcon, XIcon } from '@heroicons/vue/outline'
+import modal from "../components/user/FaqModal";
 
 const faqs = [
   {
@@ -143,6 +178,7 @@ export default {
     return {
       user : null,
       faqOrder: null,
+      showModal: false,
       orders : [],
     }
   },
@@ -155,7 +191,6 @@ export default {
 
     this.axios.get(`http://localhost/api/users/${this.user.id}/orders`)
         .then(response => this.orders = response.data)
-
 
   },
 
@@ -170,12 +205,14 @@ export default {
     endEditing(order) {
       this.faqOrder = null
     },
+
   },
 
 
   components:{
     SupportIcon,
-    Modal,
+    XIcon,
+    modal,
   }
 
 }
