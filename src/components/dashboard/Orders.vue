@@ -12,7 +12,7 @@
               <div v-for="order in orders" :key="order.id" class="py-3 border-b-4 border-indigo-600 " >
                 <div class="bg-white py-3 border-t border-b border-gray-200 shadow-sm sm:border">
                   <div class="py-6 px-4 sm:px-6 lg:grid lg:grid-cols-12 lg:gap-x-8 lg:p-8">
-                    <div class="sm:flex lg:col-span-7">
+                    <div class="sm:flex lg:col-span-7 border-b ">
                       <div class="flex-shrink-0 w-full rounded-lg overflow-hidden sm:aspect-none sm:w-40">
                         <img :src="order.product.image" class="w-full  object-center object-cover sm:w-full" />
                       </div>
@@ -26,7 +26,7 @@
                     </div>
 
 
-                    <div class="sm:flex lg:col-span-7">
+                    <div class="sm:flex lg:col-span-7 mt-5">
                       <dl class="grid grid-cols-2 gap-x-6 text-sm">
                         <div>
                           <dt class="font-medium text-gray-900">Flight info:</dt>
@@ -58,7 +58,7 @@
                     </div>
 
 
-                    <div class="mt-6 lg:mt-0 lg:col-span-5">
+                    <div class="mt-6 lg:mt-0 lg:col-span-5 lg:mt-5">
                       <dl class="grid grid-cols-2 gap-x-6 text-sm">
                         <div>
                           <dt class="font-medium text-gray-900">Pick-up address:</dt>
