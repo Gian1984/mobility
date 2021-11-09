@@ -5,9 +5,6 @@
       <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
         <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
 
-
-
-
           <div v-for="(item, index) in contacts" :key="index" class="px-4 border-b-4 border-indigo-600">
             <div>
               <dl class="sm:divide-y sm:divide-gray-200">

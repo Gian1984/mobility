@@ -7,7 +7,6 @@ import Dashboard from '../views/Dashboard.vue'
 import Chooseyourcategory from '../views/Chooseyourcategory.vue'
 import Options from '../views/Options.vue'
 import Checkout from '../views/Checkout.vue'
-import Payement from '../views/Payement.vue'
 import ForgetPassword from '../views/ForgetPassword'
 import ResetPassword from '../views/ResetPassword.vue'
 import Register from '../components/Register.vue'
@@ -57,11 +56,6 @@ const routes = [
     path: "/Checkout/:id",
     name: "Checkout",
     component:  Checkout,
-  },
-  {
-    path: '/Payement',
-    name: 'Payement',
-    component: Payement,
   },
   {
     path: '/Reservation',

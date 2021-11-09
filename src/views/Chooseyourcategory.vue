@@ -82,7 +82,7 @@
           <div class="mt-6 -mb-6 flow-root border-t border-gray-200 divide-y divide-gray-200">
             <div v-for="(product, index) in total" :key="index" class="py-6 sm:flex">
               <div class="flex space-x-4 sm:min-w-0 sm:flex-1 sm:space-x-6 lg:space-x-8">
-                <img :src="product.image" alt="Choise your car" class="flex-none w-40 h-20 rounded-md object-center object-cover sm:w-3/5 sm:h-3/5" />
+                <img :src="product.image" alt="Choise your car" class="flex-none w-40 rounded-md object-center object-cover sm:w-3/5" />
                 <div class="pt-1.5 min-w-0 flex-1 sm:pt-0">
                   <h3 class="text-sm font-medium text-gray-900">
                     <a>{{ product.name }}</a>
@@ -120,7 +120,6 @@ const steps = [
   { id: '01', name: 'Choose your category', status: 'current' },
   { id: '02', name: 'Options', status: 'upcoming' },
   { id: '03', name: 'Checkout', status: 'upcoming' },
-  { id: '04', name: 'Payement', status: 'upcoming' },
 ]
 
 export default {

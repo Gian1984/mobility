@@ -146,7 +146,7 @@
             <label for="terms" class="text-sm text-gray-500">I have read the terms and conditions and agree to the sale of my personal information to the highest bidder.</label>
           </div>
 
-          <button type="submit" class="mt-6 w-full bg-indigo-600 border border-transparent rounded-md shadow-sm py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:bg-gray-100 disabled:text-gray-500 disabled:cursor-not-allowed">Continue</button>
+          <button type="submit" class="mt-6 w-full bg-indigo-600 border border-transparent rounded-md shadow-sm py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:bg-gray-100 disabled:text-gray-500 disabled:cursor-not-allowed">Pay</button>
         </form>
 
         <div v-if="error  != 0" class="rounded-md bg-red-50 p-4 mt-10">
@@ -216,7 +216,7 @@ const steps = [
   { id: '01', name: 'Choose your category', status: 'complete' },
   { id: '02', name: 'Options', status: 'complete' },
   { id: '03', name: 'Checkout', status: 'current' },
-  { id: '04', name: 'Payement', status: 'upcoming' },
+
 
 ]
 

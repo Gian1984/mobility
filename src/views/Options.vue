@@ -194,7 +194,7 @@
 
 
         <div class="flex justify-end">
-          <button type="submit" class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+          <button type="submit" class="mr-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
             Done
           </button>
         </div>
@@ -211,7 +211,6 @@ const steps = [
   { id: '01', name: 'Choose your category', status: 'complete' },
   { id: '02', name: 'Options', status: 'current' },
   { id: '03', name: 'Checkout', status: 'upcoming' },
-  { id: '04', name: 'Payement', status: 'upcoming' },
 ]
 
 
