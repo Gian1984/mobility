@@ -14,6 +14,7 @@ import Register from '../components/Register.vue'
 import Login from '../components/Login.vue'
 import IncomingContact from '../components/dashboard/IncomingContact.vue'
 import AdminProduct from '../components/dashboard/AdminProduct.vue'
+import PageNotFound from '../views/PageNotFound.vue'
 
 
 const routes = [
@@ -57,11 +58,6 @@ const routes = [
     name: "Checkout",
     component:  Checkout,
   },
-  // {
-  //   path: '/Checkout',
-  //   name: 'Checkout',
-  //   component: Checkout,
-  // },
   {
     path: '/Payement',
     name: 'Payement',
@@ -97,12 +93,11 @@ const routes = [
     name: "AdminProduct",
     component: AdminProduct,
   },
-  // {
-  //   path: "/ProductModal",
-  //   name: "ProductModal",
-  //   component: ProductModal,
-  // },
-
+  {
+    path: "/:catchAll(.*)",
+    name: 'PageNotFound',
+    component: PageNotFound,
+  }
 ]
 
 const router = createRouter({
