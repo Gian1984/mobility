@@ -106,7 +106,7 @@ export default {
       let password_confirmation = this.password_confirmation
       let token = this.$route.params.token
 
-      this.axios.post("http://localhost/api/reset-password", {
+      this.axios.post(process.env.VUE_APP_URL_API + "api/reset-password", {
         token,
         email,
         password,

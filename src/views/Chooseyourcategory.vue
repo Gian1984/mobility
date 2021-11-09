@@ -143,7 +143,7 @@ export default {
   },
 
   mounted(){
-    this.axios.get("http://localhost/api/products/")
+    this.axios.get(process.env.VUE_APP_URL_API + "api/products/")
         .then(response => {
           let productskmprices = response.data
           /*eslint-disable */

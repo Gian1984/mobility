@@ -78,7 +78,7 @@
                           <dt class="font-medium text-gray-900">Pick-up date & time:</dt>
                           <dd class="text-gray-500 space-y-3">
                             <p>
-                              {{ order.date }}
+                              {{ moment(order.date).format("dddd MMMM DD, YYYY [at] HH:mm a") }}
                             </p>
                           </dd>
                           <dt class="mt-3 font-medium text-gray-900">Distance:</dt>
@@ -160,6 +160,7 @@
 <script>
 import { CalendarIcon, LocationMarkerIcon, UsersIcon } from '@heroicons/vue/solid'
 import { CreditCardIcon } from '@heroicons/vue/outline'
+import moment from 'moment'
 
 
 export default {
@@ -169,20 +170,25 @@ export default {
     }
   },
   beforeMount(){
-    this.axios.get('http://localhost/api/orders/').then(response => this.orders = response.data)
+    this.axios.get(process.env.VUE_APP_URL_API + 'api/orders/').then(response => this.orders = response.data)
   },
 
   methods: {
     deliver(index) {
       let order = this.orders[index]
       /*eslint-disable */
-      this.axios.patch(`http://localhost/api/orders/${order.id}/deliver`).then(response => {
+      this.axios.patch(process.env.VUE_APP_URL_API + `api/orders/${order.id}/deliver`).then(response => {
         this.orders[index].is_delivered = 1
         this.$forceUpdate()
       })
     }
   },
 
+  setup() {
+    return {
+      moment,
+    }
+  },
 
   components: {
     CalendarIcon,

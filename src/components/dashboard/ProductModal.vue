@@ -135,7 +135,7 @@ export default {
         let formData = new FormData();
         formData.append("image", this.attachment)
         let headers = {'Content-Type': 'multipart/form-data'}
-        this.axios.post("http://localhost/api/upload-file", formData, {headers}).then(response => {
+        this.axios.post(process.env.VUE_APP_URL_API + "api/upload-file", formData, {headers}).then(response => {
           this.product.image = response.data
           this.$emit('close', this.product)
         })

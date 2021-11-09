@@ -104,14 +104,14 @@ export default {
   methods: {
     answer(index) {
       let item = this.contacts[index]
-      this.axios.patch(`http://localhost/api/contact/${item.id}/replied`).then(response => {
+      this.axios.patch(process.env.VUE_APP_URL_API + `api/contact/${item.id}/replied`).then(response => {
         this.contacts[index].was_answered = 1
         this.$forceUpdate()
       })
     },
 
     removeContact(contactID, index) {
-      this.axios.delete("http://localhost/api/contact/" + contactID)
+      this.axios.delete(process.env.VUE_APP_URL_API + "api/contact/" + contactID)
           .then(response => {
           this.contacts.splice(index)
           })

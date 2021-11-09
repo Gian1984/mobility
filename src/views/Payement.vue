@@ -226,7 +226,7 @@ export default {
     this.cardElement.mount('#card-element');
   },
   beforeMount() {
-    this.axios.get('http://localhost/api/products/'+ this.pid).then(response => this.product = response.data)
+    this.axios.get(process.env.VUE_APP_URL_API + 'api/products/'+ this.pid).then(response => this.product = response.data)
 
     if (localStorage.getItem('bigStore.jwt') != null) {
       this.user = JSON.parse(localStorage.getItem('bigStore.user'))
@@ -271,7 +271,7 @@ export default {
         let is_complete = 1;
         let product_id = this.product.id
 
-        this.axios.post('http://localhost/api/orders/', { is_complete, product_id, customer, amount, payment_method_id})
+        this.axios.post(process.env.VUE_APP_URL_API + 'api/orders/', { is_complete, product_id, customer, amount, payment_method_id})
             .then((response) => {
               this.paymentProcessing = false;
               console.log(response);

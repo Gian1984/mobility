@@ -165,28 +165,41 @@
           </div>
         </div>
 
-        <div class="col-span-6 sm:col-span-6 px-4" v-if="paymentMethod" >
-          <div v-if="alertOpen" class="rounded-md bg-green-50 p-4">
-            <div class="flex">
-              <div class="flex-shrink-0">
-                <CheckCircleIcon class="h-5 w-5 text-green-400" aria-hidden="true" />
-              </div>
-              <div class="ml-3">
-                <p class="text-sm font-medium text-green-800">
-                  Payment successfully handled !
-                </p>
-              </div>
-              <div class="ml-auto pl-3">
-                <div class="-mx-1.5 -my-1.5">
-                  <button v-on:click="closeAlert()" type="button" class="inline-flex bg-green-50 rounded-md p-1.5 text-green-500 hover:bg-green-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-green-50 focus:ring-green-600">
-                    <span class="sr-only">Dismiss</span>
-                    <XIcon class="h-5 w-5" aria-hidden="true" />
-                  </button>
+        <div class="mt-4" v-if="loading">
+          <!-- here put a spinner or whatever you want to indicate that a request is in progress -->
+          <div class="flex justify-center items-center">
+            <div
+                class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-indigo-600"
+            ></div>
+          </div>
+        </div>
+
+        <div v-else>
+          <!-- request finished -->
+          <div class="col-span-6 sm:col-span-6 px-4">
+            <div v-if="alertOpen" class="rounded-md bg-green-50 p-4">
+              <div class="flex">
+                <div class="flex-shrink-0">
+                  <CheckCircleIcon class="h-5 w-5 text-green-400" aria-hidden="true" />
+                </div>
+                <div class="ml-3">
+                  <p class="text-sm font-medium text-green-800">
+                    Payment successfully handled !
+                  </p>
+                </div>
+                <div class="ml-auto pl-3">
+                  <div class="-mx-1.5 -my-1.5">
+                    <button v-on:click="closeAlert()" type="button" class="inline-flex bg-green-50 rounded-md p-1.5 text-green-500 hover:bg-green-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-green-50 focus:ring-green-600">
+                      <span class="sr-only">Dismiss</span>
+                      <XIcon class="h-5 w-5" aria-hidden="true" />
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
+
 
       </div>
     </div>
@@ -227,6 +240,7 @@ export default {
         phone : "",
       },
       user:'',
+      loading: false,
       paymentProcessing: false,
       paymentMethod:'',
       error:'',
@@ -248,7 +262,7 @@ export default {
     this.cardElement.mount('#card-element');
   },
   beforeMount() {
-    this.axios.get('http://localhost/api/products/'+ this.pid).then(response => this.product = response.data)
+    this.axios.get(process.env.VUE_APP_URL_API + 'api/products/'+ this.pid).then(response => this.product = response.data)
 
     if (localStorage.getItem('bigStore.jwt') != null) {
       this.user = JSON.parse(localStorage.getItem('bigStore.user'))
@@ -274,7 +288,7 @@ export default {
 
     async placeOrder(e) {
       e.preventDefault()
-
+      this.loading = true
       this.paymentProcessing = true;
 
 
@@ -297,9 +311,9 @@ export default {
 
       if (error) {
         this.paymentProcessing = false;
+        this.loading = false
         console.error(error);
       } else {
-
         this.paymentMethod = paymentMethod
 
         let transactionID = paymentMethod.id
@@ -331,7 +345,7 @@ export default {
         let is_complete = 1;
         let product_id = setoption.productID
 
-        this.axios.post('http://localhost/api/orders/',
+        this.axios.post(process.env.VUE_APP_URL_API + 'api/orders/',
             {
               transactionID,
               cardBrand,
@@ -359,7 +373,6 @@ export default {
             .then((response) => {
               this.paymentProcessing = false;
               console.log(response);
-              this.$router.push({ name: 'Confirmation' });
             })
             .catch((error) => {
               this.paymentProcessing = false;
@@ -396,7 +409,7 @@ export default {
       let product_id = setoption.productID
 
 
-      this.axios.post('http://localhost/api/order-success',
+      this.axios.post(process.env.VUE_APP_URL_API + 'api/order-success',
           {
             transactionID,
             cardBrand,
@@ -425,7 +438,7 @@ export default {
         this.validation = response.data.message
       }).catch((error)=>{
         this.errors = error
-      });
+      }).finally(() => (this.loading = false) (this.$router.push({path:'/Reservation'}))); // set loading to false when request finish;
     },
 
   },

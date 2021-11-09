@@ -96,7 +96,7 @@ export default {
 
 
   beforeMount() {
-    this.axios.get('http://localhost/api/products/').then(response => this.products = response.data)
+    this.axios.get(process.env.VUE_APP_URL_API + 'api/products/').then(response => this.products = response.data)
   },
   methods: {
     newProduct() {
@@ -117,7 +117,7 @@ export default {
       let pricekm = product.pricekm
       let description = product.description
       /*eslint-disable */
-      this.axios.put(`http://localhost/api/products/${product.id}`, {name, pricehour, pricekm, description})
+      this.axios.put(process.env.VUE_APP_URL_API + `api/products/${product.id}`, {name, pricehour, pricekm, description})
           .then(response => this.products[index] = product)
     },
     addProduct(product) {
@@ -129,7 +129,7 @@ export default {
       let description = product.description
       let image = product.image
 
-      this.axios.post("http://localhost/api/products/", {name, pricehour, pricekm, description, image})
+      this.axios.post(process.env.VUE_APP_URL_API + "api/products/", {name, pricehour, pricekm, description, image})
           .then(response => this.products.push(product))
     }
   },

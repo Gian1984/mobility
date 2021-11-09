@@ -238,7 +238,7 @@ export default {
 
 
   beforeMount() {
-    this.axios.get('http://localhost/api/products/'+ this.pid).then(response => this.product = response.data)
+    this.axios.get(process.env.VUE_APP_URL_API + 'api/products/'+ this.pid).then(response => this.product = response.data)
 
     if (localStorage.getItem('bigStore.jwt') != null) {
       this.user = JSON.parse(localStorage.getItem('bigStore.user'))

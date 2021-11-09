@@ -99,7 +99,7 @@ export default {
 
       let email = this.newsletter
 
-      this.axios.post('http://localhost/api/newsletter', {email}).then(response => {
+      this.axios.post(process.env.VUE_APP_URL_API + 'api/newsletter', {email}).then(response => {
         this.data = response.data
 
         this.message = 'Thanks you! We will keep you up to date.'

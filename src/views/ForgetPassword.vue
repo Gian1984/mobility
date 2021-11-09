@@ -107,7 +107,7 @@ export default {
       if (this.email.length > 0) {
         let email = this.email
 
-        this.axios.post('http://localhost/api/forget-password',{email}).then(response=>{
+        this.axios.post(process.env.VUE_APP_URL_API + 'api/forget-password',{email}).then(response=>{
           this.validation = response.data.message
         }).catch((error)=>{
           this.errors = error

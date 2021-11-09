@@ -116,7 +116,7 @@ export default {
       let phone = this.phone
       let subject = this.subject
       let comment = this.comment
-      this.axios.post('http://localhost/api/upload-contact', {fullname, email, phone, subject, comment}).then(response => {
+      this.axios.post(process.env.VUE_APP_URL_API + 'api/upload-contact', {fullname, email, phone, subject, comment}).then(response => {
         console.log(response.data.subject)
         this.message= "Thanks you! We will answer you soon as possible.";
         this.fullname = "";this.email = "";this.phone = "";this.subject="";this.comment="";

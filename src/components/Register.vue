@@ -410,7 +410,7 @@ export default {
       let zip = this.zip
       let phone = this.phone
 
-      this.axios.post('http://localhost/api/register',
+      this.axios.post(process.env.VUE_APP_URL_API + 'api/register',
           {
             email,
             password,
