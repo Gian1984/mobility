@@ -16,9 +16,7 @@
                 </p>
               </div>
             </div>
-            <div class="mt-16 sm:mt-24 lg:mt-0 lg:col-span-6">
-
-
+            <div class="mt-16 sm:mt-24 lg:mt-0 lg:col-span-6 px-4 sm:px-6">
 
               <div class="min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8">
                 <div class="sm:mx-auto sm:w-full sm:max-w-md">
@@ -83,6 +81,7 @@
                                         <template v-slot="{ inputValue, inputEvents }">
                                           <input
                                               class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                              :masks="masks"
                                               :value="inputValue"
                                               v-on="inputEvents"
                                           />
@@ -243,6 +242,7 @@ import Newsletter from "../components/Newsletter";
 import {  LocationMarkerIcon  } from '@heroicons/vue/outline'
 import { XCircleIcon, XIcon } from '@heroicons/vue/solid'
 import { Calendar, DatePicker } from 'v-calendar';
+import moment from 'moment'
 
 const options =[
   { text: '2', value: 2 },
@@ -344,6 +344,9 @@ export default {
   name: "pink-tabs",
   data() {
     return {
+      masks:{
+        input:'YYYY-MM-DD h:mm A',
+      },
       openTab: 1,
       address:"",
       destination:"",
@@ -402,6 +405,7 @@ export default {
 
       let destinationA = this.address
       let destinationB = this.destination
+      let date = moment(this.date).format("dddd MMMM DD, YYYY [at] HH:mm a")
       let self = this;
 
       let service = new google.maps.DistanceMatrixService();
@@ -424,7 +428,7 @@ export default {
             {id: 2, name: "Drop off address", "value": response.destinationAddresses[0]},
             {id: 3, name: "Temps de trajet", "value": response.rows[0].elements[0].duration['text']},
             {id: 4, name: "Distance km", "value": response.rows[0].elements[0].distance['text']},
-            {id: 5, name: "Date de départ", "value": self.date}
+            {id: 5, name: "Date de départ", "value": date}
           ])
 
           self.$store.commit('setOrderReservation',
@@ -459,6 +463,7 @@ export default {
     }
 
   },
+  /*eslint-disable */
 
   components: {
     Contact,
@@ -478,7 +483,7 @@ export default {
   },
 
   mounted() {
-    /*eslint-disable */
+
     new google.maps.places.Autocomplete(
         document.getElementById('autocomplete1'),
     ),

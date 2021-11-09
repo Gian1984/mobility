@@ -36,7 +36,7 @@
       </li>
       <li>
         <div class="mx-auto p-5" aria-hidden="true">
-          <button @click="$router.go(-1)" class="inline-flex items-center p-1.5 border border-transparent rounded-full shadow-sm text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
+          <button @click="$router.go(-1)" class="inline-flex items-center p-1.5 border border-transparent rounded-full shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
             <ChevronDoubleLeftIcon class="h-6 w-6" aria-hidden="true" />
           </button>
         </div>
