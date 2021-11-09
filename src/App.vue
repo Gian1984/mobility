@@ -25,11 +25,6 @@
             </router-link>
           </div>
           <div class="hidden sm:ml-6 sm:flex sm:items-center">
-            <button type="button" class="bg-white p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-              <span class="sr-only">View notifications</span>
-              <BellIcon class="h-6 w-6" aria-hidden="true" />
-            </button>
-
             <!-- Profile dropdown -->
             <Menu as="div" class="ml-3 relative">
               <div v-if="this.user != null">
@@ -117,7 +112,7 @@
 
   <script>
     import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
-    import { BellIcon, MenuIcon, XIcon, UserCircleIcon } from '@heroicons/vue/outline'
+    import { MenuIcon, XIcon, UserCircleIcon } from '@heroicons/vue/outline'
     import { defineComponent, h } from 'vue'
 
     const navigation = {
@@ -213,7 +208,6 @@
         MenuButton,
         MenuItem,
         MenuItems,
-        BellIcon,
         MenuIcon,
         XIcon,
         UserCircleIcon,
