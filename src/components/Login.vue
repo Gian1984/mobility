@@ -98,7 +98,7 @@ export default {
         let email = this.email
         let password = this.password
 
-        this.axios.post('http://localhost/api/login', {email, password}).then(response => {
+        this.axios.post(process.env.VUE_APP_URL_API + 'api/login', {email, password}).then(response => {
           let user = response.data.user
           let is_admin = user.is_admin
 
