@@ -20,7 +20,7 @@
             <router-link to="/Services" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
               Services
             </router-link>
-            <router-link to="/Reservation" v-show="this.user != null" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+            <router-link to="/Reservation" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
               My reservation
             </router-link>
           </div>
@@ -35,7 +35,7 @@
               <div v-if="this.user != null">
                 <MenuButton class="flex bg-white p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                   <UserCircleIcon class="h-6 w-6" ></UserCircleIcon>
-                  <span class="ml-2">{{ this.user.firstname }} {{ this.user.lastname }}</span>
+                  <span class="ml-2">{{ this.setUser.firstname }} {{ this.setUser.lastname }}</span>
                 </MenuButton>
               </div>
               <div v-else>
@@ -180,7 +180,7 @@
 
       data(){
         return {
-          user:null,
+          user:''
         }
       },
 
@@ -189,10 +189,21 @@
           localStorage.removeItem('bigStore.jwt')
           localStorage.removeItem('bigStore.user')
           this.change()
-          this.user = null
+          this.user = ''
+          this.$store.state.setUSer = ''
           this.$router.push('/')
         }
       },
+
+      computed: {
+
+        setUser:{
+          get(){
+            return this.$store.state.setUser
+          }
+        },
+      },
+
 
       components: {
         Disclosure,
@@ -218,8 +229,10 @@
 
         if (localStorage.getItem('bigStore.jwt') != null) {
           this.user = JSON.parse(localStorage.getItem('bigStore.user'))
+          let user = this.user
           this.axios.defaults.headers.common['Content-Type'] = 'application/json'
           this.axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('bigStore.jwt')
+          this.$store.commit('setUser', user)
         }
 
       },

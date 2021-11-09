@@ -4,12 +4,13 @@ import axios from "axios";
 
 export default createStore({
   state: {
-    contacts: '',
+    contacts:'',
     reservation:'',
     reservationValue:'',
     detailReservation:'',
     setOrderReservation:'',
-    setOption:''
+    setOption:'',
+    setUser:'',
   },
   mutations: {
 
@@ -32,6 +33,10 @@ export default createStore({
 
     setOption(state, option) {
       state.setOption = option
+    },
+
+    setUser(state, user) {
+      state.setUser = user
     }
 
 

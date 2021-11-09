@@ -105,7 +105,9 @@ export default {
           localStorage.setItem('bigStore.user', JSON.stringify(user))
           localStorage.setItem('bigStore.jwt', response.data.token)
 
+
           if (localStorage.getItem('bigStore.jwt') != null) {
+            this.$store.commit('setUser', user)
             this.$emit('loggedIn')
             if (this.$route.params.nextUrl != null) {
               this.$router.push(this.$route.params.nextUrl)
