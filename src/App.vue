@@ -5,7 +5,7 @@
         <div class="flex justify-between h-16">
           <div class="flex">
             <div class="flex-shrink-0 flex items-center">
-              <img class="block lg:hidden h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg" alt="Workflow" />
+              <img class="block lg:hidden h-12 w-auto" src="img/belgalogo.png" alt="belgamobility logo" />
               <img class="hidden lg:block h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-logo-indigo-600-mark-gray-800-text.svg" alt="Workflow" />
             </div>
           </div>
@@ -25,10 +25,7 @@
             </router-link>
           </div>
           <div class="hidden sm:ml-6 sm:flex sm:items-center">
-            <button type="button" class="bg-white p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-              <span class="sr-only">View notifications</span>
-              <img class="h-6 w-6 rounded-full" src="img/wlogo.png" alt="whatsapp" />
-            </button>
+
             <!-- Profile dropdown -->
             <Menu as="div" class="ml-3 relative">
               <div v-if="this.user != null">
@@ -179,7 +176,8 @@
 
       data(){
         return {
-          user:''
+          user:'',
+          wa:false
         }
       },
 
@@ -191,6 +189,10 @@
           this.user = ''
           this.$store.state.setUSer = ''
           this.$router.push('/')
+        },
+
+        waz(){
+          this.wa = true
         }
       },
 

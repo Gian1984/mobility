@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gray-800">
+  <div class="bg-gray-800" style="background-image: url('img/pexels-burak-kebapci-1253049.jpeg'); background-size: cover;">
     <div class="pt-6 pb-16 sm:pb-24">
       <main class="mt-16 sm:mt-24">
         <div class="mx-auto max-w-7xl">
@@ -237,10 +237,10 @@
         <!-- Content area -->
         <div class="pt-12 sm:pt-16 lg:pt-20">
           <h2 class="text-3xl text-gray-900 font-extrabold tracking-tight sm:text-4xl">
-            QUI SOMMES-NOUS ?
+            Qui sommes-nous ?
           </h2>
           <div class="mt-6 text-gray-500 space-y-6">
-            <p class="text-lg">
+            <p>
               Face à un monde en perpétuel changement, votre vie est de plus en plus active. Vos besoins en déplacements augmentent. Vous cherchez une solution de transports à la fois confortable, pratique, dans un environnement agréable ?
               Le service de location de voitures avec un chauffeur privé est la meilleure solution.
               Fort d’une expérience de 7 ans, Belga Mobility a bien compris qu’un service irréprochable dépend avant tout des compétences du chauffeur. C’est pourquoi, nous nous engageons à vous proposer un service de location de voitures avec des chauffeurs experts et flexibles, discrets et chaleureux. Leur objectif : s’adapter à vos besoins professionnels ou privés !
@@ -252,159 +252,80 @@
   </div>
 
 
-
-
-
   <div class="bg-white">
-    <main>
+    <div class="max-w-2xl mx-auto py-12 px-4 sm:px-6 sm:py-12 lg:max-w-7xl lg:px-8">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">Notre vision</h2>
+        <p class="mt-4 text-gray-500">As a digital creative, your laptop or tablet is at the center of your work. Keep your device safe with a fabric sleeve that matches in quality and looks.</p>
+      </div>
 
-      <h1 class="text-4xl font-extrabold text-gray-900 tracking-tight sm:text-5xl text-center">
-        Notre vision
-      </h1>
-
-      <!-- Logo cloud section -->
-      <div class="mt-32">
-        <div class="mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:px-8 lg:max-w-7xl">
-          <div class="lg:grid lg:grid-cols-2 lg:gap-24 lg:items-center">
-            <div>
-              <h2 class="text-3xl font-extrabold text-gray-900 tracking-tight sm:text-4xl">
-                La satisfacion du client
-              </h2>
-              <p class="mt-6 max-w-3xl text-lg leading-7 text-gray-500">
-                Nous sommes conscients que chaque trajet est bien plus qu’un déplacement. C’est pourquoi Belga Mobility cherche à réellement comprendre les besoins de ses clients.
-              </p>
-            </div>
-            <div class="mt-12 grid grid-cols-2 gap-0.5 md:grid-cols-3 lg:mt-0 lg:grid-cols-2">
+      <div class="mt-16 space-y-16">
+        <div v-for="(feature, featureIdx) in features" :key="feature.name" class="flex flex-col-reverse lg:grid lg:grid-cols-12 lg:gap-x-8 lg:items-center">
+          <div :class="[featureIdx % 2 === 0 ? 'lg:col-start-1' : 'lg:col-start-8 xl:col-start-9', 'mt-6 lg:mt-0 lg:row-start-1 lg:col-span-5 xl:col-span-4']">
+            <h3 class="text-lg font-medium text-gray-900">{{ feature.name }}</h3>
+            <p class="mt-2 text-sm text-gray-500">{{ feature.description }}</p>
+          </div>
+          <div :class="[featureIdx % 2 === 0 ? 'lg:col-start-6 xl:col-start-5' : 'lg:col-start-1', 'flex-auto lg:row-start-1 lg:col-span-7 xl:col-span-8']">
+            <div class="aspect-w-5 aspect-h-2 rounded-lg bg-gray-100 overflow-hidden">
+              <img :src="feature.imageSrc" :alt="feature.imageAlt" class="object-center object-cover" />
             </div>
           </div>
         </div>
       </div>
-
-
-
-      <!-- Testimonial/stats section -->
-      <div class="relative mt-2">
-        <div class="lg:mx-auto lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-2 lg:gap-24 lg:items-start">
-          <div class="relative sm:py-16 lg:py-0">
-
-          </div>
-
-          <div class="relative mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:px-0">
-            <!-- Content area -->
-            <div>
-              <h2 class="text-3xl text-gray-900 font-extrabold tracking-tight sm:text-4xl">
-                Une relation long terme
-              </h2>
-              <div class="mt-6 text-gray-500 space-y-6">
-                <p class="text-lg">
-                  Grâce à un service irréprochable, de nombreux clients font appel à nos services régulièrement. Nos chauffeurs apprennent ainsi à vous connaître et facilitent l’ organisation de vos déplacements.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Logo cloud section -->
-      <div class="mt-2">
-        <div class="mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:px-8 lg:max-w-7xl">
-          <div class="lg:grid lg:grid-cols-2 lg:gap-24 lg:items-center">
-            <div>
-              <h2 class="text-3xl font-extrabold text-gray-900 tracking-tight sm:text-4xl">
-                Un savoir faire Belge
-              </h2>
-              <p class="mt-6 max-w-3xl text-lg leading-7 text-gray-500">
-                Société de location de voitures avec chauffeur privé située en Belgique, Belga Mobility est un réel expert du territoire belge.
-              </p>
-            </div>
-            <div class="mt-12 grid grid-cols-2 gap-0.5 md:grid-cols-3 lg:mt-0 lg:grid-cols-2">
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-
-      <!-- Testimonial/stats section -->
-      <div class="relative mt-2">
-        <div class="lg:mx-auto lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-2 lg:gap-24 lg:items-start">
-          <div class="relative sm:py-16 lg:py-0">
-
-
-          </div>
-
-          <div class="relative mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:px-0">
-            <!-- Content area -->
-            <div>
-              <h2 class="text-3xl text-gray-900 font-extrabold tracking-tight sm:text-4xl">
-                Evolution et relation humaine
-              </h2>
-              <div class="mt-6 text-gray-500 space-y-6">
-                <p class="text-lg">
-                  Belga Mobility cherche à constamment améliorer ses services grâce aux nouvelles technologies sans pour autant perdre le lien humain avec ses clients.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-      <!-- Hero section -->
-      <div class="pt-8 overflow-hidden sm:pt-12 lg:relative lg:py-48">
-        <div class="mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:px-8 lg:max-w-7xl lg:grid lg:grid-cols-2 lg:gap-24">
-          <div>
-            <div>
-              <img class="h-11 w-auto" src="https://tailwindui.com/img/logos/workflow-mark.svg?color=rose&shade=500" alt="Workflow" />
-            </div>
-            <div class="mt-20">
-              <div class="mt-6 sm:max-w-xl">
-                <h1 class="text-4xl font-extrabold text-gray-900 tracking-tight sm:text-5xl">
-                  Un fondateur passionné et humain
-                </h1>
-                <p class="mt-6 text-xl text-gray-500">
-                  Abdel a allié ses deux passions pour créer Belga Mobility : les voitures de luxe et son empathie pour les autres !
-                  <br>Son écoute active de ses clients lui permet aujourd’hui de créer un service de location de voitures avec chauffeur privé, 100 % personnalisable. Entrepreneur dans l’âme, il comprend les réalités de ses clients. C’est pourquoi, il cherche continuellement à améliorer l’accessibilité de ses services.
-                </p>
-              </div>
-
-              <div class="mt-6">
-                <div class="inline-flex items-center divide-x divide-gray-300">
-                  <div class="flex-shrink-0 flex pr-5">
-                    <StarIcon class="h-5 w-5 text-yellow-400" aria-hidden="true" />
-                    <StarIcon class="h-5 w-5 text-yellow-400" aria-hidden="true" />
-                    <StarIcon class="h-5 w-5 text-yellow-400" aria-hidden="true" />
-                    <StarIcon class="h-5 w-5 text-yellow-400" aria-hidden="true" />
-                    <StarIcon class="h-5 w-5 text-yellow-400" aria-hidden="true" />
-                  </div>
-                  <div class="min-w-0 flex-1 pl-5 py-1 text-sm text-gray-500 sm:py-3"><span class="font-medium text-gray-900">Abdelilah Jiari</span></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="sm:mx-auto sm:max-w-3xl sm:px-6">
-          <div class="py-12 sm:relative sm:mt-12 sm:py-16 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
-            <div class="hidden sm:block">
-              <div class="absolute inset-y-0 left-1/2 w-screen bg-gray-50 rounded-l-3xl lg:left-80 lg:right-0 lg:w-full" />
-              <svg class="absolute top-8 right-1/2 -mr-3 lg:m-0 lg:left-0" width="404" height="392" fill="none" viewBox="0 0 404 392">
-                <defs>
-                  <pattern id="837c3e70-6c3a-44e6-8854-cc48c737b659" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-                    <rect x="0" y="0" width="4" height="4" class="text-gray-200" fill="currentColor" />
-                  </pattern>
-                </defs>
-                <rect width="404" height="392" fill="url(#837c3e70-6c3a-44e6-8854-cc48c737b659)" />
-              </svg>
-            </div>
-            <div class="relative pl-4 -mr-40 sm:mx-auto sm:max-w-3xl sm:px-0 lg:max-w-none lg:h-full lg:pl-12">
-              <img class="w-full rounded-md shadow-xl ring-1 ring-black ring-opacity-5 lg:h-full lg:w-auto lg:max-w-none" src="img/Abdel.png" alt="" />
-            </div>
-          </div>
-        </div>
-      </div>
-    </main>
+    </div>
   </div>
+
+  <!-- Hero section -->
+  <div class="pt-8 overflow-hidden sm:pt-12 lg:relative lg:py-48">
+    <div class="mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:px-8 lg:max-w-7xl lg:grid lg:grid-cols-2 lg:gap-24">
+      <div>
+        <div class="mt-10">
+          <div class="mt-6 sm:max-w-xl">
+            <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+              Un fondateur passionné et humain
+            </h2>
+            <p class="mt-6 text-gray-500">
+              Abdel a allié ses deux passions pour créer Belga Mobility : les voitures de luxe et son empathie pour les autres !
+              <br>Son écoute active de ses clients lui permet aujourd’hui de créer un service de location de voitures avec chauffeur privé, 100 % personnalisable. Entrepreneur dans l’âme, il comprend les réalités de ses clients. C’est pourquoi, il cherche continuellement à améliorer l’accessibilité de ses services.
+            </p>
+          </div>
+
+          <div class="mt-6">
+            <div class="inline-flex items-center divide-x divide-gray-300">
+              <div class="flex-shrink-0 flex pr-5">
+                <StarIcon class="h-5 w-5 text-yellow-400" aria-hidden="true" />
+                <StarIcon class="h-5 w-5 text-yellow-400" aria-hidden="true" />
+                <StarIcon class="h-5 w-5 text-yellow-400" aria-hidden="true" />
+                <StarIcon class="h-5 w-5 text-yellow-400" aria-hidden="true" />
+                <StarIcon class="h-5 w-5 text-yellow-400" aria-hidden="true" />
+              </div>
+              <div class="min-w-0 flex-1 pl-5 py-1 text-sm text-gray-500 sm:py-3"><span class="font-medium text-gray-900">Abdelilah Jiari</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sm:mx-auto sm:max-w-3xl sm:px-6">
+      <div class="py-12 sm:relative sm:mt-12 sm:py-16 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
+        <div class="hidden sm:block">
+          <div class="absolute inset-y-0 left-1/2 w-screen bg-gray-50 rounded-l-3xl lg:left-80 lg:right-0 lg:w-full" />
+          <svg class="absolute top-8 right-1/2 -mr-3 lg:m-0 lg:left-0" width="404" height="392" fill="none" viewBox="0 0 404 392">
+            <defs>
+              <pattern id="837c3e70-6c3a-44e6-8854-cc48c737b659" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <rect x="0" y="0" width="4" height="4" class="text-gray-200" fill="currentColor" />
+              </pattern>
+            </defs>
+            <rect width="404" height="392" fill="url(#837c3e70-6c3a-44e6-8854-cc48c737b659)" />
+          </svg>
+        </div>
+        <div class="relative pl-4 -mr-40 sm:mx-auto sm:max-w-3xl sm:px-0 lg:max-w-none lg:h-full lg:pl-12">
+          <img class="w-full rounded-md shadow-xl ring-1 ring-black ring-opacity-5 lg:h-full lg:w-auto lg:max-w-none" src="img/Abdel.png" alt="" />
+        </div>
+      </div>
+    </div>
+  </div>
+
 
 
   <Newsletter></Newsletter>
@@ -455,14 +376,38 @@ const options =[
   { text: '96', value: 96 },
 ]
 
-const logos = [
-  { name: 'Transistor', url: 'https://tailwindui.com/img/logos/transistor-logo-gray-400.svg' },
-  { name: 'Mirage', url: 'https://tailwindui.com/img/logos/mirage-logo-gray-400.svg' },
-  { name: 'Tuple', url: 'https://tailwindui.com/img/logos/tuple-logo-gray-400.svg' },
-  { name: 'Laravel', url: 'https://tailwindui.com/img/logos/laravel-logo-gray-400.svg' },
-  { name: 'StaticKit', url: 'https://tailwindui.com/img/logos/statickit-logo-gray-400.svg' },
-  { name: 'Workcation', url: 'https://tailwindui.com/img/logos/workcation-logo-gray-400.svg' },
+
+const features = [
+  {
+    name: 'La satisfacion du client',
+    description:
+        'Nous sommes conscients que chaque trajet est bien plus qu’un déplacement. C’est pourquoi Belga Mobility cherche à réellement comprendre les besoins de ses clients.',
+    imageSrc: 'img/pexels-photo-1399282.jpeg',
+    imageAlt: 'happy client',
+  },
+  {
+    name: 'Une relation long terme',
+    description:
+        'Grâce à un service irréprochable, de nombreux clients font appel à nos services régulièrement. Nos chauffeurs apprennent ainsi à vous connaître et facilitent l’ organisation de vos déplacements.',
+    imageSrc: 'img/pexels-pavel-danilyuk-8424986.jpeg',
+    imageAlt: 'service client',
+  },
+  {
+    name: 'Un savoir faire Belge',
+    description:
+        'Société de location de voitures avec chauffeur privé située en Belgique, Belga Mobility est un réel expert du territoire belge.',
+    imageSrc: 'img/pexels-lilartsy-1595085.jpeg',
+    imageAlt: 'Belgium',
+  },
+  {
+    name: 'Evolution et relation humaine',
+    description:
+        'Belga Mobility cherche à constamment améliorer ses services grâce aux nouvelles technologies sans pour autant perdre le lien humain avec ses clients.',
+    imageSrc: 'img/pexels-olia-danilevich-5313361.jpeg',
+    imageAlt: 'handshake',
+  },
 ]
+
 const footerNavigation = {
   main: [
     { name: 'About', href: '#' },
@@ -693,7 +638,7 @@ export default {
 
   setup() {
     return {
-      logos,
+      features,
       footerNavigation,
       options
     }
