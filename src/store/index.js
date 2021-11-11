@@ -4,7 +4,6 @@ import axios from "axios";
 
 export default createStore({
   state: {
-    contacts:'',
     reservation:'',
     reservationValue:'',
     detailReservation:'',
@@ -13,10 +12,6 @@ export default createStore({
     setUser:'',
   },
   mutations: {
-
-    getContactList(state, contacts) {
-      state.contacts = contacts
-    },
 
     setReservation(state, reservation){
       state.reservation = reservation
@@ -43,14 +38,6 @@ export default createStore({
   },
   actions: {
 
-    getContactList({ commit }) {
-      axios.get('http://localhost/api/contact/').then(response => {
-        commit('getContactList', response.data)
-      })
-          .catch(error => {
-            console.log(error);
-          })
-    },
   },
 
   getters:{

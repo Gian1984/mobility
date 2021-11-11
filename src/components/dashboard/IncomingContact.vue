@@ -5,7 +5,7 @@
       <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
         <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
 
-          <div v-for="(item, index) in contacts" :key="index" class="px-4 border-b-4 border-indigo-600">
+          <div v-for="(item, index) in sortedContacts" :key="index" class="px-4 border-b-4 border-indigo-600">
             <div>
               <dl class="sm:divide-y sm:divide-gray-200">
                 <div class="mt-2 py-2 sm:py-2 sm:grid sm:grid-cols-3 sm:gap-4">
@@ -83,14 +83,40 @@
 import { MailIcon, TrashIcon, CheckIcon, ChevronRightIcon, ChevronDownIcon} from '@heroicons/vue/outline'
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
 import { DotsVerticalIcon } from '@heroicons/vue/solid'
+import axios from "axios";
 
 
 
 
 export default {
 
+  data() {
+    return {
+      contacts : []
+    }
+  },
+
 
   /*eslint-disable */
+  beforeMount() {
+
+      this.axios.get(process.env.VUE_APP_URL_API + 'api/contact/').then(response => {
+        this.contacts = response.data
+      })
+          .catch(error => {
+            console.log(error);
+          })
+
+  },
+
+  computed: {
+    sortedContacts: function() {
+      this.contacts.sort( ( a, b) => {
+        return new Date(b.id) - new Date(a.id);
+      });
+      return this.contacts;
+    }
+  },
 
   methods: {
     answer(index) {
@@ -112,8 +138,6 @@ export default {
           })
     },
 
-
-
   },
 
   components: {
@@ -128,23 +152,6 @@ export default {
     MenuItems,
     DotsVerticalIcon,
   },
-
-  computed: {
-
-    contacts:{
-      get(){
-        return this.$store.state.contacts
-      },
-    }
-  },
-
-
-  created(){
-        this.$store.dispatch('getContactList')
-  },
-
-
-
 
 }
 </script>

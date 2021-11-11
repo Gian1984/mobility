@@ -9,7 +9,7 @@
           <main class="mx-auto">
 
 
-              <div v-for="order in orders" :key="order.id" class="py-3 border-b-4 border-indigo-600 " >
+              <div v-for="order in sortedOrders" :key="order.id" class="py-3 border-b-4 border-indigo-600 " >
                 <div class="bg-white py-3 border-t border-b border-gray-200 shadow-sm sm:border">
                   <div class="py-6 px-4 sm:px-6 lg:grid lg:grid-cols-12 lg:gap-x-8 lg:p-8">
                     <div class="sm:flex lg:col-span-7 border-b ">
@@ -169,8 +169,23 @@ export default {
       orders : []
     }
   },
+
+  /*eslint-disable */
   beforeMount(){
-    this.axios.get(process.env.VUE_APP_URL_API + 'api/orders/').then(response => this.orders = response.data)
+
+    this.axios.get(process.env.VUE_APP_URL_API + 'api/orders/')
+        .then(response =>
+            this.orders = response.data
+        )
+  },
+
+  computed: {
+    sortedOrders: function() {
+      this.orders.sort( ( a, b) => {
+        return new Date(b.id) - new Date(a.id);
+      });
+      return this.orders;
+    }
   },
 
   methods: {
