@@ -25,6 +25,10 @@
             </router-link>
           </div>
           <div class="hidden sm:ml-6 sm:flex sm:items-center">
+            <button type="button" class="bg-white p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+              <span class="sr-only">View notifications</span>
+              <img class="h-6 w-6 rounded-full" src="img/wlogo.png" alt="whatsapp" />
+            </button>
             <!-- Profile dropdown -->
             <Menu as="div" class="ml-3 relative">
               <div v-if="this.user != null">

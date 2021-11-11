@@ -83,7 +83,6 @@
 import { MailIcon, TrashIcon, CheckIcon, ChevronRightIcon, ChevronDownIcon} from '@heroicons/vue/outline'
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
 import { DotsVerticalIcon } from '@heroicons/vue/solid'
-import axios from "axios";
 
 
 
