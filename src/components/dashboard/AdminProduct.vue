@@ -1,6 +1,6 @@
 <template>
 
-    <h1 class="mt-10 mb-4 p-2 font-bold">Moddify & add product</h1>
+    <h1 class="mt-10 mb-4 p-2 font-bold">Modifier ou ajouter un produit</h1>
 
 
 
@@ -24,11 +24,11 @@
                       <div class="sm:flex">
                         <p class="flex items-center text-sm text-gray-500">
                           <MapIcon  class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" aria-hidden="true" />
-                          Price / KM € <input v-model="product.pricekm" >
+                          Prix / KM € <input v-model="product.pricekm" >
                         </p>
                         <p class="mt-2 flex items-center text-sm text-gray-500 sm:mt-0 sm:ml-6">
                           <ClockIcon class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" aria-hidden="true" />
-                           Price / Hour € <input v-model="product.pricehour" >
+                           Prix / Hour € <input v-model="product.pricehour" >
                         </p>
                         <p class="mt-2 flex items-center text-sm text-gray-500 sm:mt-0 sm:ml-6">
                           <DocumentTextIcon class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" aria-hidden="true" />

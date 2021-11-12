@@ -119,14 +119,12 @@ export default {
       let product_id = this.order.product_id
       let user_id = this.order.user_id
       let order_id = this.order.id
-      let quantity = this.order.quantity
-      let address = this.order.address
       let name = this.name
       let phone = this.phone
       let email = this.email
       let question =  this.question
       /*eslint-disable */
-      this.axios.post(process.env.VUE_APP_URL_API + "api/upload-faq", { product_id, user_id, order_id, quantity, address,name, phone, email, question }).then(response => {
+      this.axios.post(process.env.VUE_APP_URL_API + "api/upload-faq", { product_id, user_id, order_id, name, phone, email, question }).then(response => {
         this.$emit('close', this.order)
         this.question = ""
       })

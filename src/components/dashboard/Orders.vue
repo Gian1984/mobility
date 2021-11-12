@@ -1,7 +1,7 @@
 <template>
 
   <div class="flex flex-col px-4">
-    <h1 class="mt-10 font-bold">Order Active</h1>
+    <h1 class="mt-10 font-bold">Commandes actives</h1>
 
 
 <!--  start search box-->
@@ -11,7 +11,7 @@
     <div>
       <p class="mb-2 text-right" v-if="searchQuery && filterOrders.length > 1 ">{{filterOrders.length}} results</p>
       <div v-if="!searchQuery" class="list-reset bg-white p-4 border border-solid border-grey-light">
-          <h2 class="text-indigo-darker">Please use the search above to find customer's order</h2>
+          <h2 class="text-indigo-darker">Rechercher la commande en saisissant le nom de famille</h2>
       </div>
 
       <div v-else class="border-2 border-red-600 mt-2">
@@ -25,7 +25,7 @@
 
                 <div class="mt-6 sm:mt-0 sm:ml-6">
                   <h1 class="text-base font-xlarge text-gray-900">
-                    Order Reference n° {{ order.id }}
+                    Référence de l'achat n° {{ order.id }}
                   </h1>
                   <p class="text-gray-500 font-medium">{{order.product.name}}</p>
                 </div>
@@ -39,7 +39,7 @@
                     <dd class="text-gray-500">
                       <span class="block">{{ order.flight}}</span>
                     </dd>
-                    <dt class="font-medium text-gray-900 mt-3">Additional passenger:</dt>
+                    <dt class="font-medium text-gray-900 mt-3">Passager supplémentaire:</dt>
                     <dd class="text-gray-500">
                       <span class="block">{{order.firstname}} {{order.lastname}}</span>
                       <span class="block">Phone: {{order.phone}}</span>
@@ -120,7 +120,7 @@
                 </dd>
               </div>
               <div>
-                <dt class="font-medium text-gray-900">Payment information:</dt>
+                <dt class="font-medium text-gray-900">Informations de paiement:</dt>
                 <div class="mt-3">
                   <dd class="-ml-4 -mt-4 flex flex-wrap">
 
@@ -132,7 +132,7 @@
                         Brand:  <span class="uppercase">{{ order.cardBrand }}</span>
                       </p>
                       <p class="text-gray-500">
-                        Ending with: {{ order.lastFour }}
+                        Termine par: {{ order.lastFour }}
                       </p>
                       <p class="text-gray-500">
                         Expire: {{order.expire}}
@@ -149,7 +149,7 @@
                 <dd class="font-medium text-indigo-600">{{ order.transactionID }}</dd>
               </div>
               <div class="pt-4 flex items-center justify-between">
-                <dt class="font-medium text-gray-900">Order total</dt>
+                <dt class="font-medium text-gray-900">Total de la commande</dt>
                 <dd class="font-medium text-indigo-600">€ {{order.amount/100}}</dd>
               </div>
             </dl>
@@ -158,7 +158,7 @@
       </div>
 
       <div v-if="filterOrders.length == 0" class="list-reset bg-white p-4 border border-solid border-grey-light">
-        <h2 class="text-indigo-darker">Sorry, there seem to be no posts under your criteria</h2>
+        <h2 class="text-indigo-darker">Désolé, il semble qu'il n'y ait aucun message correspondant à vos critères.</h2>
       </div>
 
     </div>
@@ -182,7 +182,7 @@
 
                       <div class="mt-6 sm:mt-0 sm:ml-6">
                         <h1 class="text-base font-xlarge text-gray-900">
-                          Order Reference n° {{ order.id }}
+                          Référence de l'achat n° {{ order.id }}
                         </h1>
                         <p class="text-gray-500 font-medium">{{order.product.name}}</p>
                       </div>
@@ -196,7 +196,7 @@
                           <dd class="text-gray-500">
                             <span class="block">{{ order.flight}}</span>
                           </dd>
-                          <dt class="font-medium text-gray-900 mt-3">Additional passenger:</dt>
+                          <dt class="font-medium text-gray-900 mt-3">Passager supplémentaire:</dt>
                           <dd class="text-gray-500">
                             <span class="block">{{order.firstname}} {{order.lastname}}</span>
                             <span class="block">Phone: {{order.phone}}</span>
@@ -306,7 +306,7 @@
                       <dd class="font-medium text-indigo-600">{{ order.transactionID }}</dd>
                     </div>
                     <div class="pt-4 flex items-center justify-between">
-                      <dt class="font-medium text-gray-900">Order total</dt>
+                      <dt class="font-medium text-gray-900">Total de la commande</dt>
                       <dd class="font-medium text-indigo-600">€ {{order.amount/100}}</dd>
                     </div>
                   </dl>
@@ -351,9 +351,9 @@ export default {
         const myRegex = new RegExp(this.searchQuery, 'gi');
         let resultFacet = this.facet;
         if (resultFacet.length == 0) {
-          return (result.user.firstname.match(myRegex) || result.user.firstname.match(myRegex))
+          return (result.user.lastname.match(myRegex) || result.user.lastname.match(myRegex))
         }
-        return (result.user.firstname.match(myRegex) || result.user.firstname.match(myRegex)) && (resultFacet.includes(result.user_id));
+        return (result.user.lastname.match(myRegex) || result.user.lastname.match(myRegex)) && (resultFacet.includes(result.user_id));
       })
     },
 

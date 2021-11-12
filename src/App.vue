@@ -1,12 +1,13 @@
 
   <template>
-    <Disclosure as="nav" class="bg-white shadow" v-slot="{ open }">
+    <Disclosure as="nav" class="bg-white shadow sticky top-0 z-50" v-slot="{ open }">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
           <div class="flex">
             <div class="flex-shrink-0 flex items-center">
               <img class="block lg:hidden h-12 w-auto" src="img/belgalogo.png" alt="belgamobility logo" />
-              <img class="hidden lg:block h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-logo-indigo-600-mark-gray-800-text.svg" alt="Workflow" />
+              <img class="hidden lg:block h-8 w-auto" src="img/belgalogo.png" alt="Workflow" />
+              <p class="pl-2 font-extrabold">Belga mobility</p>
             </div>
           </div>
           <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
@@ -25,6 +26,10 @@
             </router-link>
           </div>
           <div class="hidden sm:ml-6 sm:flex sm:items-center">
+            <a href=" https://wa.me/00393494257041" type="button" class="p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+              <span class="sr-only">View notifications</span>
+              <img class="h-8 w-8 rounded-full" src="img/wlogo.png" alt="whatsapp" />
+            </a>
 
             <!-- Profile dropdown -->
             <Menu as="div" class="ml-3 relative">

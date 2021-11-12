@@ -1,6 +1,7 @@
 <template>
   <div class="mx-auto max-w-7xl">
     <IncomingContact></IncomingContact>
+    <Faqs></Faqs>
     <AdminProduct></AdminProduct>
     <Users></Users>
     <Orders></Orders>
@@ -12,6 +13,7 @@ import IncomingContact from '../components/dashboard/IncomingContact'
 import AdminProduct from '../components/dashboard/AdminProduct'
 import Users from '../components/dashboard/Users'
 import Orders from '../components/dashboard/Orders'
+import Faqs from '../components/dashboard/Faqs'
 
 export default {
   data() {
@@ -24,7 +26,8 @@ export default {
     IncomingContact,
     AdminProduct,
     Users,
-    Orders
+    Orders,
+    Faqs
   },
 
 
