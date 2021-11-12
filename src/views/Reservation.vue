@@ -215,6 +215,7 @@ export default {
   },
 
   methods:{
+
     /*eslint-disable */
     endEditing(order) {
       this.faqOrder = null

@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gray-800">
+  <div class="bg-gray-800" style="background-image: url('img/highway.jpg'); background-size: cover;">
     <div class="pt-6 pb-16 sm:pb-24">
       <main class="mt-16 sm:mt-24">
         <div class="mx-auto max-w-7xl">
