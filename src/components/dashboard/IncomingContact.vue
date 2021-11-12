@@ -129,7 +129,7 @@ export default {
     removeContact(contactID, index) {
       this.axios.delete(process.env.VUE_APP_URL_API + "api/contact/" + contactID)
           .then(response => {
-          this.contacts.splice(index)
+            this.contacts.splice(index, 1)
           })
 
           .catch(error => {
