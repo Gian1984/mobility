@@ -96,7 +96,7 @@ export default {
 
 
       this.axios.delete(process.env.VUE_APP_URL_API + "api/faqs/"+ faqID)
-          .then( response => this.faqs.splice(index))
+          .then( response => this.faqs.splice(index, 1))
 
           .catch(error =>{
             console.log(error);
