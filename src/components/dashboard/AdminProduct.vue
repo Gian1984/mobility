@@ -1,82 +1,100 @@
 <template>
-  <div class="flex flex-col mb-10 max-h-screen ">
+
     <h1 class="mt-10 mb-4 p-2 font-bold">Moddify & add product</h1>
-    <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8 pb-2">
-      <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-        <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-          <table class="min-w-full divide-y divide-gray-200">
-            <thead class="bg-gray-50">
-            <tr>
-              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                Product
-              </th>
-              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                Description
-              </th>
-              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                Price / Km
-              </th>
-              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                Price / Hour
-              </th>
-              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                Action
-              </th>
-            </tr>
-            </thead>
-            <tbody class="bg-white divide-y divide-gray-200">
-            <tr v-for="(product,index) in products" v-bind:key="index">
-              <td class="px-6 py-4 whitespace-nowrap">
-                <div class="flex items-center">
-                  <div class="flex-shrink-0 h-10 w-10">
-                    <img class="h-10 w-10 rounded-full" :src="product.image" alt="" />
-                  </div>
-                  <div class="ml-4">
-                    <div class="text-xs font-medium text-gray-900">
-                      Product ref. n° {{ product.id }}
-                    </div>
-                    <div class="text-sm text-gray-500">
-                      {{ product.name }}
-                    </div>
-                  </div>
-                </div>
-              </td>
 
-              <div class="border border-black p-2 m-2 text-xs">
-                <p class="text-gray-500 p-1">{{ product.description }}</p>
-              </div>
 
-              <td class="px-6 py-4 whitespace-nowrap text-xs text-gray-500">
-                € <input v-model="product.pricekm" >
-              </td>
-              <td class="px-6 py-4 whitespace-nowrap text-xs text-gray-500">
-                € <input v-model="product.pricehour" >
-              </td>
-              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                <button type="button" @click="editingItem = product"  class="inline-flex items-center px-3 py-2 border border-transparent shadow-sm text-sm leading-4 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                  Edit
-                  <ExternalLinkIcon class="ml-2 -mr-0.5 h-4 w-4" aria-hidden="true" />
-                </button>
-              </td>
-            </tr>
-            </tbody>
-          </table>
+
+
+
+
+          <div class="bg-white shadow overflow-hidden sm:rounded-md">
+            <ul role="list" class="divide-y divide-gray-200">
+              <li v-for="(product,index) in products" v-bind:key="index">
+                  <div class="px-4 py-4 sm:px-6">
+                    <div class="flex items-center justify-between">
+                      <p class="text-sm font-medium text-indigo-600 truncate">
+                        {{ product.name }} <br>
+                        Ref. n° {{ product.id }}
+                      </p>
+                      <div class="flex-shrink-0 h-10">
+                        <img class="h-10 rounded-full" :src="product.image" alt="" />
+                      </div>
+                    </div>
+                    <div class="mt-2 sm:flex sm:justify-between">
+                      <div class="sm:flex">
+                        <p class="flex items-center text-sm text-gray-500">
+                          <MapIcon  class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" aria-hidden="true" />
+                          Price / KM € <input v-model="product.pricekm" >
+                        </p>
+                        <p class="mt-2 flex items-center text-sm text-gray-500 sm:mt-0 sm:ml-6">
+                          <ClockIcon class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" aria-hidden="true" />
+                           Price / Hour € <input v-model="product.pricehour" >
+                        </p>
+                        <p class="mt-2 flex items-center text-sm text-gray-500 sm:mt-0 sm:ml-6">
+                          <DocumentTextIcon class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" aria-hidden="true" />
+                          {{ product.description }}
+                        </p>
+                      </div>
+
+                      <div class="sm:flex mt-2">
+                        <button type="button" @click="editingItem = product"  class="inline-flex items-center px-3 py-2 border border-transparent shadow-sm text-sm leading-4 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                          Edit
+                          <ExternalLinkIcon class="ml-2 -mr-0.5 h-4 w-4" aria-hidden="true" />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+              </li>
+            </ul>
+          </div>
+
           <ProductModal @close="endEditing" :product="editingItem" v-show="editingItem != null"></ProductModal>
           <ProductModal @close="addProduct"  :product="addingProduct" v-show="addingProduct != null"></ProductModal>
-        </div>
+
         <button type="button" @click="newProduct"  class="mt-10 inline-flex items-center px-3 py-2 border border-transparent shadow-sm text-sm leading-4 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
           Add Product
           <PlusCircleIcon class="ml-2 -mr-0.5 h-4 w-4" aria-hidden="true" />
         </button>
-      </div>
-    </div>
-  </div>
+
+
 
 </template>
 
 <script>
 import { ExternalLinkIcon, PlusCircleIcon } from '@heroicons/vue/outline'
+import { DocumentTextIcon, ClockIcon, MapIcon } from '@heroicons/vue/outline'
 import ProductModal from '../dashboard/ProductModal.vue'
+
+
+const positions = [
+  {
+    id: 1,
+    title: 'Back End Developer',
+    type: 'Full-time',
+    location: 'Remote',
+    department: 'Engineering',
+    closeDate: '2020-01-07',
+    closeDateFull: 'January 7, 2020',
+  },
+  {
+    id: 2,
+    title: 'Front End Developer',
+    type: 'Full-time',
+    location: 'Remote',
+    department: 'Engineering',
+    closeDate: '2020-01-07',
+    closeDateFull: 'January 7, 2020',
+  },
+  {
+    id: 3,
+    title: 'User Interface Designer',
+    type: 'Full-time',
+    location: 'Remote',
+    department: 'Design',
+    closeDate: '2020-01-14',
+    closeDateFull: 'January 14, 2020',
+  },
+]
 
 
 export default {
@@ -88,10 +106,19 @@ export default {
     }
   },
 
+  setup() {
+    return {
+      positions,
+    }
+  },
+
   components: {
     ProductModal,
     ExternalLinkIcon,
-    PlusCircleIcon
+    PlusCircleIcon,
+    DocumentTextIcon,
+    ClockIcon,
+    MapIcon
   },
 
 
