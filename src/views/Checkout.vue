@@ -116,24 +116,10 @@
         </div>
 
         <form @submit.prevent="placeOrder" class="mt-6">
-          <h2 class="text-lg font-medium text-gray-900">Payment information</h2>
+          <h2 class="text-lg font-medium text-gray-900">Informations de paiement</h2>
 
           <div class="mt-6">
-            <label for="email-address" class="block text-sm font-medium text-gray-700">Email address</label>
-            <div class="mt-1">
-              <input v-model="customer.email" type="email" id="email-address" name="email-address" autocomplete="email" class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
-            </div>
-          </div>
-
-          <div class="mt-6">
-            <label for="phone" class="block text-sm font-medium text-gray-700">Phone number</label>
-            <div class="mt-1">
-              <input v-model="customer.phone" type="text" name="phone" id="phone" autocomplete="tel" class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
-            </div>
-          </div>
-
-          <div class="mt-6">
-            <label for="card-number" class="block text-sm font-medium text-gray-700">Card number</label>
+            <label for="card-number" class="block text-sm font-medium text-gray-700">Numéro de carte</label>
             <div class="mt-1">
               <div id="card-element"></div>
             </div>
@@ -143,7 +129,7 @@
             <div class="flex items-center h-5">
               <input id="terms" name="terms" type="checkbox" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500" />
             </div>
-            <label for="terms" class="text-sm text-gray-500">I have read the terms and conditions and agree to the sale of my personal information to the highest bidder.</label>
+            <label for="terms" class="text-sm text-gray-500">J'ai lu les termes et conditions et j'accepte la vente de mes informations personnelles au plus offrant.</label>
           </div>
 
           <button type="submit" class="mt-6 w-full bg-indigo-600 border border-transparent rounded-md shadow-sm py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:bg-gray-100 disabled:text-gray-500 disabled:cursor-not-allowed">Pay</button>

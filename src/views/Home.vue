@@ -263,7 +263,7 @@
           Services
         </p>
         <p class="mt-5 mx-auto max-w-prose text-xl text-gray-500">
-          Phasellus lorem quam molestie id quisque diam aenean nulla in. Accumsan in quis quis nunc, ullamcorper malesuada. Eleifend condimentum id viverra nulla.
+          Expérimentée et compétente, notre équipe de chauffeurs « assistant-personnel » ne considère pas son métier comme étant uniquement le transport de passagers. Les chauffeurs vous offrent un service proactif et attentionné, en toutes circonstances.
         </p>
       </div>
       <div class="mt-12 mx-auto max-w-md px-4 grid gap-8 sm:max-w-lg sm:px-6 lg:px-8 lg:grid-cols-3 lg:max-w-7xl">
@@ -498,8 +498,8 @@ const testimonials = [
     id: 1,
     rating: 5,
     quote:
-        'Meilleure pizza ever. La pate est incroyable et les ingrédients aussi. La Boscaiola est une tuerie avec sa scamorza fumée. Je conseille vivement. Le personnel est super sympa et attentionné même quand il s\'agit du rush et que l\'on commande à emporter.',
-    attribution: 'Florian Durie',
+        'Suite à voyage d\'affaires de Bruxelles vers Paris , pendant la crise du corona virus, que j\'ai eu recours à cette société. Avant le service, la société nous a fait parvenir les consignes à respecter en Belgique et en France et ont mis à notre disposition des masque chirurgicaux et du gel hydro-alcoolique . Conduite très professionnelle, chauffeur souriant et serviable. Je recommande vivement!!',
+    attribution: 'Arthur B',
   },
   {
     id: 2,

@@ -34,7 +34,7 @@
             <!-- Profile dropdown -->
             <Menu as="div" class="ml-3 relative">
               <div v-if="this.user != null">
-                <MenuButton class="flex bg-white p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                <MenuButton class="flex bg-white p-1 rounded-full text-gray-500 hover:text-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 font-medium">
                   <UserCircleIcon class="h-6 w-6" ></UserCircleIcon>
                   <span class="ml-2">{{ this.setUser.firstname }} {{ this.setUser.lastname }}</span>
                 </MenuButton>

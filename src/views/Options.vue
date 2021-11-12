@@ -62,16 +62,15 @@
 
 <!--  Options form-->
 
-  {{detailReservation}}
 
   <form @submit.prevent="handleSubmit">
       <div class="space-y-6 max-w-5xl mx-auto mt-10">
         <div class="bg-white shadow px-4 py-5 sm:rounded-lg sm:p-6">
           <div class="md:grid md:grid-cols-3 md:gap-6">
             <div class="md:col-span-1">
-              <h3 class="text-lg font-medium leading-6 text-gray-900">Airport pickup details</h3>
+              <h3 class="text-lg font-medium leading-6 text-gray-900">Détails de la prise en charge à l'aéroport</h3>
               <p class="mt-1 text-sm text-gray-500">
-                Enter your flight number so our chauffeur can track the status of your flight and pick you up when you arrive, even if your flight is delayed.
+                Entrez votre numéro de vol afin que notre chauffeur privé puisse suivre l'état de votre vol et venir vous chercher à votre arrivée, même si votre vol est retardé.
               </p>
             </div>
             <div class="mt-5 md:mt-0 md:col-span-2">
@@ -93,10 +92,7 @@
         <div class="bg-white shadow px-4 py-5 sm:rounded-lg sm:p-6">
           <div class="md:grid md:grid-cols-3 md:gap-6">
             <div class="md:col-span-1">
-              <h3 class="text-lg font-medium leading-6 text-gray-900">Additional info</h3>
-              <p class="mt-1 text-sm text-gray-500">
-                Enter your flight number so our chauffeur can track the status of your flight and pick you up when you arrive, even if your flight is delayed.
-              </p>
+              <h3 class="text-lg font-medium leading-6 text-gray-900">Information additionnelle</h3>
             </div>
             <div class="mt-5 md:mt-0 md:col-span-2">
               <div class="space-y-6">
@@ -108,19 +104,19 @@
                 </div>
 
                 <div class="col-span-6 sm:col-span-3">
-                  <label for="reference-code" class="block text-sm font-medium text-gray-700">Your reference code</label>
+                  <label for="reference-code" class="block text-sm font-medium text-gray-700">Votre code de référence</label>
                   <input v-model="referencecode" type="text" name="reference-code" id="reference-code" autocomplete="reference-code" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
                 </div>
 
                 <div>
                   <label for="notes" class="block text-sm font-medium text-gray-700">
-                    Notes for the chauffeur
+                    Notes pour le chauffeur
                   </label>
                   <div class="mt-1">
                     <textarea v-model="notes" id="notes" name="notes" rows="3" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-300 rounded-md" placeholder="Any special request (child car seat..) ?" />
                   </div>
                   <p class="mt-2 text-sm text-gray-500">
-                    Help us provide you with a better service and add any special requests. Please don't include any confidential information.
+                    Aidez-nous à vous fournir un meilleur service et ajoutez des demandes spéciales. Veuillez ne pas inclure d'informations confidentielles.
                   </p>
                 </div>
               </div>
@@ -143,7 +139,7 @@
                         <input v-model="checked" id="comments" name="comments" type="checkbox" checked="" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded" />
                       </div>
                       <div class="ml-3 text-sm">
-                        <label for="comments" class="font-medium text-gray-700">Do you want to book someone else?</label>
+                        <label for="comments" class="font-medium text-gray-700">Voulez-vous ajouter un autre passager?</label>
                       </div>
                     </div>
                   </div>
@@ -157,32 +153,29 @@
         <div v-if="checked" class="bg-white shadow px-4 py-5 sm:rounded-lg sm:p-6">
           <div class="md:grid md:grid-cols-3 md:gap-6">
             <div class="md:col-span-1">
-              <h3 class="text-lg font-medium leading-6 text-gray-900">Personal Information</h3>
-              <p class="mt-1 text-sm text-gray-500">
-                Use a permanent address where you can receive mail.
-              </p>
+              <h3 class="text-lg font-medium leading-6 text-gray-900">Informations personnelles</h3>
             </div>
             <div class="mt-5 md:mt-0 md:col-span-2">
               <div>
                 <div class="grid grid-cols-6 gap-6">
 
                   <div class="col-span-6 sm:col-span-3">
-                    <label for="first-name" class="block text-sm font-medium text-gray-700">First name</label>
+                    <label for="first-name" class="block text-sm font-medium text-gray-700">Prénom</label>
                     <input v-model="firstname" type="text" name="first-name" id="first-name" autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
                   </div>
 
                   <div class="col-span-6 sm:col-span-3">
-                    <label for="last-name" class="block text-sm font-medium text-gray-700">Last name</label>
-                    <input v-model="lastname" type="text" name="last-name" id="last-name" autocomplete="family-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                    <label for="last-name" class="block text-sm font-medium text-gray-700">Nom de famille</label>
+                    <input v-model="lastname" type="text" name="last-name" id="last-name" autocomplete="last-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
                   </div>
 
                   <div class="col-span-6 sm:col-span-3">
-                    <label for="email-address" class="block text-sm font-medium text-gray-700">Email address</label>
+                    <label for="email-address" class="block text-sm font-medium text-gray-700">Adresse e-mail</label>
                     <input v-model="email" type="text" name="email-address" id="email-address" autocomplete="email" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
                   </div>
 
                   <div class="col-span-6 sm:col-span-3">
-                    <label for="street-address" class="block text-sm font-medium text-gray-700">Phone Number</label>
+                    <label for="street-address" class="block text-sm font-medium text-gray-700">Numéro de téléphone</label>
                     <input v-model="phone" type="text" name="phone" id="phone" autocomplete="phone" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
                   </div>
 
@@ -195,7 +188,7 @@
 
         <div class="flex justify-end">
           <button type="submit" class="mr-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-            Done
+            Suivant
           </button>
         </div>
       </div>

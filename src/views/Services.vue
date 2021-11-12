@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gray-800">
+  <div class="bg-gray-800" style="background-image: url('img/pexels-pixabay-417018.jpeg'); background-size: cover;">
     <div class="pt-6 pb-16 sm:pb-24">
       <main class="mt-16 sm:mt-24">
         <div class="mx-auto max-w-7xl">
@@ -218,7 +218,7 @@
                   <div class="text-lg leading-6 font-medium space-y-1">
                     <h3>{{ person.name }}</h3>
                   </div>
-                  <div class="text-lg">
+                  <div>
                     <p class="text-gray-500">{{ person.bio }}</p>
                   </div>
                 </div>
