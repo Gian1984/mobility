@@ -80,7 +80,7 @@
                                       <v-date-picker v-model="date" mode="dateTime" is24hr>
                                         <template v-slot="{ inputValue, inputEvents }">
                                           <input
-                                              class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                              class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                                               :value="inputValue"
                                               v-on="inputEvents"
                                           />
@@ -471,23 +471,23 @@ const blogPosts = [
 const incentives = [
   {
     name: 'Relation de confiance',
-    imageSrc: 'https://tailwindui.com/img/ecommerce/icons/icon-shipping-simple.svg',
+    imageSrc: 'img/checkmark-male-user.png',
     description: "Notre chauffeur apprend à vous connaître et assure une présence fluide et réactive.",
   },
   {
     name: 'Disponibilité continue',
-    imageSrc: 'https://tailwindui.com/img/ecommerce/icons/icon-warranty-simple.svg',
+    imageSrc: 'img/24-hour.png',
     description: "Il se rend disponible comme point de contact et vous aide à facilement coordonner vos besoins de transports.",
   },
   {
     name: 'Flexibilité',
-    imageSrc: 'https://tailwindui.com/img/ecommerce/icons/icon-exchange-simple.svg',
+    imageSrc: 'img/convert-arrow.png',
     description:
         "Expert de la route, le chauffeur vous aide à faire face aux imprévus temporels ou logistiques.",
   },
   {
     name: 'Assurance d\'un travail accompli',
-    imageSrc: 'https://tailwindui.com/img/ecommerce/icons/icon-exchange-simple.svg',
+    imageSrc: 'img/in-progress.png',
     description:
         "Fiable, le chauffeur s’assure que le transport se déroule dans un environnement sécurisant et familial à la fin de la mission.",
   },
