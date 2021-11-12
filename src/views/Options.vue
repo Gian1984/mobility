@@ -140,7 +140,7 @@
                   <div class="space-y-4 mt-4 md:mt-0 lg:mt-0">
                     <div class="flex items-start">
                       <div class="h-5 flex items-center">
-                        <input v-model="check" id="comments" name="comments" type="checkbox" checked="" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded" />
+                        <input v-model="checked" id="comments" name="comments" type="checkbox" checked="" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded" />
                       </div>
                       <div class="ml-3 text-sm">
                         <label for="comments" class="font-medium text-gray-700">Do you want to book someone else?</label>
@@ -154,7 +154,7 @@
         </div>
 
 
-        <div class="bg-white shadow px-4 py-5 sm:rounded-lg sm:p-6">
+        <div v-if="checked" class="bg-white shadow px-4 py-5 sm:rounded-lg sm:p-6">
           <div class="md:grid md:grid-cols-3 md:gap-6">
             <div class="md:col-span-1">
               <h3 class="text-lg font-medium leading-6 text-gray-900">Personal Information</h3>
@@ -220,7 +220,7 @@ export default {
 
   data(){
     return {
-      check:false,
+      checked: false,
       flight:'',
       pickupsign:'',
       referencecode:'',

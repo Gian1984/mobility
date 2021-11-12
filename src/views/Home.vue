@@ -338,8 +338,8 @@
         <h2 id="sale-heading" class="mt-2 text-3xl font-extrabold text-gray-900 tracking-tight sm:text-4xl">
           Votre avis est très important pour nous!
         </h2>
-        <p class="mt-4 max-w-xl mx-auto text-2xl text-gray-600" id="text_comment">Nous vous demandons de laisser un commentaire. Parce que vos commentaires sont notre meilleure publicité. Merci !</p>
-        <a href="https://fr.tripadvisor.be/Restaurant_Review-g1136493-d19872077-Reviews-PizzaVino-Ixelles_Brussels.html" class="inline-flex items-center text-white bg-transparent rounded-full p-1 pr-2 sm:text-base lg:text-sm xl:text-base hover:text-gray-200">
+        <p class="mt-4 max-w-xl mx-auto text-xl text-gray-600" id="text_comment">Nous vous demandons de laisser un commentaire. Parce que vos commentaires sont notre meilleure publicité. Merci !</p>
+        <a href="https://www.tripadvisor.it/Attraction_Review-g188644-d20363596-Reviews-BELGA_MOBILITY-Brussels.html" class="inline-flex items-center text-white bg-transparent rounded-full p-1 pr-2 sm:text-base lg:text-sm xl:text-base hover:text-gray-200">
           <span class="rounded-full"><img class="h-28 mx-auto" src="img/Tripadvisor-Logo.png" alt="tripadvisor" /></span>
           <ChevronRightIcon class=" w-5 h-5 text-black" aria-hidden="true" />
         </a>
@@ -362,7 +362,7 @@
                   <StarIcon v-for="rating in [0, 1, 2, 3, 4]" :key="rating" :class="[testimonial.rating > rating ? 'text-yellow-400' : 'text-gray-200', 'h-5 w-5 flex-shrink-0']" aria-hidden="true" />
                 </div>
               </div>
-              <p class="text-xl text-gray-900 mt-2">
+              <p class="text-gray-900 mt-2">
                 {{ testimonial.quote }}
               </p>
               <cite class="mt-4 block font-semibold not-italic text-gray-900">
@@ -432,7 +432,7 @@ const features = [
   },
   {
     name: 'Un service flexible',
-    description: 'Professionnels et flexible, discrets et chaleureux, nos chaffeurs s\'adaptent à continuellement à vos requetes, à celles de vos clients ou de vos callaborateurs.',
+    description: 'Professionnels et flexible, discrets et chaleureux, nos chaffeurs s\'adaptent à vos requetes, à celles de vos clients ou de vos callaborateurs.',
     icon: LockClosedIcon,
   },
 ]
