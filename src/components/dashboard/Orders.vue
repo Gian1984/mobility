@@ -6,12 +6,14 @@
 
 <!--  start search box-->
 
-    <input type="search" v-model="searchQuery" name="" id="" class="mt-5 appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Enter a search here!" />
+    <label for="first-name" class="mt-5 block text-sm font-medium text-gray-700">
+      Recherche par identifiant de commande
+    </label>
+    <input type="search" v-model="searchQuery" name=""  class="mt-1 appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Enter a search here!" />
 
     <div>
       <p class="mb-2 text-right" v-if="searchQuery && filterOrders.length > 1 ">{{filterOrders.length}} results</p>
-      <div v-if="!searchQuery" class="list-reset bg-white p-4 border border-solid border-grey-light">
-          <h2 class="text-indigo-darker">Rechercher la commande en saisissant le nom de famille</h2>
+      <div v-if="!searchQuery">
       </div>
 
       <div v-else class="border-2 border-red-600 mt-2">
@@ -157,7 +159,7 @@
         </div>
       </div>
 
-      <div v-if="filterOrders.length == 0" class="list-reset bg-white p-4 border border-solid border-grey-light">
+      <div v-if="filterOrders.length == 0 && filterOrders.id != null " class="mt-3 list-reset bg-white p-4 border border-solid border-grey-light">
         <h2 class="text-indigo-darker">Désolé, il semble qu'il n'y ait aucun message correspondant à vos critères.</h2>
       </div>
 
@@ -348,6 +350,8 @@ export default {
 
     filterOrders(){
       return this.orders.filter(result => {
+        console.log(result)
+
         const myRegex = new RegExp(this.searchQuery, 'gi');
         let resultFacet = this.facet;
         if (resultFacet.length == 0) {
