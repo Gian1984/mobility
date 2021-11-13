@@ -159,7 +159,7 @@
         </div>
       </div>
 
-      <div v-if="filterOrders.length == 0 && filterOrders.id != null " class="mt-3 list-reset bg-white p-4 border border-solid border-grey-light">
+      <div v-if="filterOrders.length == 0 " class="mt-3 list-reset bg-white p-4 border border-solid border-grey-light">
         <h2 class="text-indigo-darker">Désolé, il semble qu'il n'y ait aucun message correspondant à vos critères.</h2>
       </div>
 
