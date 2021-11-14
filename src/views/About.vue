@@ -7,12 +7,13 @@
             <div class="px-4 sm:px-6 sm:text-center md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left lg:flex lg:items-center">
               <div>
                 <h1 class="mt-4 text-4xl tracking-tight font-extrabold text-white sm:mt-5 sm:leading-none lg:mt-6 lg:text-5xl xl:text-6xl">
-                  <span class="md:block">Belga mobility</span>
+                  <span class="md:block">Chauffeur service</span>
                   {{ ' ' }}
-                  <span class="text-indigo-400 md:block">Your personal driver</span>
+                  <span class="text-indigo-400 md:block">in Brussels</span>
                 </h1>
                 <p class="mt-3 text-base text-gray-300 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl">
-                  SERVICE DE LOCATION DE VOITURE AVEC UN CHAUFFEUR PRIVÉ EN BELGIQUE ET EN EUROPE - 24H/24
+                  Location de voitures de luxe avec chauffeur privé
+                  Partout à Bruxelles et en Belgique
                 </p>
               </div>
             </div>
@@ -221,13 +222,10 @@
         <div class="relative mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:px-0 lg:max-w-none lg:py-20">
           <!-- Testimonial card-->
           <div class="relative pt-64 pb-10 rounded-2xl shadow-xl overflow-hidden">
-            <img class="absolute inset-0 h-full w-full object-cover" src="https://images.unsplash.com/photo-1521510895919-46920266ddb3?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&fp-x=0.5&fp-y=0.6&fp-z=3&width=1440&height=1440&sat=-100" alt="" />
+            <img class="absolute inset-0 h-full w-full object-cover" src="img/bmw-7-reeks-2015-open.jpeg" alt="bmw 7" />
             <div class="absolute inset-0 " />
             <div class="absolute inset-0" />
             <div class="relative px-8">
-              <div>
-                <img class="h-12" src="https://tailwindui.com/img/logos/workcation.svg?color=white" alt="Workcation" />
-              </div>
             </div>
           </div>
         </div>

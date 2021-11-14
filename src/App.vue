@@ -5,9 +5,8 @@
         <div class="flex justify-between h-16">
           <div class="flex">
             <div class="flex-shrink-0 flex items-center">
-              <img class="block lg:hidden h-12 w-auto" src="img/belgalogo.png" alt="belgamobility logo" />
-              <img class="hidden lg:block h-8 w-auto" src="img/belgalogo.png" alt="Workflow" />
-              <p class="pl-2 font-extrabold">Belga mobility</p>
+              <img class="block lg:hidden h-12 w-auto" src="img/BELGA-MOBILITY.png" alt="belgamobility logo" />
+              <img class="hidden lg:block h-8 w-auto" src="img/BELGA-MOBILITY.png" alt="Workflow" />
             </div>
           </div>
           <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
@@ -123,10 +122,9 @@
 
     const navigation = {
       main: [
-        { name: 'Terms and conditions of use', href: '#' },
-        { name: 'Privacy policy', href: '#' },
+        { name: 'Conditions d\'utilisation', href: '/Terms' },
+        { name: 'Privacy policy', href: '/Privacy' },
         { name: 'FAQ', href: '#' },
-        { name: 'Partners', href: '#' },
       ],
       social: [
         {

@@ -9,6 +9,8 @@ import Options from '../views/Options.vue'
 import Checkout from '../views/Checkout.vue'
 import ForgetPassword from '../views/ForgetPassword'
 import ResetPassword from '../views/ResetPassword.vue'
+import Privacy from '../views/Privacy.vue'
+import Terms from '../views/Terms.vue'
 import Register from '../components/Register.vue'
 import Login from '../components/Login.vue'
 import IncomingContact from '../components/dashboard/IncomingContact.vue'
@@ -86,6 +88,16 @@ const routes = [
     path: "/AdminProduct",
     name: "AdminProduct",
     component: AdminProduct,
+  },
+  {
+    path: "/Terms",
+    name: 'Terms',
+    component: Terms,
+  },
+  {
+    path: "/Privacy",
+    name: 'Privacy',
+    component: Privacy,
   },
   {
     path: "/:catchAll(.*)",

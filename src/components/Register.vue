@@ -1,20 +1,16 @@
 <template>
-  <div class="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
-    <div class="sm:mx-auto sm:w-full ">
-      <img class="mx-auto h-12 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg" alt="Workflow" />
-      <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
-        Register your account
-      </h2>
-    </div>
+  <div class="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8" style="background-image: url('img/pexels-burak-kebapci-1253049.jpeg'); ; background-size: cover;">
+
 
     <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-5xl">
       <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
         <form @submit.prevent="handleSubmit" class="space-y-6">
           <div class="space-y-6 sm:pt-10 sm:space-y-5">
-            <div>
-              <h3 class="text-lg leading-6 font-medium text-gray-900">
-                Personal Information
-              </h3>
+            <div class="sm:mx-auto sm:w-full bg-white">
+              <img class="mx-auto h-12 w-auto" src="img/BELGA-MOBILITY.png" alt="Workflow" />
+              <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
+                Register your account
+              </h2>
             </div>
             <div class="space-y-6 sm:space-y-5">
               <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
@@ -354,6 +350,16 @@
                 </div>
               </div>
 
+              <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+                <label for="password" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
+                  Terms & Conditions
+                </label>
+                <div class="mt-1 sm:mt-0 sm:col-span-2">
+                  <input id="candidates" aria-describedby="candidates-description" name="candidates" type="checkbox" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded" required>
+                  <p id="candidates-description" class="text-gray-500 text-sm">
+                    En cochant cette case vous acceptez les <a href="" class="text-indigo-700">conditions d'utilisation</a> ainsi que le <a href="" class="text-indigo-700">traitement des données personnelles</a> afin de pouvoir fournir le service.</p>
+                </div>
+              </div>
             </div>
           </div>
 
