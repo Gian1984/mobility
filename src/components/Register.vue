@@ -357,7 +357,7 @@
                 <div class="mt-1 sm:mt-0 sm:col-span-2">
                   <input id="candidates" aria-describedby="candidates-description" name="candidates" type="checkbox" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded" required>
                   <p id="candidates-description" class="text-gray-500 text-sm">
-                    En cochant cette case vous acceptez les <a href="" class="text-indigo-700">conditions d'utilisation</a> ainsi que le <a href="" class="text-indigo-700">traitement des données personnelles</a> afin de pouvoir fournir le service.</p>
+                    En cochant cette case vous acceptez les <a href="/Terms" class="text-indigo-700">conditions d'utilisation</a> ainsi que le <a href="/Privacy" class="text-indigo-700">traitement des données personnelles</a> afin de pouvoir fournir le service.</p>
                 </div>
               </div>
             </div>
