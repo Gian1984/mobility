@@ -11,6 +11,7 @@ import ForgetPassword from '../views/ForgetPassword'
 import ResetPassword from '../views/ResetPassword.vue'
 import Privacy from '../views/Privacy.vue'
 import Terms from '../views/Terms.vue'
+import Faq from '../views/Faq.vue'
 import Register from '../components/Register.vue'
 import Login from '../components/Login.vue'
 import IncomingContact from '../components/dashboard/IncomingContact.vue'
@@ -98,6 +99,11 @@ const routes = [
     path: "/Privacy",
     name: 'Privacy',
     component: Privacy,
+  },
+  {
+    path: "/Faq",
+    name: 'Faq',
+    component: Faq,
   },
   {
     path: "/:catchAll(.*)",

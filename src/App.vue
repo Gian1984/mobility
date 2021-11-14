@@ -124,7 +124,7 @@
       main: [
         { name: 'Conditions d\'utilisation', href: '/Terms' },
         { name: 'Privacy policy', href: '/Privacy' },
-        { name: 'FAQ', href: '#' },
+        { name: 'FAQ', href: '/Faq' },
       ],
       social: [
         {
