@@ -1,11 +1,11 @@
 <template>
 
-  <h1 class="mt-10 mb-4 p-2 font-bold text-3xl">Modifier ou ajouter un produit</h1>
+  <h1 class="mt-10 mb-4 p-4 font-bold text-3xl">Modifier ou ajouter un produit</h1>
 
   <div class="bg-white shadow overflow-hidden sm:rounded-md">
     <ul role="list" class="divide-y divide-gray-200">
       <li v-for="(product,index) in products" v-bind:key="index">
-        <div class="px-4 py-4 sm:px-6">
+        <div class="px-4 py-4">
           <div class="flex items-center justify-between">
             <p class="text-sm font-medium text-indigo-600 truncate">
               {{ product.name }} <br>

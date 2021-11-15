@@ -4,12 +4,12 @@
   <header>
     <div class="text-center my-10">
       <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
-        <span class="block xl:inline">All your</span>
+        <span class="block xl:inline">Toutes vos </span>
         {{ ' ' }}
-        <span class="block text-indigo-600 xl:inline"> reservations.</span>
+        <span class="block text-indigo-600 xl:inline">réservations.</span>
       </h1>
       <p class="mt-3 max-w-md mx-auto text-base text-gray-500 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
-        Keep track of all your orders and their status.
+        Gardez une trace de toutes vos commandes et de leur statut.
       </p>
     </div>
   </header>
@@ -41,11 +41,11 @@
           <div class="sm:flex lg:col-span-7 mt-5">
             <dl class="grid grid-cols-2 gap-x-6 text-sm">
               <div>
-                <dt class="font-medium text-gray-900">Flight info:</dt>
+                <dt class="font-medium text-gray-900">Numéro de vol:</dt>
                 <dd class="text-gray-500">
                   <span class="block">{{ order.flight}}</span>
                 </dd>
-                <dt class="font-medium text-gray-900 mt-3">Additional passenger:</dt>
+                <dt class="font-medium text-gray-900 mt-3">Passager supplémentaire:</dt>
                 <dd class="text-gray-500">
                   <span class="block">{{order.firstname}} {{order.lastname}}</span>
                   <span class="block">Phone: {{order.phone}}</span>
@@ -53,13 +53,13 @@
                 </dd>
               </div>
               <div>
-                <dt class="font-medium text-gray-900">Pick up sign:</dt>
+                <dt class="font-medium text-gray-900">Panneau d'accueil:</dt>
                 <dd class="text-gray-500 space-y-3">
                   <p>
                     {{ order.pickupsign}}
                   </p>
                 </dd>
-                <dt class="mt-3 font-medium text-gray-900">Reference code:</dt>
+                <dt class="mt-3 font-medium text-gray-900">Code de référence:</dt>
                 <dd class="text-gray-500 space-y-3">
                   <p>
                     {{ order.referencecode }}
@@ -73,11 +73,11 @@
           <div class="mt-6 lg:mt-0 lg:col-span-5 lg:mt-5">
             <dl class="grid grid-cols-2 gap-x-6 text-sm">
               <div>
-                <dt class="font-medium text-gray-900">Pick-up address:</dt>
+                <dt class="font-medium text-gray-900">Adresse de retrait:</dt>
                 <dd class="text-gray-500">
                   <span class="block">{{ order.pickupaddress }}</span>
                 </dd>
-                <dt class="font-medium text-gray-900 mt-3">Drop-off address:</dt>
+                <dt class="font-medium text-gray-900 mt-3">Adresse de dépôt :</dt>
                 <dd class="text-gray-500">
                   <span class="block">{{ order.dropoffaddress}}</span>
                 </dd>
@@ -87,7 +87,7 @@
                 </dd>
               </div>
               <div>
-                <dt class="font-medium text-gray-900">Pick-up date & time:</dt>
+                <dt class="font-medium text-gray-900">Date et heure de retrait:</dt>
                 <dd class="text-gray-500 space-y-3">
                   <p>
                     {{ moment(order.date).format("dddd MMMM DD, YYYY [at] HH:mm a") }}
@@ -99,7 +99,7 @@
                     {{ order.distance }}
                   </p>
                 </dd>
-                <dt class="mt-3 font-medium text-gray-900">Duration:</dt>
+                <dt class="mt-3 font-medium text-gray-900">Durée:</dt>
                 <dd class="text-gray-500 space-y-3">
                   <p>
                     {{ order.duration }}

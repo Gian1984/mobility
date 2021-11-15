@@ -1,7 +1,7 @@
 <template>
 
   <div class="bg-white bg-opacity-75 overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex">
-    <div class="relative w-auto my-6 mx-auto lg:max-w-6xl py-60">
+    <div class="mt-30 relative w-auto my-6 mx-auto lg:max-w-6xl py-60">
       <!--content-->
       <div class="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none bg-gray-200">
         <!--header-->
@@ -23,83 +23,83 @@
                   </p>
                   <div class="mt-5">
                     <div class="flex justify-between">
-                      <label for="firstname" class="block text-sm font-medium text-gray-700">Prénom :</label>
+                      <label for="firstname" class="block text-xs font-medium text-gray-700">Prénom :</label>
                     </div>
                     <div class="mt-1">
-                      <input type="text" v-model="data.firstname" name="firstname" id="firstname" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm" />
+                      <input type="text" v-model="data.firstname" name="firstname" id="firstname" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 text-xs" />
                     </div>
                   </div>
 
                   <div>
                     <div class="flex justify-between">
-                      <label for="lastname" class="block text-sm font-medium text-gray-700 mt-2">Nom de famille :</label>
+                      <label for="lastname" class="block text-xs font-medium text-gray-700 mt-2">Nom de famille :</label>
                     </div>
                     <div class="mt-1">
-                      <input type="text" v-model="data.lastname" name="lastname" id="lastname" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm" />
+                      <input type="text" v-model="data.lastname" name="lastname" id="lastname" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 text-xs" />
                     </div>
                   </div>
 
                   <div>
                     <div class="flex justify-between">
-                      <label for="email" class="block text-sm font-medium text-gray-700 mt-2">Email :</label>
+                      <label for="email" class="block text-xs font-medium text-gray-700 mt-2">Email :</label>
                     </div>
                     <div class="mt-1">
-                      <input type="text" v-model="data.email" name="email" id="email" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm" />
+                      <input type="text" v-model="data.email" name="email" id="email" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 text-xs" />
                     </div>
                   </div>
 
                   <div>
                     <div class="flex justify-between">
-                      <label for="phone" class="block text-sm font-medium text-gray-700 mt-2">Phone :</label>
+                      <label for="phone" class="block text-xs font-medium text-gray-700 mt-2">Phone :</label>
                     </div>
                     <div class="mt-1">
-                      <input type="text" v-model="data.phone" name="phone" id="phone" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm" />
+                      <input type="text" v-model="data.phone" name="phone" id="phone" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 text-xs" />
                     </div>
                   </div>
 
                   <div>
                     <div class="flex justify-between">
-                      <label for="streetaddress" class="block text-sm font-medium text-gray-700 mt-2">Adresse :</label>
+                      <label for="streetaddress" class="block text-xs font-medium text-gray-700 mt-2">Adresse :</label>
                     </div>
                     <div class="mt-1">
-                      <input type="text" v-model="data.streetaddress" name="streetaddress" id="streetaddress" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm" />
+                      <input type="text" v-model="data.streetaddress" name="streetaddress" id="streetaddress" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 text-xs" />
                     </div>
                   </div>
 
                   <div>
                     <div class="flex justify-between">
-                      <label for="zip" class="block text-sm font-medium text-gray-700 mt-2">Code postal :</label>
+                      <label for="zip" class="block text-xs font-medium text-gray-700 mt-2">Code postal :</label>
                     </div>
                     <div class="mt-1">
-                      <input type="text" v-model="data.zip" name="zip" id="zip" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm"/>
+                      <input type="text" v-model="data.zip" name="zip" id="zip" class="text-xs mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 text-xs"/>
                     </div>
                   </div>
 
                   <div>
                     <div class="flex justify-between">
-                      <label for="city" class="block text-sm font-medium text-gray-700 mt-2">
+                      <label for="city" class="block text-xs font-medium text-gray-700 mt-2">
                         Ville :</label>
                     </div>
                     <div class="mt-1">
-                      <input type="text" v-model="data.city" name="city" id="city" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm"/>
+                      <input type="text" v-model="data.city" name="city" id="city" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 text-xs"/>
                     </div>
                   </div>
 
                   <div>
                     <div class="flex justify-between">
-                      <label for="region" class="block text-sm font-medium text-gray-700 mt-2">Région / Province :</label>
+                      <label for="region" class="block text-xs font-medium text-gray-700 mt-2">Région / Province :</label>
                     </div>
                     <div class="mt-1">
-                      <input type="text" v-model="data.region" name="region" id="region" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm"/>
+                      <input type="text" v-model="data.region" name="region" id="region" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 text-xs"/>
                     </div>
                   </div>
 
                   <div>
                     <div class="flex justify-between">
-                      <label for="country" class="block text-sm font-medium text-gray-700 mt-2">Pays :</label>
+                      <label for="country" class="block text-xs font-medium text-gray-700 mt-2">Pays :</label>
                     </div>
                     <div class="mt-1">
-                      <input type="text" v-model="data.country" name="country" id="country" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm"/>
+                      <input type="text" v-model="data.country" name="country" id="country" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 text-xs"/>
                     </div>
                   </div>
 
@@ -107,7 +107,7 @@
 
                   <div v-if="data.is_admin==0">
                     <div class="flex justify-between">
-                      <label for="checkbox" class="block text-sm font-medium text-gray-700 mt-2">Is Admin ?</label>
+                      <label for="checkbox" class="block text-xs font-medium text-gray-700 mt-2">Is Admin ?</label>
                     </div>
                     <div class="mt-1">
                       <input v-model="data.is_admin"  name="make-admin" type="checkbox" checked="" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded" />
@@ -117,10 +117,10 @@
 
                   <div v-else>
                     <div class="flex justify-between">
-                      <label for="checkbox" class="block text-sm font-medium text-gray-700 mt-2">Is Admin ?</label>
+                      <label for="checkbox" class="block text-xs font-medium text-gray-700 mt-2">Is Admin ?</label>
                     </div>
                     <div class="mt-1">
-                      <button type="button" @click="data.is_admin = 0" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-full shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                      <button type="button" @click="data.is_admin = 0" class="inline-flex items-center px-4 py-2 border border-transparent text-xs font-medium rounded-full shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                         Désactiver la modalité d'administration
                       </button>
                     </div>

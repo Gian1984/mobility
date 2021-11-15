@@ -1,6 +1,6 @@
 <template>
 
-  <h1 class="mt-10 mb-4 p-2 font-bold text-3xl">Questions liées aux commandes</h1>
+  <h1 class="mt-10 mb-4 p-4 font-bold text-3xl">Questions liées aux commandes</h1>
 
   <div class="bg-white shadow overflow-hidden sm:rounded-md">
     <ul role="list" class="divide-y divide-gray-200">

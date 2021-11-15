@@ -127,9 +127,9 @@
 
           <div class="mt-6 flex space-x-2">
             <div class="flex items-center h-5">
-              <input id="terms" name="terms" type="checkbox" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500" />
+              <input id="terms" name="terms" type="checkbox" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500" required />
             </div>
-            <label for="terms" class="text-sm text-gray-500">J'ai lu les termes et conditions et j'accepte la vente de mes informations personnelles au plus offrant.</label>
+            <p class="text-xs text-gray-500">En cochant cette case vous acceptez les <a href="/Terms" class="text-indigo-700">conditions d'utilisation</a> ainsi que le <a href="/Privacy" class="text-indigo-700">traitement des données personnelles</a> afin de pouvoir fournir le service.</p>
           </div>
 
           <button type="submit" class="mt-6 w-full bg-indigo-600 border border-transparent rounded-md shadow-sm py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:bg-gray-100 disabled:text-gray-500 disabled:cursor-not-allowed">Pay</button>

@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col mb-10 max-h-screen ">
-    <h1 class="mt-10 mb-4 p-2 font-bold text-3xl">Demandes de contact reçues</h1>
+    <h1 class="mt-10 mb-4 p-4 font-bold text-3xl">Demandes de contact reçues</h1>
     <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8 pb-2">
       <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
         <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">

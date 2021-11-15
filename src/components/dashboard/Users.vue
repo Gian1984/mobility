@@ -1,11 +1,11 @@
 <template>
 
-  <h1 class="mt-10 mb-4 p-2 font-bold text-3xl">Modifier un utilisateur</h1>
+  <h1 class="mt-10 mb-4 p-4 font-bold text-3xl">Modifier un utilisateur</h1>
 
 
   <!--  start search box-->
 
-  <div class="px-2">
+  <div class="px-4">
   <label for="first-name" class="mt-5 block text-sm font-medium text-gray-700">
     Recherche par adresse e-mail
   </label>
