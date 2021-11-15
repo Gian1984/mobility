@@ -350,7 +350,6 @@ export default {
 
     filterOrders(){
       return this.orders.filter(result => {
-        console.log(result)
 
         const myRegex = new RegExp(this.searchQuery, 'gi');
         let resultFacet = this.facet;
