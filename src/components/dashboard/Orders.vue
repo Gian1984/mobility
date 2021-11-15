@@ -1,7 +1,7 @@
 <template>
 
   <div class="flex flex-col px-4">
-    <h1 class="mt-10 font-bold">Commandes actives</h1>
+    <h1 class="mt-10 font-bold text-3xl">Commandes actives</h1>
 
 
 <!--  start search box-->

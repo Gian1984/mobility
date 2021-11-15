@@ -1,14 +1,6 @@
 <template>
 
-
-
-
-  <h1 class="mt-10 mb-4 p-2 font-bold">Questions liées aux commandes</h1>
-
-
-
-
-
+  <h1 class="mt-10 mb-4 p-2 font-bold text-3xl">Questions liées aux commandes</h1>
 
   <div class="bg-white shadow overflow-hidden sm:rounded-md">
     <ul role="list" class="divide-y divide-gray-200">
@@ -24,11 +16,11 @@
             <div class="sm:flex">
               <p class="flex items-center text-sm text-gray-500">
                 <MailIcon  class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" aria-hidden="true" />
-                <input v-model="faq.email" >
+                <a class="pr-2 pl-2 inline-flex items-center underline ... hover:text-gray-700" :href="`mailto: ${faq.email}`"><span class="leading-5 tracking-wide rounded-full">{{faq.email}}</span></a><br>
               </p>
               <p class="mt-2 flex items-center text-sm text-gray-500 sm:mt-0 sm:ml-6">
                 <PhoneIcon class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" aria-hidden="true" />
-                <input v-model="faq.phone" >
+                <a class="pr-2 pl-2 inline-flex items-center underline ... hover:text-gray-700" :href="`mailto: ${faq.phone}`"><span class="leading-5 tracking-wide rounded-full">{{faq.phone}}</span></a><br>
               </p>
               <p class="mt-2 flex items-center text-sm text-gray-500 sm:mt-0 sm:ml-6">
                 <DocumentTextIcon class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" aria-hidden="true" />

@@ -26,7 +26,7 @@
                       <label for="firstname" class="block text-sm font-medium text-gray-700">Firstname :</label>
                     </div>
                     <div class="mt-1">
-                      <input type="text" v-model="data.firstname" name="firstname" id="firstname" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm" placeholder="Ex: shoes" />
+                      <input type="text" v-model="data.firstname" name="firstname" id="firstname" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm" />
                     </div>
                   </div>
 
@@ -35,13 +35,81 @@
                       <label for="lastname" class="block text-sm font-medium text-gray-700 mt-2">Lastname :</label>
                     </div>
                     <div class="mt-1">
-                      <input type="text" v-model="data.lastname" name="pricehour" id="lastname" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm" placeholder="Ex: 200" />
+                      <input type="text" v-model="data.lastname" name="lastname" id="lastname" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm" />
                     </div>
                   </div>
 
+                  <div>
+                    <div class="flex justify-between">
+                      <label for="email" class="block text-sm font-medium text-gray-700 mt-2">Email :</label>
+                    </div>
+                    <div class="mt-1">
+                      <input type="text" v-model="data.email" name="email" id="email" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm" />
+                    </div>
+                  </div>
 
+                  <div>
+                    <div class="flex justify-between">
+                      <label for="phone" class="block text-sm font-medium text-gray-700 mt-2">Phone :</label>
+                    </div>
+                    <div class="mt-1">
+                      <input type="text" v-model="data.phone" name="phone" id="phone" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm" />
+                    </div>
+                  </div>
 
+                  <div>
+                    <div class="flex justify-between">
+                      <label for="streetaddress" class="block text-sm font-medium text-gray-700 mt-2">Street address :</label>
+                    </div>
+                    <div class="mt-1">
+                      <input type="text" v-model="data.streetaddress" name="streetaddress" id="streetaddress" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm" />
+                    </div>
+                  </div>
 
+                  <div>
+                    <div class="flex justify-between">
+                      <label for="zip" class="block text-sm font-medium text-gray-700 mt-2">Zip :</label>
+                    </div>
+                    <div class="mt-1">
+                      <input type="text" v-model="data.zip" name="zip" id="zip" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm"/>
+                    </div>
+                  </div>
+
+                  <div>
+                    <div class="flex justify-between">
+                      <label for="city" class="block text-sm font-medium text-gray-700 mt-2">City :</label>
+                    </div>
+                    <div class="mt-1">
+                      <input type="text" v-model="data.city" name="city" id="city" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm"/>
+                    </div>
+                  </div>
+
+                  <div>
+                    <div class="flex justify-between">
+                      <label for="region" class="block text-sm font-medium text-gray-700 mt-2">Region :</label>
+                    </div>
+                    <div class="mt-1">
+                      <input type="text" v-model="data.region" name="region" id="region" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm"/>
+                    </div>
+                  </div>
+
+                  <div>
+                    <div class="flex justify-between">
+                      <label for="country" class="block text-sm font-medium text-gray-700 mt-2">Country :</label>
+                    </div>
+                    <div class="mt-1">
+                      <input type="text" v-model="data.country" name="country" id="country" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm"/>
+                    </div>
+                  </div>
+
+                  <div>
+                    <div class="flex justify-between">
+                      <label for="checkbox" class="block text-sm font-medium text-gray-700 mt-2">Is Admin ?</label>
+                    </div>
+                    <div class="mt-1">
+                      <input type="text" v-model="data.is_admin" name="is_admin" id="is_admin" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm"/>
+                    </div>
+                  </div>
 
 
                 </div>
@@ -59,7 +127,6 @@
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </div>
@@ -101,8 +168,7 @@ export default {
   },
   /*eslint-disable */
   methods: {
-
-    uploadFile(event) {
+    uploadFile() {
         this.$emit('close', this.user)
     },
     close(){

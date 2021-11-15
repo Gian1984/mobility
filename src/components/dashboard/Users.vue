@@ -1,14 +1,16 @@
 <template>
 
-  <h1 class="mt-10 mb-4 p-2 font-bold">Modifier un utilisateur</h1>
+  <h1 class="mt-10 mb-4 p-2 font-bold text-3xl">Modifier un utilisateur</h1>
 
 
   <!--  start search box-->
 
+  <div class="px-2">
   <label for="first-name" class="mt-5 block text-sm font-medium text-gray-700">
     Recherche par adresse e-mail
   </label>
   <input type="search" v-model="searchQuery" name=""  class="mt-1 appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Enter a search here!" />
+  </div>
 
   <div>
     <p class="mb-2 text-right" v-if="searchQuery && filterUsers.length > 1 ">{{filterUsers.length}} results</p>
@@ -266,7 +268,7 @@ export default {
       let zip = user.zip
       let is_admin = user.is_admin
       /*eslint-disable */
-      this.axios.put(process.env.VUE_APP_URL_API + `api/users/${user.id}`,
+      this.axios.patch(process.env.VUE_APP_URL_API + `api/users/${user.id}`,
           {
             firstname,
             lastname,

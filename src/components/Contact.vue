@@ -17,24 +17,24 @@
 
                 <div class="col-span-6 sm:col-span-3">
                   <label for="object" class="block text-sm font-medium text-gray-900">Objet</label>
-                  <input type="text" v-model="subject" name="subject" id="subject" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm" />
+                  <input type="text" v-model="subject" name="subject" id="subject" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm" required />
                 </div>
 
                 <div class="col-span-6 sm:col-span-3">
                   <label for="full-name" class="block text-sm font-medium text-gray-900">Nom et prénom</label>
-                  <input type="text" v-model="fullname" name="full-name" id="full-name" autocomplete="cc-family-name" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm" />
+                  <input type="text" v-model="fullname" name="full-name" id="full-name" autocomplete="cc-family-name" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm" required />
                 </div>
 
                 <div class="col-span-6 sm:col-span-3">
                   <label for="email-address" class="block text-sm font-medium text-gray-900">Adresse e-mail</label>
-                  <input type="text" v-model="email" name="email-address" id="email-address" autocomplete="email" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm" />
+                  <input type="text" v-model="email" name="email-address" id="email-address" autocomplete="email" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm" required />
                 </div>
 
                 <div class="col-span-6 sm:col-span-3">
                   <label for="phone-number" class="block text-sm font-medium text-gray-900">
                     Numéro de téléphone
                   </label>
-                  <input type="text" v-model="phone" name="phone-number" id="phone-number" autocomplete="tel" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm" />
+                  <input type="text" v-model="phone" name="phone-number" id="phone-number" autocomplete="tel" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm" required/>
                 </div>
 
                 <div class="col-span-6 sm:col-span-6">
@@ -42,7 +42,7 @@
                     Message
                   </label>
                   <div class="mt-1">
-                    <textarea id="description" v-model="comment" name="description" rows="4" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm" />
+                    <textarea id="description" v-model="comment" name="description" rows="4" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm" required/>
                   </div>
                 </div>
 
