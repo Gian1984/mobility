@@ -177,7 +177,7 @@
                             <ExternalLinkIcon class="ml-2 -mr-0.5 h-4 w-4" aria-hidden="true" />
                           </button>
                         </div>
-                        <div class="ml-2 mt-2 lg:mt-0">
+                        <div class="ml-2 mt-2 md:mt-0 lg:mt-0">
                           <button type="button" @click="removeUser(user.id, index)" class="inline-flex items-center p-1.5 border border-transparent rounded-full shadow-sm text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
                             <TrashIcon class="h-5 w-5" aria-hidden="true" />
                           </button>
@@ -266,7 +266,8 @@ export default {
       let region = user.region
       let country = user.country
       let zip = user.zip
-      let is_admin = user.is_admin
+      let admin = user.is_admin
+      console.log(user.is_admin)
       /*eslint-disable */
       this.axios.patch(process.env.VUE_APP_URL_API + `api/users/${user.id}`,
           {
@@ -279,7 +280,7 @@ export default {
             region,
             country,
             zip,
-            is_admin,
+            admin,
           })
           .then(response => this.users[index] = user)
     },
