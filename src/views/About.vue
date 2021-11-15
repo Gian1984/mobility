@@ -100,6 +100,7 @@
                                     <div class="absolute top-7 right-2 text-center">
                                       <button @click="locatorButtonPressed" class="h-4 w-4 text-gray-600  hover:text-black"><LocationMarkerIcon class="mt-1 mr-2 w-5 h-5 text-white-500" aria-hidden="true" /> </button>
                                     </div>
+                                    <p class="text-xs text-gray-500">Veuillez toujours entrer un numéro de rue/place... Merci</p>
                                   </div>
 
                                   <div>
@@ -109,6 +110,7 @@
                                     <div class="mt-1">
                                       <input id="autocomplete2" ref="autocomplete" v-model="destination" autocomplete="destination" required="" class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
                                     </div>
+                                    <p class="text-xs text-gray-500">Veuillez toujours entrer un numéro de rue/place... Merci</p>
                                   </div>
 
                                   <div>
@@ -165,6 +167,7 @@
                                     <div class="absolute top-4 left-3 "> </div> <input v-model="address" id="autocomplete1" type="text" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Search anything...">
                                     <div class="absolute top-7 right-2 text-center">
                                       <LocationMarkerIcon class="mt-1 mr-2 w-5 h-5 text-white-500" aria-hidden="true" />
+                                      <p class="text-xs text-gray-500">Veuillez toujours entrer un numéro de rue/place... Merci</p>
                                     </div>
                                   </div>
 

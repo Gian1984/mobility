@@ -25,7 +25,7 @@
             </router-link>
           </div>
           <div class="hidden sm:ml-6 sm:flex sm:items-center">
-            <a href="https://wa.me/00393494257041" type="button" class="p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+            <a href="https://wa.me/00393494257041" target="_blank" type="button" class="p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
               <span class="sr-only">View notifications</span>
               <img class="h-8 w-8 rounded-full" src="img/wlogo.png" alt="whatsapp" />
             </a>
@@ -89,7 +89,7 @@
             <ViewListIcon class="h-6 w-6" aria-hidden="true" />
             <span class="ml-2">Reservation</span>
           </DisclosureButton>
-          <DisclosureButton as="a" href="https://wa.me/00393494257041" class="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block flex pl-3 pr-4 py-2 border-l-4 text-base font-medium">
+          <DisclosureButton as="a" href="https://wa.me/00393494257041" target="_blank" class="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block flex pl-3 pr-4 py-2 border-l-4 text-base font-medium">
             <img class="h-6 w-6 rounded-full" src="img/wlogo.png" alt="whatsapp" />
             <span class="ml-2">Whatsapp</span>
           </DisclosureButton>
