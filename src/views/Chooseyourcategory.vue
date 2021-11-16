@@ -67,41 +67,64 @@
 <!--  Car options-->
 
   <div class="bg-white">
-    <div class="max-w-5xl mx-auto px-4 py-16 sm:px-6 sm:py-24">
+    <div class="max-w-6xl mx-auto px-4 py-16 sm:px-6 sm:py-24">
       <div class="max-w-xl">
         <h1 id="your-orders-heading" class="text-3xl font-extrabold tracking-tight text-gray-900">Your Orders</h1>
         <p class="mt-2 text-sm text-gray-500">Check the status of recent orders, manage returns, and discover similar products.</p>
       </div>
-
       <div class="mt-12 space-y-16 sm:mt-16">
-
-          <div class="space-y-1 md:flex md:items-baseline md:space-y-0 md:space-x-4">
-            <h2  class="text-lg font-medium text-gray-900 md:flex-shrink-0"> Choose your car</h2>
-          </div>
-
-          <div class="mt-6 -mb-6 flow-root border-t border-gray-200 divide-y divide-gray-200">
-            <div v-for="(product, index) in total" :key="index" class="py-6 sm:flex">
-              <div class="flex space-x-4 sm:min-w-0 sm:flex-1 sm:space-x-6 lg:space-x-8">
-                <img :src="product.image" alt="Choise your car" class="flex-none w-40 rounded-md object-center object-cover sm:w-3/5" />
-                <div class="pt-1.5 min-w-0 flex-1 sm:pt-0">
-                  <h3 class="text-sm font-medium text-gray-900">
+          <div class="mt-6 -mb-6 flow-root mb-14 space-y-16">
+            <div v-for="(product, index) in total" :key="index">
+                <div class="pt-1.5 min-w-0 flex-1 sm:pt-0 border-b border-1 border-gray-200">
+                  <h3 class="text-xl font-medium text-gray-900">
                     <a>{{ product.name }}</a>
                   </h3>
                   <p class="text-sm text-gray-500 truncate">
                     <span>{{ product.description }}</span>
                   </p>
                 </div>
-              </div>
-
-              <div class="mt-6 space-y-4 sm:mt-0 sm:ml-6 sm:flex-none sm:w-40">
-                <p class="mt-1 font-medium text-gray-900">€ {{product.amount}}</p>
-                <p class="text-sm text-gray-500 truncate">
-                  <span>All prices include VAT, fees & tip.</span>
-                  {{ ' ' }}
-                </p>
-                <button @click="service(product.id, product.amount)" type="button" class="w-full flex items-center justify-center bg-indigo-600 py-2 px-2.5 border border-transparent rounded-md shadow-sm text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:w-full sm:flex-grow-0">
-                  Buy
-                </button>
+              <div class="py-6 sm:flex">
+                <div class="mb-8 md:mb-0 lg:mb-0">
+                  <ul role="list" class="divide-y divide-gray-200">
+                    <li  class="py-1">
+                      <p class="text-sm text-gray-500 truncate">
+                        <i class="fas fa-tint p-1"></i>
+                        <span>Bouteille d'eau offerte</span>
+                      </p>
+                    </li>
+                    <li  class="py-1">
+                      <p class="text-sm text-gray-500 truncate">
+                        <i class="fas fa-award p-1"></i>
+                        <span>Service d'accueil</span>
+                      </p>
+                    </li>
+                    <li  class="py-1">
+                      <p class="text-sm text-gray-500 truncate">
+                        <i class="far fa-clock p-1"></i>
+                        <span>60 mins d'attente gratuite à l'aéroport</span>
+                      </p>
+                    </li>
+                    <li  class="py-1">
+                      <p class="text-sm text-gray-500 truncate">
+                        <i class="far fa-window-close p-1"></i>
+                        <span>Annulation gratuite jusqu'à une<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;heure avant la prise en charge</span>
+                      </p>
+                    </li>
+                  </ul>
+                </div>
+                <div class="flex space-x-4  sm:flex-1 sm:space-x-6 lg:space-x-8">
+                  <img :src="product.image" alt="Choise your car" class="flex-none w-40 rounded-md object-center object-cover sm:w-3/5 mx-auto" />
+                </div>
+                <div class="mt-6 space-y-4 sm:mt-0 sm:ml-6 sm:flex-none sm:w-1/4">
+                  <p class="mt-1 font-medium text-gray-900">€ {{product.amount}}</p>
+                  <p class="text-sm text-gray-500 truncate">
+                    <span>All prices include VAT, fees & tip.</span>
+                    {{ ' ' }}
+                  </p>
+                  <button @click="service(product.id, product.amount)" type="button" class="w-full flex items-center justify-center bg-indigo-600 py-2 px-2.5 border border-transparent rounded-md shadow-sm text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:w-full sm:flex-grow-0">
+                    Buy
+                  </button>
+                </div>
               </div>
             </div>
           </div>
