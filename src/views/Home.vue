@@ -342,7 +342,7 @@
           Votre avis est très important pour nous!
         </h2>
         <p class="mt-4 max-w-xl mx-auto text-xl text-gray-600" id="text_comment">Nous vous demandons de laisser un commentaire. Parce que vos commentaires sont notre meilleure publicité. Merci !</p>
-        <a href="https://www.tripadvisor.it/Attraction_Review-g188644-d20363596-Reviews-BELGA_MOBILITY-Brussels.html" class="inline-flex items-center text-white bg-transparent rounded-full p-1 pr-2 sm:text-base lg:text-sm xl:text-base hover:text-gray-200">
+        <a href="https://www.tripadvisor.it/Attraction_Review-g188644-d20363596-Reviews-BELGA_MOBILITY-Brussels.html" target="_blank" class="inline-flex items-center text-white bg-transparent rounded-full p-1 pr-2 sm:text-base lg:text-sm xl:text-base hover:text-gray-200">
           <span class="rounded-full"><img class="h-28 mx-auto" src="img/Tripadvisor-Logo.png" alt="tripadvisor" /></span>
           <ChevronRightIcon class=" w-5 h-5 text-black" aria-hidden="true" />
         </a>
