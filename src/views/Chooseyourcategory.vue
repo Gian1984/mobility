@@ -35,8 +35,9 @@
       </li>
       <li>
         <div class="mx-auto p-5" aria-hidden="true">
-          <button @click="$router.go(-1)" class="inline-flex items-center p-1.5 border border-transparent rounded-full shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
+          <button @click="$router.go(-1)" class="inline-flex items-center p-1.5 border border-transparent rounded-lg shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
             <ChevronDoubleLeftIcon class="h-6 w-6" aria-hidden="true" />
+              En arrière
           </button>
         </div>
       </li>
@@ -119,7 +120,8 @@
                     {{ ' ' }}
                   </p>
                   <button @click="service(product.id, product.amount)" type="button" class="w-full flex items-center justify-center bg-indigo-600 py-2 px-2.5 border border-transparent rounded-md shadow-sm text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:w-full sm:flex-grow-0">
-                    Acheter
+                    Choisir
+                    <ChevronDoubleRightIcon class="h-4 w-4" aria-hidden="true" />
                   </button>
                 </div>
               </div>
@@ -134,7 +136,7 @@
 
 <script>
 import { CheckIcon } from '@heroicons/vue/solid'
-import {  ChevronDoubleLeftIcon } from '@heroicons/vue/outline'
+import {  ChevronDoubleLeftIcon, ChevronDoubleRightIcon } from '@heroicons/vue/outline'
 
 const steps = [
   { id: '01', name: 'Choose your category', status: 'current' },
@@ -231,7 +233,8 @@ export default {
 
   components: {
     CheckIcon,
-    ChevronDoubleLeftIcon
+    ChevronDoubleLeftIcon,
+    ChevronDoubleRightIcon
   },
   setup() {
     return {

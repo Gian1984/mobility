@@ -21,7 +21,7 @@
               Services
             </router-link>
             <router-link to="/Reservation" class="border-transparent text-gray-900 hover:border-indigo-600 hover:text-gray-500 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
-              My reservation
+              My reservations
             </router-link>
           </div>
           <div class="hidden sm:ml-6 sm:flex sm:items-center">
@@ -87,7 +87,7 @@
           </DisclosureButton>
           <DisclosureButton as="a" href="/Reservation" class="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block flex pl-3 pr-4 py-2 border-l-4 text-base font-medium">
             <ViewListIcon class="h-6 w-6" aria-hidden="true" />
-            <span class="ml-2">Reservation</span>
+            <span class="ml-2">My reservations</span>
           </DisclosureButton>
           <DisclosureButton as="a" href="https://wa.me/00393494257041" target="_blank" class="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block flex pl-3 pr-4 py-2 border-l-4 text-base font-medium">
             <img class="h-6 w-6 rounded-full" src="img/wlogo.png" alt="whatsapp" />
