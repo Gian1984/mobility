@@ -11,16 +11,16 @@
           </div>
           <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
             <!-- Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" -->
-            <router-link to="/" class="border-indigo-500 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+            <router-link to="/" class="border-transparent text-gray-900 hover:border-indigo-600 hover:text-gray-500 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
               Home
             </router-link>
-            <router-link to="/About" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+            <router-link to="/About" class="border-transparent text-gray-900 hover:border-indigo-600 hover:text-gray-500 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
               About
             </router-link>
-            <router-link to="/Services" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+            <router-link to="/Services" class="border-transparent text-gray-900 hover:border-indigo-600 hover:text-gray-500 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
               Services
             </router-link>
-            <router-link to="/Reservation" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+            <router-link to="/Reservation" class="border-transparent text-gray-900 hover:border-indigo-600 hover:text-gray-500 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
               My reservation
             </router-link>
           </div>

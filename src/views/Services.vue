@@ -172,7 +172,7 @@
 
                                   <div>
                                     <label for="hours" class="block text-sm font-medium text-gray-700">
-                                      Durée
+                                      Durée en heures
                                     </label>
                                     <div class="mt-1">
                                       <select id="hours" v-model="hours" name="hours" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
@@ -449,15 +449,20 @@ export default {
 
     getHourly(e){
       e.preventDefault()
+      let destinationA = this.address
+
       this.$store.commit('setReservation', [
-        {id:1, name:"Pick up address", "value":  this.address},
+        {id:1, name:"Pick up address", "value":  destinationA},
         {id:2,name:"Drop off address", "value":  '-'},
         {id:3,name:"Temps de trajet in heures", "value": this.hours},
         {id:4,name:"Distance km", "value":'-'},
-        {id:5,name:"Date de départ" , "value": this.date}
+        {id:5,name:"Date de départ" , "value": moment(this.date).format("dddd MMMM DD, YYYY [at] HH:mm a")}
       ])
 
-      this.$router.push({name: 'Chooseyourcategory'})
+      this.$store.commit('setOrderReservation',
+          {pickupaddress: destinationA, dropoffaddress: '-', duration: (this.hours + ' h'), distance: '-', date: moment(this.date).format() }
+      )
+      this.$router.push({name: 'Choosehourly'})
 
     },
 
