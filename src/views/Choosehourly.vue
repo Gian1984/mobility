@@ -66,8 +66,8 @@
   <div class="bg-white">
     <div class="max-w-6xl mx-auto px-4 py-16 sm:px-6 sm:py-24">
       <div class="max-w-xl">
-        <h1 id="your-orders-heading" class="text-3xl font-extrabold tracking-tight text-gray-900">Your Orders</h1>
-        <p class="mt-2 text-sm text-gray-500">Check the status of recent orders, manage returns, and discover similar products.</p>
+        <h1 id="your-orders-heading" class="text-3xl font-extrabold tracking-tight text-gray-900">Votre choix</h1>
+        <p class="mt-2 text-sm text-gray-500">Choisissez le véhicule qui correspond le mieux à vos besoins.</p>
       </div>
       <div class="mt-12 space-y-16 sm:mt-16">
         <div class="mt-6 -mb-6 flow-root mb-14 space-y-16">
@@ -110,16 +110,16 @@
                 </ul>
               </div>
               <div class="flex space-x-4  sm:flex-1 sm:space-x-6 lg:space-x-8">
-                <img :src="product.image" alt="Choise your car" class="flex-none w-40 rounded-md object-center object-cover sm:w-3/5 mx-auto" />
+                <img :src="product.image" alt="Choise your car" class="flex-none w-100 rounded-md object-center object-cover mx-auto" />
               </div>
               <div class="mt-6 space-y-4 sm:mt-0 sm:ml-6 sm:flex-none sm:w-1/4">
                 <p class="mt-1 font-medium text-gray-900">€ {{product.amount}}</p>
                 <p class="text-sm text-gray-500 truncate">
-                  <span>All prices include VAT, fees & tip.</span>
+                  <span>Tous les prix comprennent<br> TVA, frais et pourboire.</span>
                   {{ ' ' }}
                 </p>
                 <button @click="service(product.id, product.amount)" type="button" class="w-full flex items-center justify-center bg-indigo-600 py-2 px-2.5 border border-transparent rounded-md shadow-sm text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:w-full sm:flex-grow-0">
-                  Buy
+                  Acheter
                 </button>
               </div>
             </div>
