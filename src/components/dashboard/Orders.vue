@@ -161,10 +161,6 @@
         </div>
       </div>
 
-      <div v-if="filterOrders.length == 0 " class="mt-3 list-reset bg-white p-4 border border-solid border-grey-light">
-        <h2 class="text-indigo-darker">Désolé, il semble qu'il n'y ait aucun message correspondant à vos critères.</h2>
-      </div>
-
     </div>
 
     <!--  end search box-->
@@ -351,15 +347,7 @@ export default {
   computed: {
 
     filterOrders(){
-      return this.orders.filter(result => {
-
-        const myRegex = new RegExp(this.searchQuery, 'gi');
-        let resultFacet = this.facet;
-        if (resultFacet.length == 0) {
-          return (result.user.lastname.match(myRegex) || result.user.lastname.match(myRegex))
-        }
-        return (result.user.lastname.match(myRegex) || result.user.lastname.match(myRegex)) && (resultFacet.includes(result.user_id));
-      })
+      return this.orders.filter(order => order.id == this.searchQuery)
     },
 
     sortedOrders: function() {
