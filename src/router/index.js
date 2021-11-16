@@ -5,6 +5,7 @@ import Services from '../views/Services.vue'
 import Reservation from '../views/Reservation.vue'
 import Dashboard from '../views/Dashboard.vue'
 import Chooseyourcategory from '../views/Chooseyourcategory.vue'
+import Choosehourly from '../views/Choosehourly.vue'
 import Options from '../views/Options.vue'
 import Checkout from '../views/Checkout.vue'
 import ForgetPassword from '../views/ForgetPassword'
@@ -49,6 +50,11 @@ const routes = [
     path: '/Chooseyourcategory',
     name: 'Chooseyourcategory',
     component: Chooseyourcategory,
+  },
+  {
+    path: '/Choosehourly',
+    name: 'Choosehourly',
+    component: Choosehourly,
   },
   {
     path: "/Options/:id",

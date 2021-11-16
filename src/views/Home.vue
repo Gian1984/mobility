@@ -632,15 +632,20 @@ export default {
 
     getHourly(e){
       e.preventDefault()
+      let destinationA = this.address
+
       this.$store.commit('setReservation', [
-        {id:1, name:"Pick up address", "value":  this.address},
+        {id:1, name:"Pick up address", "value":  destinationA},
         {id:2,name:"Drop off address", "value":  '-'},
         {id:3,name:"Temps de trajet in heures", "value": this.hours},
         {id:4,name:"Distance km", "value":'-'},
-        {id:5,name:"Date de départ" , "value": this.date}
+        {id:5,name:"Date de départ" , "value": moment(this.date).format("dddd MMMM DD, YYYY [at] HH:mm a")}
       ])
 
-      this.$router.push({name: 'Chooseyourcategory'})
+      this.$store.commit('setOrderReservation',
+          {pickupaddress: destinationA, dropoffaddress: '-', duration: this.hours, distance: '-', date: moment(this.date).format() }
+      )
+      this.$router.push({name: 'Choosehourly'})
 
     },
 
