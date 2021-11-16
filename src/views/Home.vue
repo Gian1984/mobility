@@ -643,7 +643,7 @@ export default {
       ])
 
       this.$store.commit('setOrderReservation',
-          {pickupaddress: destinationA, dropoffaddress: '-', duration: this.hours, distance: '-', date: moment(this.date).format() }
+          {pickupaddress: destinationA, dropoffaddress: '-', duration: (this.hours + ' h'), distance: '-', date: moment(this.date).format() }
       )
       this.$router.push({name: 'Choosehourly'})
 
