@@ -101,8 +101,9 @@ export default {
       let pricehour = product.pricehour
       let pricekm = product.pricekm
       let description = product.description
+      let image = product.image
       /*eslint-disable */
-      this.axios.put(process.env.VUE_APP_URL_API + `api/products/${product.id}`, {name, pricehour, pricekm, description})
+      this.axios.put(process.env.VUE_APP_URL_API + `api/products/${product.id}`, {name, pricehour, pricekm, description, image})
           .then(response => this.products[index] = product)
     },
     addProduct(product) {

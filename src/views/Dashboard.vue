@@ -2,9 +2,9 @@
   <div class="mx-auto max-w-7xl">
     <IncomingContact></IncomingContact>
     <Faqs></Faqs>
-    <AdminProduct></AdminProduct>
     <Users></Users>
     <Orders></Orders>
+    <AdminProduct></AdminProduct>
   </div>
 </template>
 

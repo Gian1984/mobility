@@ -88,7 +88,7 @@
 
                   <div class="modal-footer">
                     <slot name="footer">
-                      <button type="button" @click="uploadFile" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-full shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                      <button type="button" @click="uploadFile(data.id)" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-full shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                         Done
                       </button>
                       <button type="button" @click="close" class="mt-5 ml-3 inline-flex items-center px-4 py-2 border border-indigo-600 text-sm font-medium rounded-full shadow-sm text-indigo-600 hover:bg-indigo-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
@@ -141,12 +141,12 @@ export default {
       this.attachment = event.target.files[0];
       console.log(this.attachment)
     },
-    uploadFile() {
+    uploadFile(id) {
       if (this.attachment != null) {
         let formData = new FormData();
         formData.append("image", this.attachment)
         let headers = {'Content-Type': 'multipart/form-data'}
-        this.axios.post(process.env.VUE_APP_URL_API + "api/upload-file", formData, {headers}).then(response => {
+        this.axios.post(process.env.VUE_APP_URL_API + `api/upload-file`, formData, {headers}).then(response => {
           this.product.image = response.data
           this.$emit('close', this.product)
         })

@@ -1,8 +1,7 @@
 <template>
 
-  <div class="flex flex-col">
+  <div class="flex flex-col" style="max-height: 200Vh">
     <h1 class="mt-10 font-bold text-3xl px-4">Commandes actives</h1>
-
 
 <!--  start search box-->
 
@@ -15,10 +14,9 @@
 
     <div>
       <p class="mb-2 text-right" v-if="searchQuery && filterOrders.length > 1 ">{{filterOrders.length}} results</p>
-      <div v-if="!searchQuery">
-      </div>
+      <div v-if="!searchQuery"></div>
 
-      <div v-else class="border-2 border-red-600 mt-2">
+      <div v-else class="border-2 border-red-600 mt-2 overflow-hidden">
         <div v-for="order in filterOrders" :key="order.id" class="py-3 border-b-4 border-indigo-600 mb-2" >
           <div class="bg-white py-3 border-t border-b border-gray-200 shadow-sm sm:border">
             <div class="py-6 px-4 sm:px-6 lg:grid lg:grid-cols-12 lg:gap-x-8 lg:p-8">
@@ -169,13 +167,9 @@
       <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
         <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
           <main class="mx-auto">
-
-
-
             <div class="bg-gray-50">
               <div class="max-w-7xl mx-auto pb-12 px-4 sm:pb-16 sm:px-6 lg:px-8">
                 <div class="mx-auto divide-y-2 divide-gray-200">
-
                   <dl class="mt-6 space-y-6 divide-y divide-gray-200">
                     <Disclosure as="div" v-for="order in sortedOrders" :key="order.id" class="pt-6" v-slot="{ open }">
                       <dt class="text-lg">
@@ -192,10 +186,6 @@
                         </DisclosureButton>
                       </dt>
                       <DisclosurePanel as="dd" class="mt-2">
-
-
-
-
                         <div class="py-3 border-b-4 border-indigo-600 " >
                           <div class="bg-white py-3 border-t border-b border-gray-200 shadow-sm sm:border">
                             <div class="py-6 px-4 sm:px-6 lg:grid lg:grid-cols-12 lg:gap-x-8 lg:p-8">
@@ -203,7 +193,6 @@
                                 <div class="flex-shrink-0 w-full rounded-lg overflow-hidden sm:aspect-none sm:w-40">
                                   <img :src="order.product.image" class="w-full  object-center object-cover sm:w-full" />
                                 </div>
-
                                 <div class="mt-6 sm:mt-0 sm:ml-6">
                                   <h1 class="text-base font-xlarge text-gray-900">
                                     Référence de l'achat n° {{ order.id }}
@@ -211,8 +200,6 @@
                                   <p class="text-gray-500 font-medium">{{order.product.name}}</p>
                                 </div>
                               </div>
-
-
                               <div class="sm:flex lg:col-span-7 mt-5">
                                 <dl class="grid grid-cols-2 gap-x-6 text-sm">
                                   <div>
@@ -336,12 +323,6 @@
                             </dl>
                           </div>
                         </div>
-
-
-
-
-
-
                       </DisclosurePanel>
                     </Disclosure>
                   </dl>
