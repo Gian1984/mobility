@@ -14,22 +14,24 @@
                       <div class="text-sm text-gray-900">
                         Question sur la <span class="text-indigo-700">commande n° {{ faq.order_id }} </span>
                       </div>
-                        <div class="inline ... ml-3 ">
-                          <button v-if="faq.was_answered == 0" type="button" @click="answer(index)"  class="inline-flex items-center px-2 py-2 border border-transparent shadow-sm text-sm leading-4 font-medium rounded-full text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-50">
-                            <MailIcon class="h-4 w-4" aria-hidden="true" />
-                          </button>
-                          <button v-else type="button" @click="answer(index)"  class="inline-flex items-center px-2 py-2 border border-transparent rounded-full shadow-sm text-white bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-green">
-                            <CheckIcon class="h-4 w-4" aria-hidden="true" />
-                          </button>
+                        <div class="justify-end flex">
+                          <div class="inline ... ml-3 ">
+                            <button v-if="faq.was_answered == 0" type="button" @click="answer(index)"  class="inline-flex items-center px-2 py-2 border border-transparent shadow-sm text-sm leading-4 font-medium rounded-full text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-50">
+                              <MailIcon class="h-4 w-4" aria-hidden="true" />
+                            </button>
+                            <button v-else type="button" @click="answer(index)"  class="inline-flex items-center px-2 py-2 border border-transparent rounded-full shadow-sm text-white bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-green">
+                              <CheckIcon class="h-4 w-4" aria-hidden="true" />
+                            </button>
+                          </div>
+                          <div class="ml-2 inline ...">
+                            <button type="button" @click="removeFaq(faq.id, index)" class="inline-flex items-center px-2 py-2 border border-transparent rounded-full shadow-sm text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
+                              <TrashIcon class="h-4 w-4" aria-hidden="true" />
+                            </button>
+                          </div>
+                          <span class="ml-6 h-7 flex items-center">
+                            <ChevronDownIcon :class="[open ? '-rotate-180' : 'rotate-0', 'h-6 w-6 transform']" aria-hidden="true" />
+                          </span>
                         </div>
-                        <div class="ml-2 inline ...">
-                          <button type="button" @click="removeFaq(faq.id, index)" class="inline-flex items-center px-2 py-2 border border-transparent rounded-full shadow-sm text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
-                            <TrashIcon class="h-4 w-4" aria-hidden="true" />
-                          </button>
-                        </div>
-                        <span class="ml-6 h-7 flex items-center">
-                          <ChevronDownIcon :class="[open ? '-rotate-180' : 'rotate-0', 'h-6 w-6 transform']" aria-hidden="true" />
-                        </span>
                       </DisclosureButton>
                     </dt>
                     <DisclosurePanel as="dd" class="mt-2">

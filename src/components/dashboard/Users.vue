@@ -118,7 +118,8 @@
                 <div class="flex items-center justify-between">
                   <p class="text-sm font-medium text-indigo-600 truncate">
                     <span class="text-black">Name : </span>{{ user.firstname }} {{ user.lastname}}<br>
-                    <span class="text-black">Ref. utlisateur n° : </span>{{ user.id }} <span class="text-black">- Email : </span> <a class="pr-2 pl-2 inline-flex items-center underline ... hover:text-gray-700" :href="`mailto: ${user.email}`"><input v-model="user.email"/></a><br>
+                    <span class="text-black">Ref. utlisateur n° : </span>{{ user.id }}<br>
+                    <span class="text-black">Email : </span> <a class="pr-2 pl-2 inline-flex items-center underline ... hover:text-gray-700" :href="`mailto: ${user.email}`"><input v-model="user.email"/></a><br>
                     <span class="text-black">Phone : </span> <a class="pr-2 pl-2 inline-flex items-center underline ... p-0.5 pr-1 hover:text-gray-700" :href="`tel: ${user.phone}`"><input v-model="user.phone"/></a>
                   </p>
                 </div>
