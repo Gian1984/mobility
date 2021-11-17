@@ -18,11 +18,11 @@
     <div v-else class="border-2 border-red-600 mt-2">
 
 
-      <div class="mt-4 shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-        <div class="max-w-7xl mx-auto px-4 sm:py-4 sm:px-6 lg:px-8">
+      <div class="mt-4 shadow overflow-hidden border-b border-gray-200 sm:rounded-lg ">
+        <div class="max-w-7xl mx-auto pb-12 px-4 sm:pb-16 sm:px-6 lg:px-8">
           <div class="mx-auto divide-y-2 divide-gray-200">
             <dl class="mt-6 space-y-6 divide-y divide-gray-200">
-              <Disclosure as="div" v-for="user in filterUsers" v-bind:key="user.id" class="pt-6" v-slot="{ open }">
+              <Disclosure as="div" v-for="user in filterUsers" v-bind:key="user.id" v-slot="{ open }">
                 <dt class="text-lg">
                   <DisclosureButton class="text-left w-full flex justify-between items-start text-gray-400">
                     <div class="flex items-center justify-between">
@@ -109,7 +109,7 @@
 
 
   <div class="mt-4 shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-    <div class="max-w-7xl mx-auto px-4 sm:py-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto pb-12 px-4 sm:pb-16 sm:px-6 lg:px-8">
       <div class="mx-auto divide-y-2 divide-gray-200">
         <dl class="mt-6 space-y-6 divide-y divide-gray-200">
           <Disclosure as="div" v-for="(user,index) in users" v-bind:key="index" class="pt-6" v-slot="{ open }">
@@ -118,7 +118,7 @@
                 <div class="flex items-center justify-between">
                   <p class="text-sm font-medium text-indigo-600 truncate">
                     <span class="text-black">Name : </span>{{ user.firstname }} {{ user.lastname}}<br>
-                    <span class="text-black">Ref. n° : </span>{{ user.id }} <span class="text-black">- Email : </span> <a class="pr-2 pl-2 inline-flex items-center underline ... hover:text-gray-700" :href="`mailto: ${user.email}`"><input v-model="user.email"/></a><br>
+                    <span class="text-black">Ref. utlisateur n° : </span>{{ user.id }} <span class="text-black">- Email : </span> <a class="pr-2 pl-2 inline-flex items-center underline ... hover:text-gray-700" :href="`mailto: ${user.email}`"><input v-model="user.email"/></a><br>
                     <span class="text-black">Phone : </span> <a class="pr-2 pl-2 inline-flex items-center underline ... p-0.5 pr-1 hover:text-gray-700" :href="`tel: ${user.phone}`"><input v-model="user.phone"/></a>
                   </p>
                 </div>

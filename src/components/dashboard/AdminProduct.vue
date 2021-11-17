@@ -9,7 +9,7 @@
           <div class="flex items-center justify-between">
             <p class="text-sm font-medium text-indigo-600 truncate">
               {{ product.name }} <br>
-              Ref. n° {{ product.id }}
+              Ref. produit n° {{ product.id }}
             </p>
             <div class="flex-shrink-0 h-10">
               <img class="h-10 rounded-full" :src="product.image" alt="" />
@@ -31,8 +31,8 @@
               </p>
             </div>
 
-            <div class="sm:flex mt-2">
-              <button type="button" @click="editingItem = product"  class="inline-flex items-center px-3 py-2 border border-transparent shadow-sm text-sm leading-4 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+            <div class="sm:flex mt-4">
+              <button type="button" @click="editingItem = product"  class=" inline-flex items-center px-3 py-2 border border-transparent shadow-sm text-sm leading-4 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                 Edit
                 <ExternalLinkIcon class="ml-2 -mr-0.5 h-4 w-4" aria-hidden="true" />
               </button>
@@ -46,7 +46,7 @@
   <ProductModal @close="endEditing" :product="editingItem" v-show="editingItem != null"></ProductModal>
   <ProductModal @close="addProduct"  :product="addingProduct" v-show="addingProduct != null"></ProductModal>
 
-  <button type="button" @click="newProduct"  class="mt-10 inline-flex items-center px-3 py-2 border border-transparent shadow-sm text-sm leading-4 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+  <button type="button" @click="newProduct"  class="ml-4 mt-5 inline-flex items-center px-3 py-2 border border-transparent shadow-sm text-sm leading-4 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
     Add Product
     <PlusCircleIcon class="ml-2 -mr-0.5 h-4 w-4" aria-hidden="true" />
   </button>
