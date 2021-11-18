@@ -13,6 +13,7 @@ import ResetPassword from '../views/ResetPassword.vue'
 import Privacy from '../views/Privacy.vue'
 import Terms from '../views/Terms.vue'
 import Faq from '../views/Faq.vue'
+import Unauthorized from '../views/Unauthorized.vue'
 import Register from '../components/Register.vue'
 import Login from '../components/Login.vue'
 import IncomingContact from '../components/dashboard/IncomingContact.vue'
@@ -70,6 +71,10 @@ const routes = [
     path: '/Reservation',
     name: 'Reservation',
     component: Reservation,
+    meta: {
+        requiresAuth: true,
+        is_user: true
+      }
   },
   {
     path: "/forgetpassword",
@@ -85,6 +90,10 @@ const routes = [
     path: "/Dashboard",
     name: "Dashboard",
     component: Dashboard,
+    meta: {
+      requiresAuth: true,
+      is_admin: true
+    }
   },
   {
     path: "/IncomingContact",
@@ -115,13 +124,58 @@ const routes = [
     path: "/:catchAll(.*)",
     name: 'PageNotFound',
     component: PageNotFound,
-  }
+  },
+  {
+    path: "/Unauthorized",
+    name: "Unauthorized",
+    component: Unauthorized,
+  },
 ]
+
+
+
+
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
 })
+
+
+
+    router.beforeEach((to, from, next) => {
+      if (to.matched.some(record => record.meta.requiresAuth)) {
+        if (localStorage.getItem('bigStore.jwt') == null) {
+          next({
+            path: '/Login',
+            params: { nextUrl: to.fullPath }
+          })
+        } else {
+          let user = JSON.parse(localStorage.getItem('bigStore.user'))
+          if (to.matched.some(record => record.meta.is_admin)) {
+            if (user.is_admin == 1) {
+              next()
+            }
+            else {
+              next({ name: '/Dashboard' })
+            }
+          }
+          else if (to.matched.some(record => record.meta.is_user)) {
+            if (user.is_admin == 0) {
+              next()
+            }
+            else {
+              next({ name: '/Reservation' })
+            }
+          }
+          next()
+        }
+      } else {
+        next()
+      }
+    })
+
+
 
 export default router
 

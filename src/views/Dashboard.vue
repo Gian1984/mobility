@@ -33,10 +33,12 @@ export default {
 
   beforeMount() {
 
-    this.user = JSON.parse(localStorage.getItem('bigStore'))
-    this.axios.defaults.headers.common['Content-Type'] = 'application/json'
-    this.axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('bigStore.jwt')
+      this.user = JSON.parse(localStorage.getItem('bigStore'))
+      this.axios.defaults.headers.common['Content-Type'] = 'application/json'
+      this.axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('bigStore.jwt')
+
   },
+
 
 }
 </script>

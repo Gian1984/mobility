@@ -39,9 +39,9 @@
                 </MenuButton>
               </div>
               <div v-else>
-                <MenuButton class="bg-white p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                  <span class="sr-only">Open user menu</span>
-                  <UserCircleIcon class="h-5 w-5" />
+                <MenuButton class="flex bg-white p-1 rounded-full text-gray-900 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 font-sm">
+                  <UserCircleIcon class="h-5 w-5" ></UserCircleIcon>
+                  <span class="ml-2 text-sm font-medium">Sign in / Sign up</span>
                 </MenuButton>
               </div>
               <transition enter-active-class="transition ease-out duration-200" enter-from-class="transform opacity-0 scale-95" enter-to-class="transform opacity-100 scale-100" leave-active-class="transition ease-in duration-75" leave-from-class="transform opacity-100 scale-100" leave-to-class="transform opacity-0 scale-95">
