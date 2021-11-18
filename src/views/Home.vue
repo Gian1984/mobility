@@ -94,9 +94,13 @@
                                     <label for="pickup" class="block text-sm font-medium text-gray-700 mb-1">
                                       De
                                     </label>
-                                    <div class="absolute top-4 left-3 "> </div> <input v-model="address" id="autocomplete3" type="text" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Search anything...">
-                                    <div class="absolute top-7 right-2 text-center">
-                                      <button @click="locatorButtonPressed" class="h-4 w-4 text-gray-600  hover:text-black"><LocationMarkerIcon class="mt-1 mr-2 w-5 h-5 text-white-500" aria-hidden="true" /> </button>
+                                    <div class="mt-1 sm:mt-0 sm:col-span-2">
+                                      <div class="max-w-lg flex rounded-l-md shadow-sm">
+                                        <button @click="locatorButtonPressed" class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 sm:text-sm">
+                                          <LocationMarkerIcon class="w-5 h-5 text-white-500" aria-hidden="true" />
+                                        </button>
+                                        <input v-model="address" id="autocomplete3" type="text" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-r-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Search ..." />
+                                      </div>
                                     </div>
                                     <p class="text-xs text-gray-500">Veuillez toujours entrer un numéro de rue/place... Merci</p>
                                   </div>
@@ -163,9 +167,13 @@
                                     <label for="pickup" class="block text-sm font-medium text-gray-700 mb-1">
                                       De
                                     </label>
-                                    <div class="absolute top-4 left-3 "> </div> <input v-model="address" id="autocomplete1" type="text" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Search anything...">
-                                    <div class="absolute top-7 right-2 text-center">
-                                      <LocationMarkerIcon class="mt-1 mr-2 w-5 h-5 text-white-500" aria-hidden="true" />
+                                    <div class="mt-1 sm:mt-0 sm:col-span-2">
+                                      <div class="max-w-lg flex rounded-l-md shadow-sm">
+                                        <button @click="locatorButtonPressed" class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 sm:text-sm">
+                                          <LocationMarkerIcon class="w-5 h-5 text-white-500" aria-hidden="true" />
+                                        </button>
+                                        <input v-model="address" id="autocomplete1" type="text" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-r-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Search ..." />
+                                      </div>
                                     </div>
                                     <p class="text-xs text-gray-500">Veuillez toujours entrer un numéro de rue/place... Merci</p>
                                   </div>
