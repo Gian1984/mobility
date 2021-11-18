@@ -16,8 +16,6 @@ import Faq from '../views/Faq.vue'
 import Unauthorized from '../views/Unauthorized.vue'
 import Register from '../components/Register.vue'
 import Login from '../components/Login.vue'
-import IncomingContact from '../components/dashboard/IncomingContact.vue'
-import AdminProduct from '../components/dashboard/AdminProduct.vue'
 import PageNotFound from '../views/PageNotFound.vue'
 
 
@@ -94,16 +92,6 @@ const routes = [
       requiresAuth: true,
       is_admin: true
     }
-  },
-  {
-    path: "/IncomingContact",
-    name: "IncomingContact",
-    component: IncomingContact,
-  },
-  {
-    path: "/AdminProduct",
-    name: "AdminProduct",
-    component: AdminProduct,
   },
   {
     path: "/Terms",
