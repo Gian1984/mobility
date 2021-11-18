@@ -56,7 +56,7 @@
                     <div class="py-6 px-4 sm:px-6 lg:grid lg:grid-cols-12 lg:gap-x-8 lg:p-8">
                       <div class="sm:flex lg:col-span-7">
                         <div class="flex-shrink-0 w-full rounded-lg overflow-hidden sm:aspect-none sm:w-40">
-                          <img :src="order.product.image" class="w-full  object-center object-cover sm:w-full" />
+                          <img :src="order.product.image" class="w-full  object-center object-cover sm:w-full" alt="product image" />
                         </div>
                         <div class="mt-6 sm:mt-0 sm:ml-6">
                           <h1 class="text-base font-xlarge text-gray-900">
