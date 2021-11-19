@@ -398,6 +398,8 @@ export default {
       let expire = paymentMethod.card.exp_year
 
       let user = this.user
+      let name1 = user.firstname
+      let name2 = user.lastname
       let email = user.email
       let orderReservation = this.orderReservation
       let setoption = this.setOption
@@ -421,6 +423,8 @@ export default {
 
       this.axios.post(process.env.VUE_APP_URL_API + 'api/order-success',
           {
+            name1,
+            name2,
             transactionID,
             cardBrand,
             lastFour,
