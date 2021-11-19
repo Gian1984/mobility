@@ -20,8 +20,9 @@
             <router-link to="/Services" class="border-transparent text-gray-900 hover:border-indigo-600 hover:text-gray-500 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
               Services
             </router-link>
-            <router-link to="/Reservation" class="border-transparent text-gray-900 hover:border-indigo-600 hover:text-gray-500 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
-              My reservations
+            <router-link v-if="this.user != null" to="/Reservation" class="border-transparent text-gray-900 hover:border-indigo-600 hover:text-gray-500 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+              <span v-if="this.setUser.is_admin == 0 " >My reservations</span>
+              <span v-if="this.setUser.is_admin == 1 ">My Dashboard</span>
             </router-link>
           </div>
           <div class="hidden sm:ml-6 sm:flex sm:items-center">
@@ -47,13 +48,22 @@
               <transition enter-active-class="transition ease-out duration-200" enter-from-class="transform opacity-0 scale-95" enter-to-class="transform opacity-100 scale-100" leave-active-class="transition ease-in duration-75" leave-from-class="transform opacity-100 scale-100" leave-to-class="transform opacity-0 scale-95">
                 <MenuItems class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
                   <MenuItem v-slot="{ active }">
-                    <router-link to="/Register" :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700']">Sign up</router-link>
+                    <router-link to="/Register" :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700 flex']">
+                      <PencilAltIcon class="h-6 w-6 mr-2" aria-hidden="true" />
+                      S'inscrire
+                    </router-link>
                   </MenuItem>
                   <MenuItem v-slot="{ active }">
-                    <router-link to="/Login" :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700']">Log in</router-link>
+                    <router-link to="/Login" :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700 flex']">
+                      <LoginIcon class="h-6 w-6 mr-2" aria-hidden="true" />
+                      Connexion
+                    </router-link>
                   </MenuItem>
                   <MenuItem v-slot="{ active }">
-                    <a href="/" @click="logout" :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700']">Log out</a>
+                    <a href="/" @click="logout" :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700 flex']">
+                      <LogoutIcon  class="h-6 w-6 mr-2" aria-hidden="true" />
+                      Se déconnecter
+                    </a>
                   </MenuItem>
                 </MenuItems>
               </transition>
@@ -95,15 +105,15 @@
           </DisclosureButton>
           <DisclosureButton as="a" href="/Register" class="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block flex pl-3 pr-4 py-2 border-l-4 text-base font-medium">
             <PencilAltIcon class="h-6 w-6" aria-hidden="true" />
-            <span class="ml-2">Sign up</span>
+            <span class="ml-2">S'inscrire</span>
           </DisclosureButton>
           <DisclosureButton as="a" href="/Login" class="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block flex pl-3 pr-4 py-2 border-l-4 text-base font-medium">
             <LoginIcon class="h-6 w-6" aria-hidden="true" />
-            <span class="ml-2">Login</span>
+            <span class="ml-2">Connexion</span>
           </DisclosureButton>
           <DisclosureButton as="a" href="/" @click="logout" class="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block flex pl-3 pr-4 py-2 border-l-4 text-base font-medium">
             <LogoutIcon  class="h-6 w-6" aria-hidden="true" />
-            <span class="ml-2">Log out</span>
+            <span class="ml-2">Se déconnecter</span>
           </DisclosureButton>
         </div>
       </DisclosurePanel>
@@ -193,7 +203,7 @@
           localStorage.removeItem('bigStore.jwt')
           localStorage.removeItem('bigStore.user')
           this.change()
-          this.user = ''
+          this.user = null
           this.$store.state.setUSer = ''
           this.$router.push('/')
         },

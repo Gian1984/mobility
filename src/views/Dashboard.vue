@@ -33,9 +33,19 @@ export default {
 
   beforeMount() {
 
+    let user = JSON.parse(localStorage.getItem('bigStore.user'))
+    if (user.is_admin == 1) {
+
       this.user = JSON.parse(localStorage.getItem('bigStore'))
       this.axios.defaults.headers.common['Content-Type'] = 'application/json'
       this.axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('bigStore.jwt')
+
+      }
+      else {
+        this.$router.push({ name: '/Dashboard' })
+      }
+
+
 
   },
 

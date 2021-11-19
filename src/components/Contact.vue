@@ -4,7 +4,7 @@
       <div class="md:col-span-1 mt-10">
         <h3 class="text-lg font-medium leading-6 text-gray-900">Contact</h3>
         <p class="mt-1 text-sm text-gray-500">
-          Belgamobility propose un service de location de voiture avec un Chaffeur privé, au départ de la Belgique.
+          Belga Mobility propose un service de location de voiture avec un Chaffeur privé, au départ de la Belgique.
           Experts et flexible, discrets et chaleureux, nos chaffeurs s'adaptent à vos besoins professionnels ou privés.
           Notre chauffeur professionnel vous assure un expérience 100% personnalisée.
         </p>

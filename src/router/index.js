@@ -14,9 +14,38 @@ import Privacy from '../views/Privacy.vue'
 import Terms from '../views/Terms.vue'
 import Faq from '../views/Faq.vue'
 import Unauthorized from '../views/Unauthorized.vue'
+import Forbidden from '../views/Forbidden.vue'
 import Register from '../components/Register.vue'
 import Login from '../components/Login.vue'
 import PageNotFound from '../views/PageNotFound.vue'
+
+
+
+
+// function checkAuthAdmin(to, from, next)
+// {
+//   if (localStorage.getItem('bigStore.jwt') == null) next({path: '/login',})
+//   else {
+//     let user = JSON.parse(localStorage.getItem('bigStore.user'))
+//     if (user.is_admin == 1) next({ name: 'Dashboard' })
+//     else next({ name: 'Forbidden' })
+//   }
+// }
+//
+// function checkAuthUser(to, from, next)
+// {
+//   if (localStorage.getItem('bigStore.jwt') == null) {
+//     next({
+//       path: '/login',
+//       params: { nextUrl: to.fullPath }
+//     })
+//   } else {
+//     let user = JSON.parse(localStorage.getItem('bigStore.user'))
+//     if (user.is_admin == 0 && user.is_admin == 0) next({ name: 'Reservation' })
+//     else next({ name: 'Unauthorized' })
+//   }
+// }
+
 
 
 const routes = [
@@ -70,9 +99,9 @@ const routes = [
     name: 'Reservation',
     component: Reservation,
     meta: {
-        requiresAuth: true,
-        is_user: true
-      }
+      requiresAuth: true,
+      is_user: true
+    }
   },
   {
     path: "/forgetpassword",
@@ -118,43 +147,51 @@ const routes = [
     name: "Unauthorized",
     component: Unauthorized,
   },
+  {
+    path: "/Forbidden",
+    name: "Forbidden",
+    component: Forbidden,
+  },
 ]
+
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
 })
 
-    router.beforeEach((to, from, next) => {
-      if (to.matched.some(record => record.meta.requiresAuth)) {
-        if (localStorage.getItem('bigStore.jwt') == null) {
-          next({
-            path: '/Login',
-            params: { nextUrl: to.fullPath }
-          })
-        } else {
-          let user = JSON.parse(localStorage.getItem('bigStore.user'))
-          if (to.matched.some(record => record.meta.is_admin)) {
-            if (user.is_admin == 1) {
-              next()
-            }
-            else {
-              next({ name: '/Dashboard' })
-            }
-          }
-          else if (to.matched.some(record => record.meta.is_user)) {
-            if (user.is_admin == 0) {
-              next()
-            }
-            else {
-              next({ name: '/Reservation' })
-            }
-          }
+
+router.beforeEach((to, from, next) => {
+  if (to.matched.some(record => record.meta.requiresAuth)) {
+    if (localStorage.getItem('bigStore.jwt') == null) {
+      next({
+        path: '/login',
+        params: { nextUrl: to.fullPath }
+      })
+    } else {
+      let user = JSON.parse(localStorage.getItem('bigStore.user'))
+      if (to.matched.some(record => record.meta.is_admin)) {
+        if (user.is_admin == 1) {
           next()
         }
-      } else {
-        next()
+        else {
+          next({ name: 'Reservation' })
+        }
       }
-    })
+      else if (to.matched.some(record => record.meta.is_user)) {
+        if (user.is_admin == 0) {
+          next()
+        }
+        else {
+          next({ name: 'Dashboard' })
+        }
+      }
+      next()
+    }
+  } else {
+    next()
+  }
+})
+
 
 export default router

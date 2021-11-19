@@ -2,58 +2,49 @@
   <div class="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8" style="background-image: url('img/pexels-burak-kebapci-1253049.jpeg'); ; background-size: cover;">
 
 
-    <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-5xl">
+    <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-3xl">
       <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
         <form @submit.prevent="handleSubmit" class="space-y-6">
           <div class="space-y-6 sm:pt-10 sm:space-y-5">
             <div class="sm:mx-auto sm:w-full bg-white">
               <img class="mx-auto h-12 w-auto" src="img/BELGA-MOBILITY.png" alt="Workflow" />
               <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
-                Register your account
+                Enregistrer votre compte
               </h2>
             </div>
             <div class="space-y-6 sm:space-y-5">
-              <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
-                <label for="first-name" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
-                  First name
-                </label>
-                <div class="mt-1 sm:mt-0 sm:col-span-2">
+
+
+
+
+              <div class="grid grid-cols-6 gap-6">
+                <div class="col-span-6 sm:col-span-3">
+                  <label for="first-name" class="block text-sm font-medium text-gray-700">Prénom</label>
                   <input v-model="firstname" type="text" name="first-name" id="first-name" autocomplete="given-name" class="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md" required/>
                 </div>
-              </div>
 
-              <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
-                <label for="last-name" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
-                  Last name
-                </label>
-                <div class="mt-1 sm:mt-0 sm:col-span-2">
+                <div class="col-span-6 sm:col-span-3">
+                  <label for="last-name" class="block text-sm font-medium text-gray-700">Nom de famille</label>
                   <input v-model="lastname" type="text" name="last-name" id="last-name" autocomplete="family-name" class="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md" required/>
                 </div>
-              </div>
 
-              <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
-                <label for="phone" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
-                  Phone
-                </label>
-                <div class="mt-1 sm:mt-0 sm:col-span-2">
-                  <input v-model="phone" type="text" name="phone" id="phone" autocomplete="phone" class="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md" placeholder="+39 ...." required />
-                </div>
-              </div>
-
-              <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
-                <label for="email" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
-                  Email address
-                </label>
-                <div class="mt-1 sm:mt-0 sm:col-span-2">
+                <div class="col-span-6 sm:col-span-3">
+                  <label for="email-address" class="block text-sm font-medium text-gray-700">Adresse e-mail</label>
                   <input v-model="email" id="email" name="email" type="email" autocomplete="email" :rules="emailRules"  class="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md" required />
                 </div>
-              </div>
 
-              <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
-                <label for="country" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
-                  Country
-                </label>
-                <div class="mt-1 sm:mt-0 sm:col-span-2">
+                <div class="col-span-6 sm:col-span-3">
+                  <label for="email-address" class="block text-sm font-medium text-gray-700">Téléphone</label>
+                  <input v-model="phone" type="text" name="phone" id="phone" autocomplete="phone" class="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md" placeholder="+39 ...." required />
+                </div>
+
+                <div class="col-span-6 sm:col-span-3">
+                  <label for="email-address" class="block text-sm font-medium text-gray-700">Password</label>
+                  <input v-model="password" type="password" name="password" id="password" autocomplete="current-password" :rules="passwordRules"  class="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md" required />
+                </div>
+
+                <div class="col-span-6 sm:col-span-3">
+                  <label for="country" class="block text-sm font-medium text-gray-700">Pays</label>
                   <select v-model="country" id="country" name="country" autocomplete="country-name" class="max-w-lg block focus:ring-indigo-500 focus:border-indigo-500 w-full shadow-sm sm:max-w-xs sm:text-sm border-gray-300 rounded-md" required>
                     <option value="Afganistan">Afghanistan</option>
                     <option value="Albania">Albania</option>
@@ -303,60 +294,36 @@
                     <option value="Zimbabwe">Zimbabwe</option>
                   </select>
                 </div>
-              </div>
 
-              <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
-                <label for="street-address" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
-                  Street address
-                </label>
-                <div class="mt-1 sm:mt-0 sm:col-span-2">
+                <div class="col-span-6">
+                  <label for="street-address" class="block text-sm font-medium text-gray-700">Adresse</label>
                   <input v-model="streetaddress" type="text" name="street-address" id="street-address" autocomplete="street-address" class="block max-w-lg w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border-gray-300 rounded-md" required/>
                 </div>
-              </div>
 
-              <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
-                <label for="city" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
-                  City
-                </label>
-                <div class="mt-1 sm:mt-0 sm:col-span-2">
+                <div class="col-span-6 sm:col-span-6 lg:col-span-2">
+                  <label for="city" class="block text-sm font-medium text-gray-700">Ville</label>
                   <input v-model="city" type="text" name="city" id="city" autocomplete="address-level2" class="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md" required/>
                 </div>
-              </div>
 
-              <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
-                <label for="region" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
-                  State / Province
-                </label>
-                <div class="mt-1 sm:mt-0 sm:col-span-2">
+                <div class="col-span-6 sm:col-span-3 lg:col-span-2">
+                  <label for="region" class="block text-sm font-medium text-gray-700">Région / Province</label>
                   <input v-model="region" type="text" name="region" id="region" autocomplete="address-level1" class="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md" required/>
                 </div>
-              </div>
 
-              <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
-                <label for="postal-code" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
-                  ZIP / Postal code
-                </label>
-                <div class="mt-1 sm:mt-0 sm:col-span-2">
+                <div class="col-span-6 sm:col-span-3 lg:col-span-2">
+                  <label for="postal-code" class="block text-sm font-medium text-gray-700">Zip / Code postal</label>
                   <input v-model="zip" type="text" name="postal-code" id="postal-code" autocomplete="postal-code" class="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md" required/>
                 </div>
+
               </div>
 
               <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
-                <label for="password" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
-                  Password
+                <label for="password" class="block text-sm font-medium text-gray-700 sm:mt-px">
+                  Termes et conditions
                 </label>
-                <div class="mt-1 sm:mt-0 sm:col-span-2">
-                  <input v-model="password" type="password" name="password" id="password" autocomplete="current-password" :rules="passwordRules"  class="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md" required />
-                </div>
-              </div>
-
-              <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
-                <label for="password" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
-                  Terms & Conditions
-                </label>
-                <div class="mt-1 sm:mt-0 sm:col-span-2">
+                <div class="flex mt-1 sm:mt-0 sm:col-span-2">
                   <input id="candidates" aria-describedby="candidates-description" name="candidates" type="checkbox" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded" required>
-                  <p id="candidates-description" class="text-gray-500 text-sm">
+                  <p id="candidates-description" class="text-gray-500 text-sm ml-2">
                     En cochant cette case vous acceptez les <a href="/Terms" class="text-indigo-700">conditions d'utilisation</a> ainsi que le <a href="/Privacy" class="text-indigo-700">traitement des données personnelles</a> afin de pouvoir fournir le service.</p>
                 </div>
               </div>
@@ -366,7 +333,7 @@
 
           <div>
             <button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" required>
-              Sign in
+              S'inscrire
             </button>
           </div>
         </form>

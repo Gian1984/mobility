@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8" style="background-image: url('img/pexels-burak-kebapci-1253049.jpeg'); ; background-size: cover;">
+  <div class="bg-top sm:bg-top min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8" style="background-image: url('img/pexels-burak-kebapci-1253049.jpeg'); ; background-size: cover;">
     <div class="sm:mx-auto sm:w-full sm:max-w-m">
       <div class="mx-auto w-full max-w-sm lg:w-96 bg-white p-5 rounded-lg">
         <div>
@@ -12,6 +12,7 @@
         <div class="mt-8">
           <div class="mt-6">
             <form @submit.prevent="handleSubmit" class="space-y-6">
+
               <div>
                 <label for="email" class="block text-sm font-medium text-gray-700">
                   Adresse e-mail
