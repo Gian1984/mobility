@@ -95,9 +95,10 @@
             <TagIcon class="h-6 w-6" aria-hidden="true" />
             <span class="ml-2">About</span>
           </DisclosureButton>
-          <DisclosureButton as="a" href="/Reservation" class="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block flex pl-3 pr-4 py-2 border-l-4 text-base font-medium">
+          <DisclosureButton v-if="this.user != null" as="a" href="/Reservation" class="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block flex pl-3 pr-4 py-2 border-l-4 text-base font-medium">
             <ViewListIcon class="h-6 w-6" aria-hidden="true" />
-            <span class="ml-2">My reservations</span>
+            <span v-if="this.setUser.is_admin == 0 " class="ml-2">My reservations</span>
+            <span v-if="this.setUser.is_admin == 1 " class="ml-2">My reservations</span>
           </DisclosureButton>
           <DisclosureButton as="a" href="https://wa.me/00393494257041" target="_blank" class="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block flex pl-3 pr-4 py-2 border-l-4 text-base font-medium">
             <img class="h-6 w-6 rounded-full" src="img/wlogo.png" alt="whatsapp" />
@@ -115,6 +116,9 @@
             <LogoutIcon  class="h-6 w-6" aria-hidden="true" />
             <span class="ml-2">Se déconnecter</span>
           </DisclosureButton>
+          <div v-if="this.user != null" class="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block flex pl-3 pr-4 py-2 border-l-4 text-base" >
+            <p v-if="this.user != null" class="mx-auto italic ...">Bienvenue {{ this.setUser.firstname }} {{ this.setUser.lastname }}</p>
+          </div>
         </div>
       </DisclosurePanel>
     </Disclosure>

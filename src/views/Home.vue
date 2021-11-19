@@ -227,7 +227,7 @@
             <div class="flow-root bg-gray-50 rounded-lg px-6 pb-8">
               <div class="-mt-6">
                 <div>
-                        <span class="inline-flex items-center justify-center p-3 bg-gradient-to-r from-teal-500 to-cyan-600 rounded-md shadow-lg">
+                        <span class="inline-flex items-center justify-center p-3 bg-gradient-to-r from-indigo-400 to-indigo-700 rounded-md shadow-lg">
                           <component :is="feature.icon" class="h-6 w-6 text-white" aria-hidden="true" />
                         </span>
                 </div>
@@ -244,7 +244,7 @@
   </div>
 
   <!-- Testimonial section -->
-  <div class="pb-16 bg-gradient-to-r from-teal-500 to-cyan-600 lg:pb-0 lg:z-10 lg:relative">
+  <div class="pb-16 bg-gradient-to-r from-indigo-400 to-indigo-700 lg:pb-0 lg:z-10 lg:relative">
     <div class="lg:mx-auto lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-1 lg:gap-8">
       <div class="mt-12 lg:m-0 lg:col-span-2 lg:pl-8">
         <div class="mx-auto max-w-md px-4 sm:max-w-2xl sm:px-6 lg:px-0 lg:py-20 lg:max-w-none">
