@@ -36,25 +36,25 @@
 
                                 <div class="sm:col-span-6">
                                   <div>
-                                    <input id="name" name="name" v-model="name" type="text" autocomplete="name" class="shadow-sm block w-full text-xs border-gray-300 rounded-md" placeholder="Ex: Joe Carter" />
+                                    <input id="name" name="name" v-model="name" type="text" autocomplete="name" class="shadow-sm block w-full text-xs border-gray-300 rounded-md" placeholder="Ex: Joe Carter" required />
                                   </div>
                                 </div>
 
                                 <div class="sm:col-span-6">
                                   <div class="mt-2">
-                                    <input id="email" name="email" v-model="email" type="email" autocomplete="email" class="shadow-sm block w-full text-xs border-gray-300 rounded-md" placeholder="Ex: exapmle@example.com" />
+                                    <input id="email" name="email" v-model="email" type="email" autocomplete="email" class="shadow-sm block w-full text-xs border-gray-300 rounded-md" placeholder="Ex: exapmle@example.com" required  />
                                   </div>
                                 </div>
 
                                 <div class="sm:col-span-6">
                                   <div class="mt-2">
-                                    <input id="phone" name="phone" v-model="phone" type="number" autocomplete="phone" class="shadow-sm block w-full text-xs border-gray-300 rounded-md" placeholder="Ex: +39 344 435 ...." />
+                                    <input id="phone" name="phone" v-model="phone" type="number" autocomplete="phone" class="shadow-sm block w-full text-xs border-gray-300 rounded-md" placeholder="Ex: +39 344 435 ...." required />
                                   </div>
                                 </div>
 
                                 <div>
                                   <div class="mt-2">
-                                    <textarea v-model="question" class="shadow-sm block w-full text-xs border-gray-300 rounded-md" rows="3" placeholder="Enter questions."></textarea>
+                                    <textarea v-model="question" class="shadow-sm block w-full text-xs border-gray-300 rounded-md" rows="3" placeholder="Enter questions." required ></textarea>
                                   </div>
                                 </div>
                               </div>
