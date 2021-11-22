@@ -95,11 +95,6 @@
             <TagIcon class="h-6 w-6" aria-hidden="true" />
             <span class="ml-2">About</span>
           </DisclosureButton>
-          <DisclosureButton v-if="this.user != null" as="a" href="/Reservation" class="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block flex pl-3 pr-4 py-2 border-l-4 text-base font-medium">
-            <ViewListIcon class="h-6 w-6" aria-hidden="true" />
-            <span v-if="this.setUser.is_admin == 0 " class="ml-2">My reservations</span>
-            <span v-if="this.setUser.is_admin == 1 " class="ml-2">My reservations</span>
-          </DisclosureButton>
           <DisclosureButton as="a" href="https://wa.me/00393494257041" target="_blank" class="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block flex pl-3 pr-4 py-2 border-l-4 text-base font-medium">
             <img class="h-6 w-6 rounded-full" src="img/wlogo.png" alt="whatsapp" />
             <span class="ml-2">Whatsapp</span>
@@ -117,7 +112,12 @@
             <span class="ml-2">Se déconnecter</span>
           </DisclosureButton>
           <div v-if="this.user != null" class="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block flex pl-3 pr-4 py-2 border-l-4 text-base" >
-            <p v-if="this.user != null" class="mx-auto italic ...">Bienvenue {{ this.setUser.firstname }} {{ this.setUser.lastname }}</p>
+            <p v-if="this.user != null" class="mx-auto italic ...">Bienvenue<span class="text-indigo-700 mx-2">{{ this.setUser.firstname }} {{ this.setUser.lastname }}</span>
+              <router-link class="mx-auto px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800" to="/Reservation" v-if="this.user != null">
+                <span v-if="this.setUser.is_admin == 0 " class="mx-auto">My reservations ></span>
+                <span v-if="this.setUser.is_admin == 1 " class="mx-auto">My admin ></span>
+              </router-link>
+            </p>
           </div>
         </div>
       </DisclosurePanel>
