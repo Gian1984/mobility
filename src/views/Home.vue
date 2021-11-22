@@ -516,15 +516,15 @@ const testimonials = [
     id: 2,
     rating: 5,
     quote:
-        'Honnêtement, depuis que j\'ai goûté aux succulentes pizzas de Pizza Vino, je ne veux plus manger de pizza dans un autre restaurant. La pâte est délicieuse, cuite à la perfection et les ingrédients sont de qualité et bien mis en valeur. Les assemblages sont savoureux et il y a une carte de suggestions qui change fréquemment.',
-    attribution: 'Warlikka',
+        'Suite à voyage d\'affaires de Bruxelles vers Paris , pendant la crise du corona virus, que j\'ai eu recours à cette société. Avant le service, la société nous a fait parvenir les consignes à respecter en Belgique et en France et ont mis à notre disposition des masque chirurgicaux et du gel hydro-alcoolique . Conduite très professionnelle, chauffeur souriant et serviable. Je recommande vivement!!',
+    attribution: 'Arthur B',
   },
   {
     id: 3,
     rating: 5,
     quote:
-        'Des vrais italiens, un décor moderne. La pizza avec de la vraie farine italienne et du bon jambon fumé (on le voit avec son étiquette italienne dans le frigo à l\'entrée). La pate est fine. Le prix est raisonable vu la qualité des produits.',
-    attribution: 'Gilles Marechal',
+        'Suite à voyage d\'affaires de Bruxelles vers Paris , pendant la crise du corona virus, que j\'ai eu recours à cette société. Avant le service, la société nous a fait parvenir les consignes à respecter en Belgique et en France et ont mis à notre disposition des masque chirurgicaux et du gel hydro-alcoolique . Conduite très professionnelle, chauffeur souriant et serviable. Je recommande vivement!!',
+    attribution: 'Arthur B',
   },
 
 ]
