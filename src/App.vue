@@ -47,19 +47,19 @@
               </div>
               <transition enter-active-class="transition ease-out duration-200" enter-from-class="transform opacity-0 scale-95" enter-to-class="transform opacity-100 scale-100" leave-active-class="transition ease-in duration-75" leave-from-class="transform opacity-100 scale-100" leave-to-class="transform opacity-0 scale-95">
                 <MenuItems class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
-                  <MenuItem v-slot="{ active }">
+                  <MenuItem v-if="! this.setUser" v-slot="{ active }">
                     <router-link to="/Register" :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700 flex']">
                       <PencilAltIcon class="h-6 w-6 mr-2" aria-hidden="true" />
                       S'inscrire
                     </router-link>
                   </MenuItem>
-                  <MenuItem v-slot="{ active }">
+                  <MenuItem v-if="! this.setUser" v-slot="{ active }">
                     <router-link to="/Login" :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700 flex']">
                       <LoginIcon class="h-6 w-6 mr-2" aria-hidden="true" />
                       Connexion
                     </router-link>
                   </MenuItem>
-                  <MenuItem v-slot="{ active }">
+                  <MenuItem v-if="this.setUser"  v-slot="{ active }">
                     <a href="/" @click="logout" :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700 flex']">
                       <LogoutIcon  class="h-6 w-6 mr-2" aria-hidden="true" />
                       Se déconnecter
@@ -99,27 +99,52 @@
             <img class="h-6 w-6 rounded-full" src="img/wlogo.png" alt="whatsapp" />
             <span class="ml-2">Whatsapp</span>
           </DisclosureButton>
-          <DisclosureButton as="a" href="/Register" class="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block flex pl-3 pr-4 py-2 border-l-4 text-base font-medium">
-            <PencilAltIcon class="h-6 w-6" aria-hidden="true" />
-            <span class="ml-2">S'inscrire</span>
-          </DisclosureButton>
-          <DisclosureButton as="a" href="/Login" class="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block flex pl-3 pr-4 py-2 border-l-4 text-base font-medium">
-            <LoginIcon class="h-6 w-6" aria-hidden="true" />
-            <span class="ml-2">Connexion</span>
-          </DisclosureButton>
-          <DisclosureButton as="a" href="/" @click="logout" class="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block flex pl-3 pr-4 py-2 border-l-4 text-base font-medium">
-            <LogoutIcon  class="h-6 w-6" aria-hidden="true" />
-            <span class="ml-2">Se déconnecter</span>
-          </DisclosureButton>
-          <div v-if="this.user != null" class="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block flex pl-3 pr-4 py-2 border-l-4 text-base" >
-            <p v-if="this.user != null" class="mx-auto italic ...">Bienvenue<span class="text-indigo-700 mx-2">{{ this.setUser.firstname }} {{ this.setUser.lastname }}</span>
-              <router-link class="mx-auto px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800" to="/Reservation" v-if="this.user != null">
-                <span v-if="this.setUser.is_admin == 0 " class="mx-auto">My reservations ></span>
-                <span v-if="this.setUser.is_admin == 1 " class="mx-auto">My admin ></span>
-              </router-link>
-            </p>
+        </div>
+
+
+        <div class="pt-4 pb-3 border-t border-gray-200">
+          <div class="flex items-center px-4">
+            <div class="flex-shrink-0">
+              <div class="text-base font-medium text-gray-800">Bienvenue</div>
+              <div class="text-sm font-medium text-gray-500">{{ this.setUser.firstname }} {{ this.setUser.lastname }}</div>
+            </div>
+            <div class="mr-2">
+            </div>
+            <router-link v-show="this.user != null" to="/Reservation" class="px-2 py-1  text-xs leading-5 font-semibold bg-green-100 rounded-lg text-green-800 flex justify-self-end">
+                <span v-if="this.setUser.is_admin == 0 " class="mx-auto">
+                  <PencilAltIcon class="h-6 w-6 mx-auto" aria-hidden="true" />
+                  My reservations >
+                </span>
+              <span v-if="this.setUser.is_admin == 1 " class="mx-auto">
+                  <PencilAltIcon class="h-6 w-6 mx-auto" aria-hidden="true" />
+                  My admin >
+                </span>
+            </router-link>
+          </div>
+          <div class="mt-3 space-y-1 ">
+            <DisclosureButton v-if="! this.setUser" as="a" href="/Register" class="block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100">
+              <div class="flex">
+                <PencilAltIcon class="h-6 w-6" aria-hidden="true" />
+                <span class="ml-2">S'inscrire</span>
+              </div>
+            </DisclosureButton>
+            <DisclosureButton v-if="! this.setUser" as="a" href="/Login" class="block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100">
+              <div class="flex">
+                <LoginIcon class="h-6 w-6" aria-hidden="true" />
+                <span class="ml-2">Connexion</span>
+              </div>
+            </DisclosureButton>
+            <DisclosureButton v-if="this.setUser" @click="logout" as="a" href="/" class="flex block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100">
+              <div class="flex">
+                <LogoutIcon  class="h-6 w-6" aria-hidden="true" />
+                <span class="ml-2">Se déconnecter</span>
+              </div>
+            </DisclosureButton>
           </div>
         </div>
+
+
+
       </DisclosurePanel>
     </Disclosure>
 
