@@ -108,20 +108,18 @@
               <div class="text-base font-medium text-gray-800">Bienvenue</div>
               <div class="text-sm font-medium text-gray-500">{{ this.setUser.firstname }} {{ this.setUser.lastname }}</div>
             </div>
-            <div class="mr-2">
-            </div>
-            <router-link v-show="this.user != null" to="/Reservation" class="px-2 py-1  text-xs leading-5 font-semibold bg-green-100 rounded-lg text-green-800 flex justify-self-end">
-                <span v-if="this.setUser.is_admin == 0 " class="mx-auto">
-                  <PencilAltIcon class="h-6 w-6 mx-auto" aria-hidden="true" />
-                  My reservations >
+          </div>
+          <div class="mt-3 space-y-1 ">
+            <router-link v-show="this.user != null" to="/Reservation" class="px-4 py-2 text-base  font-medium text-gray-500 leading-5 flex justify-self-end">
+                <span v-if="this.setUser.is_admin == 0 " class="flex">
+                  <PencilAltIcon class="h-6 w-6 mr-2" aria-hidden="true" />
+                  My reservations
                 </span>
-              <span v-if="this.setUser.is_admin == 1 " class="mx-auto">
+              <span v-if="this.setUser.is_admin == 1 " class="flex">
                   <PencilAltIcon class="h-6 w-6 mx-auto" aria-hidden="true" />
                   My admin >
                 </span>
             </router-link>
-          </div>
-          <div class="mt-3 space-y-1 ">
             <DisclosureButton v-if="! this.setUser" as="a" href="/Register" class="block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100">
               <div class="flex">
                 <PencilAltIcon class="h-6 w-6" aria-hidden="true" />
