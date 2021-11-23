@@ -13,101 +13,92 @@
               <div class="modal-wrapper">
                 <div class="modal-container">
                   <div class="modal-body">
-                    <h5 class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
-                      <span class="block xl:inline">Modifier ou ajouter</span><br>
-                      {{ ' ' }}
-                      <span class="block text-indigo-600 xl:inline">vos produits.</span>
+                    <h5 class="text-2xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
+                      <span>Modifier ou ajouter</span><br>
+                      <span class="text-indigo-600">vos produits.</span>
                     </h5>
-                    <div class="mt-5">
+
+                    <div class="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
+
+                    <div class="sm:col-span-2 ">
                       <div class="flex justify-between">
-                        <label for="name" class="block text-sm font-medium text-gray-700">Name :</label>
+                        <label for="name" class="block text-xs text-gray-700">Name :</label>
                       </div>
                       <div class="mt-1">
-                        <input type="text" v-model="data.name" name="name" id="name" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm" placeholder="Ex: shoes" />
+                        <input type="text" v-model="data.name" name="name" id="name" class="mt-1 text-xs block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-xs" placeholder="Ex: Business Class" />
                       </div>
                     </div>
 
 
-                    <div>
+                    <div class="sm:col-span-2">
                       <div class="flex justify-between">
-                        <label for="pricekm" class="block text-sm font-medium text-gray-700 mt-2">Prix Km :</label>
+                        <label for="pricekm" class="block text-xs text-gray-700">Prix Km :</label>
                       </div>
                       <div class="mt-1">
-                        <input type="text" v-model="data.pricekm" name="pricekm" id="pricekm" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm" placeholder="Ex: 200" />
+                        <input type="text" v-model="data.pricekm" name="pricekm" id="pricekm" class="mt-1 text-xs block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-xs" placeholder="Ex: 2.4" />
                       </div>
                     </div>
 
 
-                    <div>
-                      <div class="flex justify-between">
-                        <label for="pricehour" class="block text-sm font-medium text-gray-700 mt-2">Prix Max Km :</label>
+                    <div class="sm:col-span-2">
+                      <div class="flex justify-between ">
+                        <label for="pricehour" class="block text-xs text-gray-700">Prix Max Km :</label>
                       </div>
                       <div class="mt-1">
-                        <input type="text" v-model="data.pricehour" name="pricehour" id="pricehour" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm" placeholder="Ex: 200" />
+                        <input type="text" v-model="data.pricehour" name="pricehour" id="pricehour" class="mt-1 text-xs block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-xs" placeholder="Ex: 60" />
                       </div>
                     </div>
 
 
-                    <div>
+                    <div class="sm:col-span-2">
                       <div class="flex justify-between">
-                        <label for="kmhours" class="block text-sm font-medium text-gray-700 mt-2">N° km par heures :</label>
+                        <label for="kmhours" class="block text-xs text-gray-700">N° km par heures :</label>
                       </div>
                       <div class="mt-1">
-                        <input type="text" v-model="data.kmhours" name="kmhours" id="kmhours" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm" placeholder="Ex: 200" />
+                        <input type="text" v-model="data.kmhours" name="kmhours" id="kmhours" class="mt-1 text-xs block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-xs" placeholder="Ex: 20" />
                       </div>
+                    </div>
+
+                    <div class="sm:col-span-2">
+                      <div class="flex justify-between">
+                        <label for="luggage" class="block text-xs text-gray-700">N° des bagages :</label>
+                      </div>
+                      <div class="mt-1">
+                        <input type="text" v-model="data.luggage" name="pricekm" id="luggage" class="mt-1 text-xs block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-xs" placeholder="Ex: 1" />
+                      </div>
+                    </div>
+
+                    <div class="sm:col-span-2">
+                      <div class="flex justify-between">
+                        <label for="passengers" class="block text-xs text-gray-700">N° des passagers:</label>
+                      </div>
+                      <div class="mt-1">
+                        <input type="text" v-model="data.passengers" name="pricekm" id="passengers" class="mt-1 text-xs block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-xs" placeholder="Ex: 1" />
+                      </div>
+                    </div>
+
+                    <div class="sm:col-span-6">
+                      <div class="flex justify-between">
+                        <label for="description" class="block text-xs text-gray-700">Description :</label>
+                      </div>
+                      <div class="mt-1">
+                        <textarea v-model="data.description" class="text-xs block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-xs" rows="3" placeholder="Ex: Mercedes-Benz E-Class, BMW 5 Series, Cadillac XTS ou similaire"></textarea>
+                      </div>
+                    </div>
+
                     </div>
 
                     <div>
                       <div class="flex justify-between">
-                        <label for="luggage" class="block text-sm font-medium text-gray-700 mt-2">N° des bagages :</label>
-                      </div>
-                      <div class="mt-1">
-                        <input type="text" v-model="data.luggage" name="pricekm" id="luggage" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm" placeholder="Ex: 200" />
-                      </div>
-                    </div>
-
-                    <div>
-                      <div class="flex justify-between">
-                        <label for="passengers" class="block text-sm font-medium text-gray-700 mt-2">N° des passagers:</label>
-                      </div>
-                      <div class="mt-1">
-                        <input type="text" v-model="data.passengers" name="pricekm" id="passengers" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm" placeholder="Ex: 200" />
-                      </div>
-                    </div>
-
-
-
-
-
-
-
-
-
-
-
-
-                    <div>
-                      <div class="flex justify-between">
-                        <label for="description" class="block text-sm font-medium text-gray-700 mt-2">Description :</label>
-                      </div>
-                      <div class="mt-1">
-                        <textarea v-model="data.description" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm" rows="3" placeholder="Enter description."></textarea>
-                      </div>
-                    </div>
-
-
-
-                    <div>
-                      <div class="flex justify-between">
-                        <label for="photo" class="block text-sm font-medium text-gray-700 mt-2">Photo :</label>
+                        <label for="photo" class="block text-xs font-medium text-gray-700 mt-2">Photo :</label>
                       </div>
                       <div class="mt-1 sm:border-t sm:border-gray-200 sm:pt-5">
                         <div class="flex justify-center max-w-12">
                           <div class="max-w-lg flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
                             <div class="space-y-1 text-center">
-                              <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
-                                <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                              </svg>
+                              <div class="mt-1 flex justify-center max-w-7">
+                                <img :src="data.image" v-show="data.image != null" class="w-1/4" alt="car-image">
+                              </div>
                               <div class="flex text-sm text-gray-600 justify-center">
                                 <label class="custom-file-upload inline-flex items-center px-1 py-1 border border-transparent text-xs font-medium rounded-full shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                                   <input type="file" id="file" @change="attachFile"/>
@@ -122,17 +113,14 @@
                         </div>
                       </div>
                     </div>
-                      <div class="mt-1 flex justify-center max-w-7">
-                        <img :src="data.image" v-show="data.image != null" class="w-1/4" alt="car-image">
-                      </div>
                   </div>
 
                   <div class="modal-footer">
                     <slot name="footer">
-                      <button type="button" @click="uploadFile(data.id)" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-full shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                      <button type="button" @click="uploadFile(data.id)" class="inline-flex items-center px-4 py-2 border border-transparent text-xs rounded-full shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                         Envoyer
                       </button>
-                      <button type="button" @click="close" class="mt-5 ml-3 inline-flex items-center px-4 py-2 border border-indigo-600 text-sm font-medium rounded-full shadow-sm text-indigo-600 hover:bg-indigo-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                      <button type="button" @click="close" class="mt-5 ml-3 inline-flex items-center px-4 py-2 border border-indigo-600 text-xs rounded-full shadow-sm text-indigo-600 hover:bg-indigo-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                         Quitter
                       </button>
                     </slot>
