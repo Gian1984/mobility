@@ -35,9 +35,9 @@
       </li>
       <li>
         <div class="mx-auto p-5" aria-hidden="true">
-          <button @click="$router.go(-1)" class="inline-flex items-center p-1.5 border border-transparent rounded-lg shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
-            <ChevronDoubleLeftIcon class="h-6 w-6" aria-hidden="true" />
-            En arrière
+          <button @click="$router.go(-1)" class="inline-flex items-center py-1.5 px-3 border border-transparent rounded-full shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
+            <ChevronDoubleLeftIcon class="h-5 w-5 mr-2" aria-hidden="true" />
+            Retour
           </button>
         </div>
       </li>
@@ -64,6 +64,8 @@
 
   <!--  Car options-->
 
+  {{product}}
+
   <div class="bg-white">
     <div class="max-w-6xl mx-auto px-4 py-16 sm:px-6 sm:py-24">
       <div class="max-w-xl">
@@ -79,6 +81,11 @@
               </h3>
               <p class="text-sm text-gray-500 truncate">
                 <span>{{ product.description }}</span>
+              </p>
+              <p class="text-sm text-gray-500 truncate flex">
+                <span class="flex">
+                  <UserGroupIcon class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" aria-hidden="true" /> max. {{ product.passengers }} <BriefcaseIcon class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400 ml-2" aria-hidden="true" /> max. {{product.luggage}}
+                </span>
               </p>
             </div>
             <div class="py-6 sm:flex">
@@ -114,7 +121,7 @@
                 <img :src="product.image" alt="Choise your car" class="flex-none w-100 rounded-md object-center object-cover mx-auto" />
               </div>
               <div class="mt-6 space-y-4 sm:mt-0 sm:ml-6 sm:flex-none sm:w-1/4">
-                <p class="mt-1 font-medium text-gray-900">€ {{product.amount}}</p>
+                <p class="mt-1 font-medium text-gray-900">€ {{product.amount}} - Inclus {{product.km}} Km</p>
                 <p class="text-sm text-gray-500 truncate">
                   <span>Tous les prix comprennent<br> TVA, frais et pourboire.</span>
                   {{ ' ' }}
@@ -136,7 +143,7 @@
 
 <script>
 import { CheckIcon } from '@heroicons/vue/solid'
-import {  ChevronDoubleLeftIcon, ChevronDoubleRightIcon } from '@heroicons/vue/outline'
+import {  ChevronDoubleLeftIcon, ChevronDoubleRightIcon, BriefcaseIcon, UserGroupIcon } from '@heroicons/vue/outline'
 
 const steps = [
   { id: '01', name: 'Choose your category', status: 'current' },
@@ -169,9 +176,27 @@ export default {
           this.total = productsHprices.map(element=>{
 
             let prixH = element.pricehour;
+            let prixMin = (prixH/100)*20;
+            let kmHeure = 20
             let duration = this.reservation[2]['value']
 
-            return {id:element.id, amount:(prixH * duration), name:element.name, description: element.description, image:element.image};
+
+            // Condition 1
+            if (duration <= 3) {
+              return {id:element.id, amount:(prixH * duration), km:(kmHeure * duration) , name:element.name, description: element.description, image:element.image, passengers:element.passengers, luggage:element.luggage};
+
+              // Condition 2
+            }  else {
+              let totalReste = 0
+              let diffPrix = prixH - prixMin;
+              let reste = diffPrix/21
+              for(let i= 3;i<= duration; i++){
+                totalReste = reste + totalReste
+              }
+              return {id:element.id, amount:(Math.round((prixH * duration) - totalReste).toFixed(2) ) , km:(kmHeure * duration),  name:element.name, description: element.description, image:element.image, passengers:element.passengers, luggage:element.luggage};
+            }
+
+            return null
 
           })
 
@@ -196,7 +221,9 @@ export default {
   components: {
     CheckIcon,
     ChevronDoubleLeftIcon,
-    ChevronDoubleRightIcon
+    ChevronDoubleRightIcon,
+    BriefcaseIcon,
+    UserGroupIcon
   },
   setup() {
     return {

@@ -57,6 +57,33 @@
                                 </dd>
                               </div>
                               <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                                <dt class="flex text-sm font-medium text-gray-500">
+                                  <TrendingUpIcon class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" aria-hidden="true" />
+                                  Km par heure
+                                </dt>
+                                <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                                  <input v-model="product.kmhours" >
+                                </dd>
+                              </div>
+                              <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                                <dt class="flex text-sm font-medium text-gray-500">
+                                  <BriefcaseIcon class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" aria-hidden="true" />
+                                  N° des bagages
+                                </dt>
+                                <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                                  <input v-model="product.luggage" >
+                                </dd>
+                              </div>
+                              <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                                <dt class="flex text-sm font-medium text-gray-500">
+                                  <UserGroupIcon class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" aria-hidden="true" />
+                                  N° des passagers
+                                </dt>
+                                <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                                  <input v-model="product.passengers" >
+                                </dd>
+                              </div>
+                              <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                 <dt class="flex  text-sm font-medium text-gray-500">
                                   <DocumentTextIcon class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" aria-hidden="true" />
                                   Description
@@ -101,7 +128,7 @@
 
 <script>
 
-import { PlusCircleIcon,PencilAltIcon, DocumentTextIcon, ClockIcon, MapIcon, ChevronDownIcon, PhotographIcon } from '@heroicons/vue/outline'
+import { PlusCircleIcon,PencilAltIcon, DocumentTextIcon, ClockIcon, MapIcon, ChevronDownIcon, PhotographIcon, BriefcaseIcon, UserGroupIcon, TrendingUpIcon } from '@heroicons/vue/outline'
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/vue'
 import ProductModal from '../dashboard/ProductModal.vue'
 
@@ -125,7 +152,10 @@ export default {
     DisclosurePanel,
     ChevronDownIcon,
     PhotographIcon,
-    PencilAltIcon
+    PencilAltIcon,
+    BriefcaseIcon,
+    UserGroupIcon,
+    TrendingUpIcon,
   },
 
 
@@ -140,6 +170,9 @@ export default {
         pricekm: null,
         image: null,
         description: null,
+        passengers:null,
+        luggage:null,
+        kmhours:null,
       }
     },
     endEditing(product) {
@@ -151,8 +184,11 @@ export default {
       let pricekm = product.pricekm
       let description = product.description
       let image = product.image
+      let passengers = product.passengers
+      let luggage = product.luggage
+      let kmhours = product.kmhours
       /*eslint-disable */
-      this.axios.put(process.env.VUE_APP_URL_API + `api/products/${product.id}`, {name, pricehour, pricekm, description, image})
+      this.axios.put(process.env.VUE_APP_URL_API + `api/products/${product.id}`, {name, pricehour, pricekm, description, image, passengers, luggage, kmhours })
           .then(response => this.products[index] = product)
     },
     addProduct(product) {
@@ -163,8 +199,11 @@ export default {
       let pricekm = product.pricekm
       let description = product.description
       let image = product.image
+      let passengers = product.passengers
+      let luggage = product.luggage
+      let kmhours = product.kmhours
 
-      this.axios.post(process.env.VUE_APP_URL_API + "api/products/", {name, pricehour, pricekm, description, image})
+      this.axios.post(process.env.VUE_APP_URL_API + "api/products/", {name, pricehour, pricekm, description, image, passengers, luggage, kmhours})
           .then(response => this.products.push(product))
     }
   },

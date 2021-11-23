@@ -27,23 +27,64 @@
                       </div>
                     </div>
 
+
                     <div>
                       <div class="flex justify-between">
-                        <label for="pricehour" class="block text-sm font-medium text-gray-700 mt-2">Price Hour :</label>
+                        <label for="pricekm" class="block text-sm font-medium text-gray-700 mt-2">Prix Km :</label>
+                      </div>
+                      <div class="mt-1">
+                        <input type="text" v-model="data.pricekm" name="pricekm" id="pricekm" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm" placeholder="Ex: 200" />
+                      </div>
+                    </div>
+
+
+                    <div>
+                      <div class="flex justify-between">
+                        <label for="pricehour" class="block text-sm font-medium text-gray-700 mt-2">Prix Max Km :</label>
                       </div>
                       <div class="mt-1">
                         <input type="text" v-model="data.pricehour" name="pricehour" id="pricehour" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm" placeholder="Ex: 200" />
                       </div>
                     </div>
 
+
                     <div>
                       <div class="flex justify-between">
-                        <label for="pricekm" class="block text-sm font-medium text-gray-700 mt-2">Price Km :</label>
+                        <label for="kmhours" class="block text-sm font-medium text-gray-700 mt-2">N° km par heures :</label>
                       </div>
                       <div class="mt-1">
-                        <input type="text" v-model="data.pricekm" name="pricekm" id="pricekm" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm" placeholder="Ex: 200" />
+                        <input type="text" v-model="data.kmhours" name="kmhours" id="kmhours" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm" placeholder="Ex: 200" />
                       </div>
                     </div>
+
+                    <div>
+                      <div class="flex justify-between">
+                        <label for="luggage" class="block text-sm font-medium text-gray-700 mt-2">N° des bagages :</label>
+                      </div>
+                      <div class="mt-1">
+                        <input type="text" v-model="data.luggage" name="pricekm" id="luggage" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm" placeholder="Ex: 200" />
+                      </div>
+                    </div>
+
+                    <div>
+                      <div class="flex justify-between">
+                        <label for="passengers" class="block text-sm font-medium text-gray-700 mt-2">N° des passagers:</label>
+                      </div>
+                      <div class="mt-1">
+                        <input type="text" v-model="data.passengers" name="pricekm" id="passengers" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm" placeholder="Ex: 200" />
+                      </div>
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
 
                     <div>
                       <div class="flex justify-between">
@@ -131,6 +172,9 @@ export default {
         pricekm: "",
         pricehours: "",
         description: "",
+        passengers:"",
+        luggage:"",
+        kmhours:"",
         image: false
       }
     }

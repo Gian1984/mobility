@@ -426,12 +426,6 @@ const options =[
   { text: '22', value: 22 },
   { text: '23', value: 23 },
   { text: '24', value: 24 },
-  { text: '36', value: 36 },
-  { text: '48', value: 48 },
-  { text: '60', value: 60 },
-  { text: '72', value: 72 },
-  { text: '84', value: 84 },
-  { text: '96', value: 96 },
 ]
 
 
